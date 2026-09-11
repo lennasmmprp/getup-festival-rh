@@ -547,3 +547,306 @@ button {
     grid-template-columns: 1.4fr 1fr 1fr 1fr;
   }
 }
+
+/* ---- Sub-page templates ---- */
+
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 0.82rem;
+  color: var(--text-faint);
+  margin-bottom: 20px;
+}
+
+.breadcrumb a {
+  color: var(--text-muted);
+}
+
+.breadcrumb a:hover {
+  color: var(--accent);
+}
+
+.page-hero {
+  padding: 48px 24px 40px;
+  border-bottom: 1px solid var(--border);
+}
+
+.page-hero-inner {
+  max-width: var(--content-width-narrow);
+  margin: 0 auto;
+}
+
+.page-hero h1 {
+  font-size: 2rem;
+  margin: 0 0 1rem;
+}
+
+.page-pitch {
+  color: var(--text-muted);
+  font-size: 1.05rem;
+  margin-bottom: 1.75rem;
+  max-width: 60ch;
+}
+
+@media (min-width: 860px) {
+  .page-hero {
+    padding: 72px 32px 56px;
+  }
+
+  .page-hero h1 {
+    font-size: 2.6rem;
+  }
+}
+
+/* Detail grid (formation fiches) */
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  margin: 8px 0 48px;
+}
+
+.detail-block h3 {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-faint);
+  margin-bottom: 14px;
+}
+
+.detail-block p {
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+@media (min-width: 860px) {
+  .detail-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.bullet-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: 20px;
+  color: var(--text);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+}
+
+.fact-row {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin: 0 0 40px;
+  padding: 24px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.fact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fact-label {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-faint);
+}
+
+.fact-value {
+  font-weight: 700;
+  font-size: 0.98rem;
+}
+
+.related-section {
+  padding-top: 8px;
+}
+
+/* Placeholder note (content still to be finalized) */
+
+.placeholder-note {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--accent-2);
+  background: rgba(233, 30, 140, 0.1);
+  border: 1px solid rgba(233, 30, 140, 0.3);
+  border-radius: 999px;
+  padding: 6px 14px;
+  margin-bottom: 32px;
+}
+
+/* Dates list (Impro Club) */
+
+.dates-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: 16px;
+}
+
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  background: var(--surface);
+  padding: 20px 24px;
+  flex-wrap: wrap;
+}
+
+.date-row .date-when {
+  font-weight: 700;
+}
+
+.date-row .date-where {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+}
+
+/* Person grid (Artistes) */
+
+.person-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.person-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.person-avatar {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.person-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.person-role {
+  color: var(--accent-2);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.person-specialties {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.person-specialties span {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  padding: 4px 12px;
+}
+
+.person-bio {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.person-experience {
+  font-size: 0.85rem;
+  color: var(--text-faint);
+}
+
+@media (min-width: 640px) {
+  .person-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Booking page */
+
+.booking-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+}
+
+.booking-embed {
+  background: var(--surface);
+  border: 1px dashed var(--border-strong);
+  border-radius: var(--radius);
+  padding: 48px 24px;
+  text-align: center;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  min-height: 320px;
+  justify-content: center;
+}
+
+.booking-embed strong {
+  color: var(--text);
+  font-size: 1.05rem;
+}
+
+.booking-fallback {
+  font-size: 0.92rem;
+}
+
+.booking-fallback a {
+  color: var(--accent);
+  font-weight: 600;
+  border-bottom: 1px solid var(--accent);
+}
