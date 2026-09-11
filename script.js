@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
+  const siteHeader = document.getElementById('siteHeader');
+  const updateHeaderState = () => {
+    siteHeader.classList.toggle('is-scrolled', window.scrollY > 10);
+  };
+  updateHeaderState();
+  window.addEventListener('scroll', updateHeaderState, { passive: true });
+
   const questions = Array.from(document.querySelectorAll('.quiz-question'));
   const progressFill = document.getElementById('progressFill');
   const nextButton = document.getElementById('nextButton');
