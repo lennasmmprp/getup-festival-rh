@@ -13,202 +13,78 @@
 
   <header class="site-header" id="siteHeader">
     <div class="header-inner">
-      <img src="assets/logo-combined.png" alt="GetUp Production" class="logo logo-combined">
-      <nav class="site-nav">
-        <a href="#conseils">Les conseils</a>
-      </nav>
+      <span class="logo-text">GetUp <span class="logo-x">×</span> Festival RH</span>
     </div>
   </header>
 
-  <section id="conseils" class="cards-section">
-    <h2>3 façons d'introduire l'IA sans résistance</h2>
-    <div class="cards-grid">
-      <article class="card">
-        <span class="card-number">01</span>
-        <h3>Ne jamais imposer, toujours co-construire</h3>
-        <p>Les équipes résistent à ne pas avoir été consultées, pas à l'outil. Organisez une session d'expression libre avant tout déploiement.</p>
-      </article>
-      <article class="card">
-        <span class="card-number">02</span>
-        <h3>Montrez une victoire rapide et concrète</h3>
-        <p>Identifiez une tâche répétitive que votre équipe déteste. Montrez comment l'IA la réduit à 2 minutes. Une démonstration ciblée convainc plus que 10 slides.</p>
-      </article>
-      <article class="card">
-        <span class="card-number">03</span>
-        <h3>Valorisez les compétences humaines</h3>
-        <p>Le message qui rassure n'est pas "l'IA va vous aider" mais "ce que vous savez faire, l'IA ne peut pas le remplacer."</p>
-      </article>
+  <section class="hero" id="hero">
+    <div class="ticker-wrapper" aria-hidden="true">
+      <div class="ticker-track">
+        <span class="ticker-text">Prise de parole en public&nbsp;·&nbsp;Apprivoiser l'IA&nbsp;·&nbsp;Dialoguer avec la Gen Z&nbsp;·&nbsp;Recruter sans biais&nbsp;·&nbsp;Redécouvrir la communication&nbsp;·&nbsp;Souder une équipe à distance&nbsp;·&nbsp;</span>
+        <span class="ticker-text">Prise de parole en public&nbsp;·&nbsp;Apprivoiser l'IA&nbsp;·&nbsp;Dialoguer avec la Gen Z&nbsp;·&nbsp;Recruter sans biais&nbsp;·&nbsp;Redécouvrir la communication&nbsp;·&nbsp;Souder une équipe à distance&nbsp;·&nbsp;</span>
+      </div>
+    </div>
+
+    <div class="hero-content">
+      <span class="hero-label">Festival RH · 1 &amp; 2 octobre 2026</span>
+      <h1>Vos équipes ont un super-pouvoir. On leur apprend à l'utiliser.</h1>
+      <p class="hero-subtitle">Découvrez nos formations et faites le diagnostic en 2 minutes.</p>
+      <a href="#quiz" class="cta-button">Faire le diagnostic →</a>
     </div>
   </section>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Votre équipe est prête pour l'IA ?</h1>
-      <p class="hero-subtitle">Faites le diagnostic — 2 minutes, résultat immédiat.</p>
-      <a href="#quiz" class="cta-button">Faire le diagnostic →</a>
+  <section id="conseils" class="cards-section">
+    <span class="badge-offert">Offert</span>
+    <h2>3 façons d'introduire l'IA sans déclencher de résistance</h2>
+    <div class="conseils-list">
+      <div class="conseil-item">
+        <span class="conseil-number">01</span>
+        <div class="conseil-body">
+          <h3>Ne jamais imposer, toujours co-construire</h3>
+          <p>Les équipes résistent à ne pas avoir été consultées, pas à l'outil. Organisez une session d'expression libre avant tout déploiement.</p>
+        </div>
+      </div>
+      <div class="conseil-item">
+        <span class="conseil-number">02</span>
+        <div class="conseil-body">
+          <h3>Montrez une victoire rapide et concrète</h3>
+          <p>Identifiez une tâche répétitive que votre équipe déteste. Montrez comment l'IA la réduit à 2 minutes. Une démonstration ciblée convainc plus que 10 slides.</p>
+        </div>
+      </div>
+      <div class="conseil-item">
+        <span class="conseil-number">03</span>
+        <div class="conseil-body">
+          <h3>Valorisez les compétences humaines</h3>
+          <p>Le message qui rassure n'est pas "l'IA va vous aider" mais "ce que vous savez faire, l'IA ne peut pas le remplacer."</p>
+        </div>
+      </div>
     </div>
   </section>
 
   <section id="quiz" class="quiz-section">
     <div class="quiz-inner">
-      <h2 class="quiz-title">Quel est le niveau de résistance dans votre équipe ?</h2>
-      <p class="quiz-subtitle">4 questions pour recevoir un guide personnalisé.</p>
+      <h2>Quel est votre défi RH ?</h2>
+      <p class="quiz-subtitle">Sélectionnez tout ce qui s'applique — on vous envoie les ressources adaptées.</p>
 
-      <div class="progress-bar">
-        <div class="progress-bar-fill" id="progressFill"></div>
+      <div class="quiz-pills" id="quizPills">
+        <button type="button" class="quiz-pill" data-value="Prise de parole">Prise de parole</button>
+        <button type="button" class="quiz-pill" data-value="Communication d'équipe">Communication d'équipe</button>
+        <button type="button" class="quiz-pill" data-value="Intégrer l'IA">Intégrer l'IA</button>
+        <button type="button" class="quiz-pill" data-value="Générations au travail">Générations au travail</button>
+        <button type="button" class="quiz-pill" data-value="Recrutement objectif">Recrutement objectif</button>
+        <button type="button" class="quiz-pill" data-value="Équipe à distance">Équipe à distance</button>
       </div>
 
-      <div class="quiz-questions" id="quizQuestions">
-        <div class="quiz-question" data-question="1">
-          <h3>Comment vos collaborateurs réagissent-ils quand on parle d'IA ?</h3>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" data-score="0">Curieux et demandeurs</button>
-            <button type="button" class="quiz-option" data-score="1">Mitigé</button>
-            <button type="button" class="quiz-option" data-score="2">Beaucoup d'appréhension</button>
-            <button type="button" class="quiz-option" data-score="3">Résistance franche</button>
-          </div>
-        </div>
+      <button type="button" id="showFormButton" class="cta-button quiz-cta hidden">Recevoir les ressources →</button>
 
-        <div class="quiz-question hidden" data-question="2">
-          <h3>L'IA est-elle déjà utilisée dans votre structure ?</h3>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" data-score="0">Oui de façon structurée</button>
-            <button type="button" class="quiz-option" data-score="1">Chacun fait comme il peut</button>
-            <button type="button" class="quiz-option" data-score="2">Quelques-uns en solo</button>
-            <button type="button" class="quiz-option" data-score="3">Pas du tout</button>
-          </div>
-        </div>
-
-        <div class="quiz-question hidden" data-question="3">
-          <h3>Comment la direction parle de l'IA en interne ?</h3>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" data-score="0">Vision claire et partagée</button>
-            <button type="button" class="quiz-option" data-score="1">Sans vraie stratégie</button>
-            <button type="button" class="quiz-option" data-score="2">Sujet évité</button>
-            <button type="button" class="quiz-option" data-score="3">Direction et terrain désalignés</button>
-          </div>
-        </div>
-
-        <div class="quiz-question hidden" data-question="4">
-          <h3>Votre objectif prioritaire ?</h3>
-          <div class="quiz-options">
-            <button type="button" class="quiz-option" data-score="0">Rassurer</button>
-            <button type="button" class="quiz-option" data-score="1">Former</button>
-            <button type="button" class="quiz-option" data-score="1">Aligner</button>
-            <button type="button" class="quiz-option" data-score="2">Les trois</button>
-          </div>
-        </div>
-      </div>
-
-      <button type="button" id="nextButton" class="cta-button quiz-next-btn" disabled>Question suivante →</button>
-
-      <div class="quiz-result hidden" id="quizResult">
-        <div class="result-banner" id="resultBanner">
-          <p id="resultText"></p>
-        </div>
-      </div>
-
-      <div class="lead-panel hidden" id="leadPanel">
-        <h3 class="lead-title">Recevez votre diagnostic personnalisé</h3>
-        <p class="lead-subtitle">Quelques informations pour vous l'envoyer.</p>
-
-        <form id="leadForm" class="lead-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfR0k2YlmOEM36FZGu1NTrFG6G4SeDo3ZGC1B-9U90_2DJXBQ/formResponse" method="POST" target="hiddenFormTarget" novalidate>
-          <div class="lead-field">
-            <label for="leadName">Prénom et nom</label>
-            <input type="text" id="leadName" name="entry.2138608581" required autocomplete="name">
-          </div>
-
-          <div class="lead-field">
-            <label for="leadRole">Votre fonction</label>
-            <input type="text" id="leadRole" name="entry.1712404049" required autocomplete="organization-title">
-          </div>
-
-          <div class="lead-field">
-            <label for="leadEmail">Email pro</label>
-            <input type="email" id="leadEmail" name="entry.755751948" required autocomplete="email">
-          </div>
-
-          <div class="lead-field">
-            <label for="leadPhone">Téléphone <span class="optional">(optionnel)</span></label>
-            <input type="tel" id="leadPhone" name="entry.1386074157" autocomplete="tel">
-          </div>
-
-          <div class="lead-field">
-            <p class="lead-field-label">Taille de votre équipe</p>
-            <div class="pill-options">
-              <label class="pill-option">
-                <input type="radio" name="entry.527855920" value="Moins de 20" required>
-                <span>Moins de 20</span>
-              </label>
-              <label class="pill-option">
-                <input type="radio" name="entry.527855920" value="50 - 70" required>
-                <span>50 - 70</span>
-              </label>
-              <label class="pill-option">
-                <input type="radio" name="entry.527855920" value="70 - 100" required>
-                <span>70 - 100</span>
-              </label>
-              <label class="pill-option">
-                <input type="radio" name="entry.527855920" value="+ de 100" required>
-                <span>+ de 100</span>
-              </label>
-            </div>
-          </div>
-
-          <div class="lead-field">
-            <p class="lead-field-label">Quelle(s) formation(s) vous intéresse(nt) ?</p>
-            <div class="pill-options" id="formationOptions">
-              <label class="pill-option">
-                <input type="checkbox" name="entry.1881479108" value="Prise de parole en public">
-                <span>Prise de parole en public</span>
-              </label>
-              <label class="pill-option">
-                <input type="checkbox" name="entry.1881479108" value="Redécouvrir la communication">
-                <span>Redécouvrir la communication</span>
-              </label>
-              <label class="pill-option">
-                <input type="checkbox" name="entry.1881479108" value="Apprivoiser l'IA pour gagner en efficacité">
-                <span>Apprivoiser l'IA pour gagner en efficacité</span>
-              </label>
-              <label class="pill-option">
-                <input type="checkbox" name="entry.1881479108" value="Dialoguer avec la génération Z">
-                <span>Dialoguer avec la génération Z</span>
-              </label>
-              <label class="pill-option">
-                <input type="checkbox" name="entry.1881479108" value="Recruter sans biais">
-                <span>Recruter sans biais</span>
-              </label>
-              <label class="pill-option">
-                <input type="checkbox" name="entry.1881479108" value="Souder une équipe à distance">
-                <span>Souder une équipe à distance</span>
-              </label>
-              <label class="pill-option">
-                <input type="checkbox" name="entry.1881479108" value="Je ne sais pas encore">
-                <span>Je ne sais pas encore</span>
-              </label>
-            </div>
-            <p class="lead-error hidden" id="formationError">Sélectionnez au moins une option.</p>
-          </div>
-
-          <button type="submit" class="cta-button lead-submit">Recevoir mon diagnostic personnalisé →</button>
-        </form>
-
-        <div class="lead-success hidden" id="leadSuccess">
-          <h3>Merci !</h3>
-          <p>Votre diagnostic personnalisé arrive très vite dans votre boîte mail.</p>
-        </div>
+      <div class="form-wrapper hidden" id="formWrapper">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfR0k2YlmOEM36FZGu1NTrFG6G4SeDo3ZGC1B-9U90_2DJXBQ/viewform?embedded=true" width="100%" height="700" style="border:none;">Chargement…</iframe>
       </div>
     </div>
   </section>
 
-  <iframe name="hiddenFormTarget" id="hiddenFormTarget" class="hidden-form-target" aria-hidden="true" tabindex="-1" title="Envoi du diagnostic"></iframe>
-
   <footer class="site-footer">
-    <div class="footer-logos">
-      <img src="assets/logo-getup.png" alt="GetUp Production" class="logo logo-getup-small">
-      <img src="assets/logo-festival-rh.png" alt="Le Festival RH" class="logo logo-festival-small">
-    </div>
-    <p>GetUp Production × Le Festival RH — Formations & événements d'entreprise immersifs.</p>
+    <p>GetUp Corporate × Festival RH 2026</p>
   </footer>
 
   <script src="script.js"></script>
