@@ -56,23 +56,12 @@ img {
 .header-logos {
   display: flex;
   align-items: center;
-  gap: 1.1rem;
 }
 
-.logo-festival {
-  height: 42px;
+.logo-combined {
+  height: 56px;
   width: auto;
-}
-
-.logo-getup {
-  height: 38px;
-  width: auto;
-}
-
-.logo-divider {
-  width: 1px;
-  height: 28px;
-  background: rgba(0, 60, 148, 0.15);
+  display: block;
 }
 
 .site-nav {
@@ -608,12 +597,8 @@ img {
     padding: 1.1rem 1.25rem;
   }
 
-  .logo-festival {
-    height: 52px;
-  }
-
-  .logo-getup {
-    height: 46px;
+  .logo-combined {
+    height: 68px;
   }
 
   .hero h1 {
