@@ -325,51 +325,89 @@ button {
   }
 }
 
-/* Hero */
+/* Hero — "Get up" giant wordmark */
 
-.hero {
-  padding: 64px 24px 56px;
+.hero-deadwater {
+  position: relative;
+  overflow: hidden;
+  padding: 140px 24px 64px;
 }
 
-.hero-inner {
-  max-width: var(--content-width-narrow);
-  margin: 0 auto;
+.hero-info {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  max-width: 280px;
+  text-align: right;
+}
+
+.hero-info-title {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  margin: 0 0 6px;
+}
+
+.hero-info-sub {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 13px;
+  max-width: 280px;
+  margin: 0;
+}
+
+.hero-giant-wrap {
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  overflow: hidden;
   text-align: center;
 }
 
-.hero h1 {
-  font-size: 2.1rem;
-  margin: 0 0 1.25rem;
+.hero-giant {
+  font-family: "Inter", sans-serif;
+  font-size: clamp(5rem, 18vw, 16rem);
+  font-weight: 900;
+  color: #fff2b2;
+  letter-spacing: -4px;
+  line-height: 0.85;
+  text-transform: uppercase;
+  white-space: nowrap;
+  margin: 0;
 }
 
-.hero-subtitle {
-  font-size: 1.05rem;
-  color: var(--text-muted);
-  max-width: 520px;
-  margin: 0 auto;
+.hero-cta-row {
+  text-align: center;
+  margin-top: 40px;
 }
 
-.hero-actions {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 24px;
-  margin-top: 2.25rem;
+.hero-cta-btn {
+  background: #fff2b2;
+  color: #0d419a;
+}
+
+.hero-cta-btn:hover {
+  filter: brightness(1.05);
 }
 
 @media (min-width: 860px) {
-  .hero {
-    padding: 100px 32px 88px;
+  .hero-deadwater {
+    padding: 160px 32px 88px;
   }
+}
 
-  .hero h1 {
-    font-size: 3.1rem;
-  }
+/* Homepage blue theme */
 
-  .hero-subtitle {
-    font-size: 1.15rem;
-  }
+body.page-home {
+  background: #0d419a;
+  color: #ffffff;
+}
+
+body.page-home .site-header.is-scrolled {
+  background: rgba(13, 65, 154, 0.92);
+}
+
+body.page-home .why-section,
+body.page-home .split-section {
+  background: #0d419a;
 }
 
 /* Why section */
