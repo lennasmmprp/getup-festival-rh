@@ -12,24 +12,27 @@
 </head>
 <body class="page-home">
 
-  <header class="site-header" id="siteHeader">
-    <div class="site-header-inner">
-      <a href="index.html" class="logo-link"><img src="assets/logo.png" alt="GetUp Corporate" class="logo-image"></a>
+  <header class="site-header header-mm" id="siteHeader">
+    <div class="header-topbar">
+      <a href="index.html" class="header-logo-link">
+        <img src="assets/logo.png" alt="GetUp Corporate" height="48" class="header-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
+        <span class="header-logo-fallback">GET UP</span>
+      </a>
+      <span class="header-date">Festival RH · 1 &amp; 2 oct. 2026</span>
+    </div>
 
-      <nav class="site-nav" id="siteNav">
+    <div class="header-nav-row">
+      <nav class="site-nav header-nav-mm" id="siteNav">
         <a href="formations/index.html">Nos formations</a>
         <a href="impro-club/index.html">Impro Club</a>
-        <a href="artistes/index.html">Nos artistes &amp; formateurs</a>
+        <a href="artistes/index.html">Nos artistes</a>
+        <a href="rendez-vous/index.html">Prendre rendez-vous</a>
         <a href="a-propos/index.html">À propos</a>
       </nav>
-
-      <div class="site-header-actions">
-        <a href="rendez-vous/index.html" class="btn btn-primary btn-nav">Prendre rendez-vous</a>
-        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
-          <span></span><span></span><span></span>
-          <span class="sr-only">Ouvrir le menu</span>
-        </button>
-      </div>
+      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+        <span></span><span></span><span></span>
+        <span class="sr-only">Ouvrir le menu</span>
+      </button>
     </div>
   </header>
 

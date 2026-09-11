@@ -401,13 +401,111 @@ body.page-home {
   color: #ffffff;
 }
 
-body.page-home .site-header.is-scrolled {
-  background: rgba(13, 65, 154, 0.92);
-}
-
 body.page-home .why-section,
 body.page-home .split-section {
   background: #0d419a;
+}
+
+/* Header — Design Miami style (index.html only) */
+
+.header-mm,
+.header-mm.is-scrolled {
+  background: #ffffff;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-bottom: 1px solid #000000;
+}
+
+.header-topbar {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.header-logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.header-logo-img {
+  height: 48px;
+  width: auto;
+  display: block;
+}
+
+.header-logo-fallback {
+  display: none;
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: #000000;
+  letter-spacing: -1px;
+}
+
+.header-date {
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #000000;
+  white-space: nowrap;
+}
+
+.header-nav-row {
+  border-top: 1px solid #000000;
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: 14px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.header-mm .nav-toggle {
+  border-color: rgba(0, 0, 0, 0.3);
+}
+
+.header-mm .nav-toggle span {
+  background: #000000;
+}
+
+@media (min-width: 860px) {
+  .header-nav-mm {
+    flex: 1;
+    justify-content: space-between;
+    gap: 16px;
+  }
+}
+
+.header-mm .header-nav-mm a {
+  color: #000000;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.header-mm .header-nav-mm a:hover {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+@media (max-width: 859px) {
+  .header-mm .site-nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+  }
+
+  .header-mm .site-nav a {
+    color: #000000;
+    border-bottom-color: rgba(0, 0, 0, 0.1);
+  }
 }
 
 /* Why section */
