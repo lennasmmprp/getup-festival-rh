@@ -6,7 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const quizResult = document.getElementById('quizResult');
   const resultBanner = document.getElementById('resultBanner');
   const resultText = document.getElementById('resultText');
-  const quizIframeWrapper = document.getElementById('quizIframeWrapper');
+  const leadPanel = document.getElementById('leadPanel');
+  const leadForm = document.getElementById('leadForm');
+  const leadSuccess = document.getElementById('leadSuccess');
+  const formationError = document.getElementById('formationError');
+  const hiddenFormTarget = document.getElementById('hiddenFormTarget');
 
   const totalQuestions = questions.length;
   let currentIndex = 0;
@@ -75,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
     resultText.textContent = tier.text;
 
     quizResult.classList.remove('hidden');
-    quizIframeWrapper.classList.remove('hidden');
+    leadPanel.classList.remove('hidden');
   }
 
   questions.forEach((question) => {
@@ -102,4 +106,27 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   showQuestion(currentIndex);
+
+  let leadSubmitting = false;
+
+  hiddenFormTarget.addEventListener('load', () => {
+    if (!leadSubmitting) return;
+    leadSubmitting = false;
+    leadForm.classList.add('hidden');
+    leadSuccess.classList.remove('hidden');
+  });
+
+  leadForm.addEventListener('submit', (event) => {
+    const hasFormationChecked = leadForm.querySelectorAll('input[name="entry.1881479108"]:checked').length > 0;
+
+    if (!leadForm.checkValidity() || !hasFormationChecked) {
+      event.preventDefault();
+      formationError.classList.toggle('hidden', hasFormationChecked);
+      leadForm.reportValidity();
+      return;
+    }
+
+    formationError.classList.add('hidden');
+    leadSubmitting = true;
+  });
 });

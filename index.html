@@ -137,11 +137,102 @@
         </div>
       </div>
 
-      <div class="quiz-iframe-wrapper hidden" id="quizIframeWrapper">
-        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfR0k2YlmOEM36FZGu1NTrFG6G4SeDo3ZGC1B-9U90_2DJXBQ/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+      <div class="lead-panel hidden" id="leadPanel">
+        <span class="section-kicker section-kicker-light">Dernière étape</span>
+        <h3 class="lead-title">Recevez votre diagnostic personnalisé</h3>
+        <p class="lead-subtitle">Quelques informations pour vous l'envoyer.</p>
+
+        <form id="leadForm" class="lead-form" action="https://docs.google.com/forms/d/e/1FAIpQLSfR0k2YlmOEM36FZGu1NTrFG6G4SeDo3ZGC1B-9U90_2DJXBQ/formResponse" method="POST" target="hiddenFormTarget" novalidate>
+          <div class="lead-field">
+            <label for="leadName">Prénom et nom</label>
+            <input type="text" id="leadName" name="entry.2138608581" required autocomplete="name">
+          </div>
+
+          <div class="lead-field">
+            <label for="leadRole">Votre fonction</label>
+            <input type="text" id="leadRole" name="entry.1712404049" required autocomplete="organization-title">
+          </div>
+
+          <div class="lead-field">
+            <label for="leadEmail">Email pro</label>
+            <input type="email" id="leadEmail" name="entry.755751948" required autocomplete="email">
+          </div>
+
+          <div class="lead-field">
+            <label for="leadPhone">Téléphone <span class="optional">(optionnel)</span></label>
+            <input type="tel" id="leadPhone" name="entry.1386074157" autocomplete="tel">
+          </div>
+
+          <div class="lead-field">
+            <p class="lead-field-label">Taille de votre équipe</p>
+            <div class="pill-options">
+              <label class="pill-option">
+                <input type="radio" name="entry.527855920" value="Moins de 20" required>
+                <span>Moins de 20</span>
+              </label>
+              <label class="pill-option">
+                <input type="radio" name="entry.527855920" value="50 - 70" required>
+                <span>50 - 70</span>
+              </label>
+              <label class="pill-option">
+                <input type="radio" name="entry.527855920" value="70 - 100" required>
+                <span>70 - 100</span>
+              </label>
+              <label class="pill-option">
+                <input type="radio" name="entry.527855920" value="+ de 100" required>
+                <span>+ de 100</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="lead-field">
+            <p class="lead-field-label">Quelle(s) formation(s) vous intéresse(nt) ?</p>
+            <div class="pill-options" id="formationOptions">
+              <label class="pill-option">
+                <input type="checkbox" name="entry.1881479108" value="Prise de parole en public">
+                <span>Prise de parole en public</span>
+              </label>
+              <label class="pill-option">
+                <input type="checkbox" name="entry.1881479108" value="Redécouvrir la communication">
+                <span>Redécouvrir la communication</span>
+              </label>
+              <label class="pill-option">
+                <input type="checkbox" name="entry.1881479108" value="Apprivoiser l'IA pour gagner en efficacité">
+                <span>Apprivoiser l'IA pour gagner en efficacité</span>
+              </label>
+              <label class="pill-option">
+                <input type="checkbox" name="entry.1881479108" value="Dialoguer avec la génération Z">
+                <span>Dialoguer avec la génération Z</span>
+              </label>
+              <label class="pill-option">
+                <input type="checkbox" name="entry.1881479108" value="Recruter sans biais">
+                <span>Recruter sans biais</span>
+              </label>
+              <label class="pill-option">
+                <input type="checkbox" name="entry.1881479108" value="Souder une équipe à distance">
+                <span>Souder une équipe à distance</span>
+              </label>
+              <label class="pill-option">
+                <input type="checkbox" name="entry.1881479108" value="Je ne sais pas encore">
+                <span>Je ne sais pas encore</span>
+              </label>
+            </div>
+            <p class="lead-error hidden" id="formationError">Sélectionnez au moins une option.</p>
+          </div>
+
+          <button type="submit" class="cta-button lead-submit">Recevoir mon diagnostic personnalisé →</button>
+        </form>
+
+        <div class="lead-success hidden" id="leadSuccess">
+          <span class="lead-success-star">✦</span>
+          <h3>Merci !</h3>
+          <p>Votre diagnostic personnalisé arrive très vite dans votre boîte mail.</p>
+        </div>
       </div>
     </div>
   </section>
+
+  <iframe name="hiddenFormTarget" id="hiddenFormTarget" class="hidden-form-target" aria-hidden="true" tabindex="-1" title="Envoi du diagnostic"></iframe>
 
   <footer class="site-footer">
     <div class="footer-logos">
