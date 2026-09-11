@@ -12,44 +12,37 @@
 </head>
 <body class="page-home">
 
-  <header class="site-header header-mm" id="siteHeader">
-    <div class="header-topbar">
-      <a href="index.html" class="header-logo-link">
-        <img src="assets/logo.png" alt="GetUp Corporate" height="48" class="header-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
-        <span class="header-logo-fallback">GET UP</span>
-      </a>
-      <span class="header-date">Festival RH · 1 &amp; 2 oct. 2026</span>
-    </div>
+  <header class="site-header" id="siteHeader">
+    <div class="site-header-inner">
+      <a href="index.html" class="logo-link"><img src="assets/logo.png" alt="GetUp Corporate" class="logo-image"></a>
 
-    <div class="header-nav-row">
-      <nav class="site-nav header-nav-mm" id="siteNav">
+      <nav class="site-nav" id="siteNav">
         <a href="formations/index.html">Nos formations</a>
         <a href="impro-club/index.html">Impro Club</a>
-        <a href="artistes/index.html">Nos artistes</a>
-        <a href="rendez-vous/index.html">Prendre rendez-vous</a>
+        <a href="artistes/index.html">Nos artistes &amp; formateurs</a>
         <a href="a-propos/index.html">À propos</a>
       </nav>
-      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Ouvrir le menu</span>
-      </button>
+
+      <div class="site-header-actions">
+        <a href="rendez-vous/index.html" class="btn btn-primary btn-nav">Prendre rendez-vous</a>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Ouvrir le menu</span>
+        </button>
+      </div>
     </div>
   </header>
 
   <main>
 
-    <section class="hero hero-deadwater">
-      <div class="hero-info">
-        <p class="hero-info-title">Festival RH · 1 &amp; 2 octobre 2026</p>
-        <p class="hero-info-sub">Formations animées par des professionnels des arts de la scène.</p>
-      </div>
-
-      <div class="hero-giant-wrap">
+    <section class="hero hero-split">
+      <div class="hero-split-left">
         <h1 class="hero-giant">Get up</h1>
       </div>
-
-      <div class="hero-cta-row">
-        <a href="formations/index.html" class="btn hero-cta-btn">Voir nos formations →</a>
+      <div class="hero-split-right">
+        <span class="hero-badge">Depuis 2018</span>
+        <p class="hero-tagline">Formations professionnelles animées par des artistes. Certifié Qualiopi.</p>
+        <p class="hero-subtag">Festival RH · 1 &amp; 2 oct. 2026</p>
       </div>
     </section>
 
