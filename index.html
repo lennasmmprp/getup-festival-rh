@@ -4,34 +4,154 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GetUp Corporate · Festival RH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="header-logos">
+        <img src="assets/logo-festival-rh.png" alt="Le Festival RH" class="logo logo-festival">
+        <span class="logo-divider" aria-hidden="true"></span>
+        <img src="assets/logo-getup.png" alt="GetUp Production" class="logo logo-getup">
+      </div>
+      <nav class="site-nav">
+        <a href="#conseils">Conseils</a>
+        <a href="#quiz" class="nav-cta">Faire le diagnostic</a>
+      </nav>
+    </div>
+  </header>
+
   <section class="hero">
-    <span class="badge">Festival RH · Ressource offerte</span>
-    <h1>Vos équipes bloquent sur l'IA ? Voilà 3 clés concrètes — gratuitement.</h1>
-    <p class="hero-subtitle">Puis faites le diagnostic pour recevoir un guide personnalisé selon votre situation.</p>
-    <a href="#quiz" class="cta-button">Je reçois le guide gratuit →</a>
+    <div class="hero-shapes" aria-hidden="true">
+      <span class="blob blob-pink"></span>
+      <span class="blob blob-yellow"></span>
+      <span class="star star-yellow star-1">✦</span>
+      <span class="star star-white star-2">✦</span>
+      <span class="star star-pink star-3">✦</span>
+      <span class="spark spark-1"></span>
+      <span class="spark spark-2"></span>
+    </div>
+
+    <div class="hero-content">
+      <span class="badge">Festival RH · Ressource offerte</span>
+      <h1>Vos équipes bloquent sur l'IA ?<br>Voilà 3 clés concrètes — gratuitement.</h1>
+      <p class="hero-subtitle">Puis faites le diagnostic pour recevoir un guide personnalisé selon votre situation.</p>
+      <a href="#quiz" class="cta-button">Je reçois le guide gratuit →</a>
+    </div>
+
+    <svg class="wave-divider" viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0,40 C240,100 480,0 720,30 C960,60 1200,100 1440,40 L1440,100 L0,100 Z" fill="#ffffff"></path>
+    </svg>
   </section>
 
-  <section class="cards-section">
+  <section id="conseils" class="cards-section">
+    <span class="section-kicker">Le b.a.-ba</span>
     <h2>3 façons d'introduire l'IA sans déclencher de résistance</h2>
     <div class="cards-grid">
-      <article class="card">
+      <article class="card card-pink">
+        <span class="card-blob" aria-hidden="true"></span>
+        <span class="card-number">01</span>
         <h3>Ne jamais imposer, toujours co-construire</h3>
         <p>Les équipes résistent à ne pas avoir été consultées, pas à l'outil. Organisez une session d'expression libre avant tout déploiement.</p>
       </article>
-      <article class="card">
+      <article class="card card-yellow">
+        <span class="card-blob" aria-hidden="true"></span>
+        <span class="card-number">02</span>
         <h3>Montrez une victoire rapide et concrète</h3>
         <p>Identifiez une tâche répétitive que votre équipe déteste. Montrez comment l'IA la réduit à 2 minutes. Une démonstration ciblée convainc plus que 10 slides.</p>
       </article>
-      <article class="card">
+      <article class="card card-blue">
+        <span class="card-blob" aria-hidden="true"></span>
+        <span class="card-number">03</span>
         <h3>Valorisez les compétences humaines</h3>
         <p>Le message qui rassure n'est pas "l'IA va vous aider" mais "ce que vous savez faire, l'IA ne peut pas le remplacer."</p>
       </article>
     </div>
   </section>
+
+  <section id="quiz" class="quiz-section">
+    <div class="quiz-shapes" aria-hidden="true">
+      <span class="star star-yellow star-4">✦</span>
+      <span class="star star-pink star-5">✦</span>
+      <span class="blob blob-violet"></span>
+    </div>
+
+    <div class="quiz-inner">
+      <span class="section-kicker section-kicker-light">Le diagnostic</span>
+      <h2 class="quiz-title">Quel est le niveau de résistance dans votre équipe ?</h2>
+      <p class="quiz-subtitle">4 questions pour recevoir un guide personnalisé.</p>
+
+      <div class="progress-bar">
+        <div class="progress-bar-fill" id="progressFill"></div>
+      </div>
+
+      <div class="quiz-questions" id="quizQuestions">
+        <div class="quiz-question" data-question="1">
+          <h3>Comment vos collaborateurs réagissent-ils quand on parle d'IA ?</h3>
+          <div class="quiz-options">
+            <button type="button" class="quiz-option" data-score="0">Curieux et demandeurs</button>
+            <button type="button" class="quiz-option" data-score="1">Mitigé</button>
+            <button type="button" class="quiz-option" data-score="2">Beaucoup d'appréhension</button>
+            <button type="button" class="quiz-option" data-score="3">Résistance franche</button>
+          </div>
+        </div>
+
+        <div class="quiz-question hidden" data-question="2">
+          <h3>L'IA est-elle déjà utilisée dans votre structure ?</h3>
+          <div class="quiz-options">
+            <button type="button" class="quiz-option" data-score="0">Oui de façon structurée</button>
+            <button type="button" class="quiz-option" data-score="1">Chacun fait comme il peut</button>
+            <button type="button" class="quiz-option" data-score="2">Quelques-uns en solo</button>
+            <button type="button" class="quiz-option" data-score="3">Pas du tout</button>
+          </div>
+        </div>
+
+        <div class="quiz-question hidden" data-question="3">
+          <h3>Comment la direction parle de l'IA en interne ?</h3>
+          <div class="quiz-options">
+            <button type="button" class="quiz-option" data-score="0">Vision claire et partagée</button>
+            <button type="button" class="quiz-option" data-score="1">Sans vraie stratégie</button>
+            <button type="button" class="quiz-option" data-score="2">Sujet évité</button>
+            <button type="button" class="quiz-option" data-score="3">Direction et terrain désalignés</button>
+          </div>
+        </div>
+
+        <div class="quiz-question hidden" data-question="4">
+          <h3>Votre objectif prioritaire ?</h3>
+          <div class="quiz-options">
+            <button type="button" class="quiz-option" data-score="0">Rassurer</button>
+            <button type="button" class="quiz-option" data-score="1">Former</button>
+            <button type="button" class="quiz-option" data-score="1">Aligner</button>
+            <button type="button" class="quiz-option" data-score="2">Les trois</button>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" id="nextButton" class="cta-button quiz-next-btn" disabled>Question suivante →</button>
+
+      <div class="quiz-result hidden" id="quizResult">
+        <div class="result-banner" id="resultBanner">
+          <p id="resultText"></p>
+        </div>
+      </div>
+
+      <div class="quiz-iframe-wrapper hidden" id="quizIframeWrapper">
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfR0k2YlmOEM36FZGu1NTrFG6G4SeDo3ZGC1B-9U90_2DJXBQ/viewform?embedded=true" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="footer-logos">
+      <img src="assets/logo-getup.png" alt="GetUp Production" class="logo logo-getup-small">
+      <img src="assets/logo-festival-rh.png" alt="Le Festival RH" class="logo logo-festival-small">
+    </div>
+    <p>GetUp Production × Le Festival RH — Formations & événements d'entreprise immersifs.</p>
+  </footer>
 
   <script src="script.js"></script>
 </body>
