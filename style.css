@@ -200,6 +200,17 @@ button {
   gap: 24px;
 }
 
+.logo-link {
+  display: flex;
+  align-items: center;
+}
+
+.logo-image {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+
 .logo-text {
   font-weight: 800;
   font-size: 1.1rem;
@@ -849,4 +860,32 @@ button {
   color: var(--accent);
   font-weight: 600;
   border-bottom: 1px solid var(--accent);
+}
+
+/* ---- DA test (index.html only) ---- */
+
+body.theme-test {
+  background: #0d419a;
+}
+
+body.theme-test .site-header.is-scrolled {
+  background: rgba(13, 65, 154, 0.92);
+}
+
+body.theme-test .why-section,
+body.theme-test .split-section {
+  background: #0d419a;
+}
+
+body.theme-test .hero h1 {
+  color: #fff2b2;
+}
+
+body.theme-test .btn-primary {
+  background: #fff2b2;
+  color: #0d419a;
+}
+
+body.theme-test .eyebrow {
+  color: #ffffff;
 }
