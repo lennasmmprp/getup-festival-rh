@@ -98,6 +98,17 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 .panel-format{display:flex;gap:16px;margin-bottom:40px;}
 .fmt-pill{background:var(--blue);color:var(--yellow);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;}
 .panel-cta{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:40px;}
+.clients{background:#f8f7f3;padding:64px 48px;border-top:0.5px solid rgba(0,0,0,0.08);overflow:hidden;}
+.clients-label{font-size:10px;font-weight:700;letter-spacing:3px;color:rgba(0,0,0,0.3);text-transform:uppercase;margin-bottom:32px;}
+.clients-track{display:flex;width:max-content;animation:clients-scroll 20s linear infinite;}
+.clients-group{display:flex;align-items:center;gap:64px;padding-right:64px;}
+.clients-logo-link{display:inline-flex;align-items:center;text-decoration:none;}
+.clients-logo{display:block;height:40px;width:auto;object-fit:contain;filter:grayscale(100%) opacity(0.35);transition:filter .2s,transform .2s;}
+.clients-logo-fallback{font-size:13px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(0,0,0,0.35);transition:color .2s,transform .2s;}
+.clients-logo-link:hover .clients-logo{filter:grayscale(0%) opacity(1);transform:scale(1.05);}
+.clients-logo-link:hover .clients-logo-fallback{color:#0d0d0d;transform:scale(1.05);}
+@keyframes clients-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion: reduce){.clients-track{animation:none;}}
 </style>
 </head>
 <body>
@@ -227,6 +238,11 @@ function closePanel(){
 }
 </script>
 
+<section class="clients">
+  <div class="clients-label">Ils nous font confiance</div>
+  <div class="clients-track" id="clientsTrack"></div>
+</section>
+
 <div class="foot">
   <div class="fl">Get Up Corporate © 2026</div>
   <div class="fl">Paris, Certifié Qualiopi</div>
@@ -251,6 +267,8 @@ function closePanel(){
   targets.forEach(function(t){ observer.observe(t); });
 })();
 </script>
+
+<script src="script.js"></script>
 
 </body>
 </html>
