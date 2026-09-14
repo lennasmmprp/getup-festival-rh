@@ -18,7 +18,8 @@
 nav{display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:#f5f2ec;position:sticky;top:0;z-index:10;border-bottom:0.5px solid rgba(0,0,0,0.08);}
 .nl{height:40px;width:auto;display:block;flex-shrink:0;}
 .nr{display:flex;align-items:center;gap:32px;}
-.nr a{font-size:11px;font-weight:700;color:rgba(0,0,0,0.4);letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;}
+.nr a{font-size:11px;font-weight:700;color:rgba(0,0,0,0.4);letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;transition:color .15s;}
+.nr a.active{color:#0d419a;}
 .ncta{font-size:11px;font-weight:900;background:#0d0d0d;color:#f5f2ec;padding:10px 22px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;}
 .hero{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;border-bottom:0.5px solid rgba(0,0,0,0.1);}
 .hl{background:#0d1f5e;padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;}
@@ -47,7 +48,8 @@ nav{display:flex;align-items:center;justify-content:space-between;padding:24px 4
 .fl{font-size:10px;font-weight:700;color:rgba(0,0,0,0.3);letter-spacing:2px;text-transform:uppercase;}
 
 :root{--blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;}
-body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;}
+html{overflow-x:hidden;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 .intro{padding:80px 48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;border-bottom:0.5px solid rgba(0,0,0,0.08);}
 .intro-label{font-size:10px;font-weight:700;color:rgba(0,0,0,0.3);letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;}
 .intro-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--blue);line-height:1.05;letter-spacing:-1px;text-transform:uppercase;}
@@ -97,18 +99,18 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);overfl
 </head>
 <body>
 
-<div class="w">
-  <nav>
-    <img src="assets/logo.png" alt="Get Up" class="nl">
-    <div class="nr">
-      <a>Formations</a>
-      <a>Impro Club</a>
-      <a>Artistes</a>
-      <a>À propos</a>
-      <button class="ncta">Rendez-vous</button>
-    </div>
-  </nav>
+<nav>
+  <img src="assets/logo.png" alt="Get Up" class="nl">
+  <div class="nr">
+    <a id="nav-formations">Formations</a>
+    <a>Impro Club</a>
+    <a>Artistes</a>
+    <a>À propos</a>
+    <button class="ncta">Rendez-vous</button>
+  </div>
+</nav>
 
+<div class="w">
   <div class="hero">
     <div class="hl">
       <div class="hl-tag">Festival RH · 1 & 2 octobre 2026</div>
@@ -227,6 +229,26 @@ function closePanel(){
   <div class="fl">Get Up Corporate © 2026</div>
   <div class="fl">Paris — Certifié Qualiopi</div>
 </div>
+
+<script>
+// Scroll spy : le lien "Formations" passe en bleu quand la section
+// formations (intro + catalogue) est visible à l'écran, et redevient normal
+// dès qu'on la quitte. Les autres liens de nav (Impro Club, Artistes, À
+// propos) pointent vers d'autres pages : aucune section correspondante
+// n'existe sur cette page, donc pas de scroll spy à leur appliquer ici.
+(function(){
+  var link = document.getElementById('nav-formations');
+  var targets = [document.querySelector('.intro'), document.getElementById('catalogue')].filter(Boolean);
+  if (!link || !targets.length) return;
+  var visible = new Map();
+  var observer = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){ visible.set(entry.target, entry.isIntersecting); });
+    var isActive = targets.some(function(t){ return visible.get(t); });
+    link.classList.toggle('active', isActive);
+  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
+  targets.forEach(function(t){ observer.observe(t); });
+})();
+</script>
 
 </body>
 </html>
