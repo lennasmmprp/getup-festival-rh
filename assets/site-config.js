@@ -10,3 +10,12 @@
  * Exemple attendu : "https://calendly.com/getup-corporate/decouverte"
  */
 var CALENDLY_URL = "";
+
+/*
+ * INSTAGRAM_URL : lien du compte Instagram Impro Club. Laisser vide tant
+ * qu'il n'est pas fourni — ne JAMAIS mettre une URL inventée ici. Utilisé
+ * par impro-club.html.
+ *
+ * Exemple attendu : "https://instagram.com/improclub"
+ */
+var INSTAGRAM_URL = "";
