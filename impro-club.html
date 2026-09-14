@@ -28,7 +28,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
 .ic-wrap{background:#F8F5EC;padding:24px;}
 .ic-hero{max-width:100%;margin:0 auto;display:grid;grid-template-columns:1fr;gap:24px;}
-.ic-left{background:linear-gradient(155deg,#012460,#013C94);border-radius:32px;padding:56px 48px;display:flex;flex-direction:column;justify-content:center;min-height:420px;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
+.ic-left{background:linear-gradient(155deg,#012460,#013C94);border-radius:32px;display:flex;flex-direction:row;align-items:center;justify-content:space-between;padding:48px;gap:40px;min-height:420px;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
+.ic-text{flex:1 1 320px;}
 .ic-title{display:flex;flex-direction:column;font-family:'Syne',sans-serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:800;line-height:0.95;text-transform:uppercase;margin-bottom:24px;}
 .ic-solid{color:#FFF2A1;}
 .ic-outline{color:transparent;-webkit-text-stroke:2px #FFF2A1;}
@@ -55,7 +56,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .nr{justify-content:center;row-gap:10px;column-gap:18px;}
   .ic-wrap{padding:16px;}
   .ic-hero{grid-template-columns:1fr;max-width:100%;}
-  .ic-left{min-height:280px;padding:32px;}
+  .ic-left{min-height:280px;padding:32px;flex-direction:column;}
   .ic-cta{max-width:100%;padding:24px 28px;}
 }
 </style>
@@ -76,11 +77,14 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 <div class="ic-wrap">
   <div class="ic-hero">
     <div class="ic-left">
-      <div class="ic-title">
-        <span class="ic-solid">Impro</span>
-        <span class="ic-outline">Club</span>
+      <div class="ic-text">
+        <div class="ic-title">
+          <span class="ic-solid">Impro</span>
+          <span class="ic-outline">Club</span>
+        </div>
+        <p class="ic-pitch">Le spectacle d'improvisation qui fédère vos équipes, sur scène, avec des situations tirées de votre quotidien professionnel.</p>
       </div>
-      <p class="ic-pitch">Le spectacle d'improvisation qui fédère vos équipes, sur scène, avec des situations tirées de votre quotidien professionnel.</p>
+      <img src="/images/IMPROCLUB.jpg" alt="Affiche Impro Club" style="height:480px;object-fit:contain;border-radius:12px;">
     </div>
   </div>
   <a href="#" id="icInstagramLink" class="ic-cta" target="_blank" rel="noopener">
