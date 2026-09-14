@@ -41,22 +41,57 @@
         <span class="eyebrow">Prendre rendez-vous</span>
         <h1>Quinze minutes pour identifier la bonne formation</h1>
         <p class="page-pitch">Pas de discours commercial&nbsp;: on vous écoute décrire votre contexte et on vous dit honnêtement si l'improvisation théâtrale peut vous aider, et comment. Choisissez un créneau ci-dessous.</p>
+
+        <div class="formation-context" id="formationContext" hidden>
+          <span class="eyebrow">Vous nous contactez au sujet de</span>
+          <h2 id="formationContextTitle"></h2>
+          <p id="formationContextText"></p>
+        </div>
       </div>
     </section>
 
     <section class="section">
       <div class="section-inner" style="max-width: var(--content-width-narrow);">
 
-        <div class="booking-embed">
+        <div class="booking-embed" id="bookingEmbed">
           <strong>Calendrier de réservation à intégrer</strong>
           <p>Cet espace accueillera l'agenda en ligne (Calendly ou équivalent) pour choisir un créneau directement.</p>
-          <p class="booking-fallback">En attendant, écrivez-nous à <a href="mailto:contact@getup-corporate.fr">contact@getup-corporate.fr</a></p>
+          <p class="booking-fallback">En attendant, écrivez-nous à <a href="mailto:contact@getup-corporate.fr" id="bookingMailto">contact@getup-corporate.fr</a></p>
         </div>
 
       </div>
     </section>
 
   </main>
+
+  <script src="../assets/formations-data.js"></script>
+  <script>
+    // À renseigner dès que le lien Calendly/Cal.com est disponible, ex :
+    // "https://calendly.com/getup-corporate/decouverte"
+    var CALENDLY_URL = "";
+
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var formationId = params.get('formation');
+      var f = typeof getFormationById === 'function' ? getFormationById(formationId) : null;
+      if (!f) return; // pas de formation reconnue : page générique inchangée
+
+      var ctx = document.getElementById('formationContext');
+      document.getElementById('formationContextTitle').textContent = f.title;
+      document.getElementById('formationContextText').textContent = f.objective;
+      ctx.hidden = false;
+
+      var subject = 'Rendez-vous — ' + f.title;
+      var body = 'Bonjour, je souhaite échanger au sujet de la formation « ' + f.title + ' ».';
+      var mailto = document.getElementById('bookingMailto');
+      mailto.href = 'mailto:contact@getup-corporate.fr?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+
+      if (CALENDLY_URL) {
+        var embed = document.getElementById('bookingEmbed');
+        embed.innerHTML = '<iframe src="' + CALENDLY_URL + '?utm_campaign=formation&utm_content=' + encodeURIComponent(f.id) + '" style="width:100%;min-height:700px;border:0;" title="Prendre rendez-vous — ' + f.title + '"></iframe>';
+      }
+    })();
+  </script>
 
   <footer class="site-footer">
     <div class="footer-inner">

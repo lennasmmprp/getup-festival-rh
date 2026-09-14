@@ -927,6 +927,26 @@ body.page-home .site-nav a {
   gap: 40px;
 }
 
+.formation-context {
+  margin-top: 28px;
+  padding: 20px 24px;
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius);
+  max-width: 60ch;
+}
+
+.formation-context h2 {
+  font-size: 1.2rem;
+  margin: 10px 0 6px;
+}
+
+.formation-context p {
+  color: var(--text-muted);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
 .booking-embed {
   background: var(--surface);
   border: 1px dashed var(--border-strong);
