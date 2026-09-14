@@ -52,54 +52,6 @@ nav,.hero,.hl,.hr,.hero-cta{box-shadow:0 15px 35px rgba(0,0,0,0.12) !important;}
 :root{--blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;}
 html{overflow-x:hidden;}
 body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
-.intro{padding:80px 48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;border-bottom:0.5px solid rgba(0,0,0,0.08);}
-.intro-label{font-size:10px;font-weight:700;color:rgba(0,0,0,0.3);letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;}
-.intro-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--blue);line-height:1.05;letter-spacing:-1px;text-transform:uppercase;}
-.intro-right{display:flex;flex-direction:column;justify-content:flex-end;}
-.intro-text{font-size:15px;font-weight:400;color:rgba(0,0,0,0.5);line-height:1.75;max-width:380px;}
-.intro-stats{display:flex;gap:40px;margin-top:32px;padding-top:32px;border-top:0.5px solid rgba(0,0,0,0.08);}
-.stat-n{font-size:22px;font-weight:900;text-transform:uppercase;color:var(--blue);}
-.stat-l{font-size:10px;font-weight:700;color:rgba(0,0,0,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
-.catalogue{padding:0 48px 80px;}
-.formation{display:flex;flex-direction:column;border-bottom:0.5px solid rgba(0,0,0,0.08);cursor:pointer;transition:background .2s;position:relative;overflow:hidden;}
-.formation::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue);transform:scaleY(0);transition:transform .25s;transform-origin:bottom;}
-.formation:hover::before{transform:scaleY(1);}
-.formation:hover{background:rgba(13,65,154,0.02);}
-.f-row{display:grid;grid-template-columns:80px 1fr 200px;align-items:center;}
-.f-num{font-size:11px;color:rgba(0,0,0,0.2);letter-spacing:3px;font-weight:900;padding:40px 0 40px 24px;}
-.f-main{padding:40px 48px 40px 0;}
-.f-tag{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;opacity:0.6;}
-.f-title{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:900;color:var(--dark);letter-spacing:-0.5px;text-transform:uppercase;margin-bottom:8px;transition:color .2s;}
-.formation:hover .f-title{color:var(--blue);}
-.f-desc{font-size:13px;color:rgba(0,0,0,0.4);font-weight:400;line-height:1.6;}
-.f-right{display:flex;flex-direction:column;align-items:flex-end;gap:16px;padding:40px 24px 40px 0;}
-.f-format{font-size:10px;font-weight:700;color:rgba(0,0,0,0.25);letter-spacing:2px;text-transform:uppercase;text-align:right;}
-.f-cta{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:900;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;opacity:0;transition:opacity .2s;}
-.formation:hover .f-cta{opacity:1;}
-.f-accent{width:32px;height:2px;background:var(--yellow);margin-bottom:4px;transition:width .2s;}
-.formation:hover .f-accent{width:48px;}
-.f-actions{padding:0 24px 32px 24px;}
-.f-resource-btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:13px 22px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;}
-.panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;}
-.panel-overlay.open{opacity:1;pointer-events:all;}
-.panel{position:fixed;right:0;top:0;bottom:0;width:min(600px,100vw);background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);overflow-y:auto;}
-.panel.open{transform:translateX(0);}
-.panel-inner{padding:48px 48px 80px;}
-.panel-close{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;}
-.close-btn{background:none;border:0.5px solid rgba(0,0,0,0.15);font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,0.4);padding:8px 16px;cursor:pointer;}
-.panel-num{font-size:11px;color:rgba(0,0,0,0.2);letter-spacing:3px;font-weight:900;}
-.panel-accent{width:40px;height:3px;background:var(--yellow);margin-bottom:20px;}
-.panel-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:-1px;line-height:1.05;margin-bottom:16px;}
-.panel-desc{font-size:16px;font-weight:400;color:rgba(0,0,0,0.55);line-height:1.7;margin-bottom:40px;padding-bottom:40px;border-bottom:0.5px solid rgba(0,0,0,0.08);}
-.panel-section{margin-bottom:32px;}
-.panel-section-label{font-size:10px;color:var(--blue);letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
-.panel-section-text{font-size:13px;color:rgba(0,0,0,0.55);line-height:1.7;font-weight:400;}
-.panel-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.panel-list li{font-size:13px;color:rgba(0,0,0,0.55);font-weight:400;padding-left:16px;position:relative;}
-.panel-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:11px;}
-.panel-format{display:flex;gap:16px;margin-bottom:40px;}
-.fmt-pill{background:var(--blue);color:var(--yellow);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;}
-.panel-cta{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:40px;}
 .clients{background:#f8f7f3;padding:64px 48px;border-top:0.5px solid rgba(0,0,0,0.08);overflow:hidden;}
 .clients-label{font-size:10px;font-weight:700;letter-spacing:3px;color:rgba(0,0,0,0.3);text-transform:uppercase;margin-bottom:32px;}
 .clients-track{display:flex;width:max-content;animation:clients-scroll 20s linear infinite;}
@@ -118,9 +70,6 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
   .hero{grid-template-columns:1fr;max-width:100%;}
   .hero-cta{max-width:100%;padding:24px 28px;}
   .hl,.hr{min-height:280px;padding:40px 32px;}
-  .intro{grid-template-columns:1fr;gap:40px;}
-  .intro>div{min-width:0;}
-  .intro-stats{flex-wrap:wrap;row-gap:20px;}
 }
 </style>
 </head>
@@ -129,7 +78,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 <nav>
   <img src="/logo.png" alt="Le Festival RH x GETUP Production" height="40" class="nl">
   <div class="nr">
-    <a id="nav-formations">Formations</a>
+    <a href="formations.html">Formations</a>
     <a>Impro Club</a>
     <a>Artistes</a>
     <a>À propos</a>
@@ -149,7 +98,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
       <p class="hr-heading">Des artistes qui transforment vos <span class="hr-highlight">formations obligatoires</span> en expériences mémorables et engageantes.</p>
     </div>
   </div>
-  <a href="#catalogue" class="hero-cta">
+  <a href="formations.html" class="hero-cta">
     <span class="hero-cta-label">Explorer les formations</span>
     <span class="hero-cta-icon">→</span>
   </a>
@@ -176,74 +125,6 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
   </div>
 </div>
 
-<div class="panel-overlay" id="overlay" onclick="closePanel()"></div>
-<div class="panel" id="panel">
-  <div class="panel-inner" id="panel-content"></div>
-</div>
-
-<div class="intro">
-  <div>
-    <div class="intro-label">Catalogue 2026</div>
-    <div class="intro-title">Nos<br>formations</div>
-  </div>
-  <div class="intro-right">
-    <div class="intro-text">Des formations professionnelles pour développer les compétences qui font la différence, animées par des artistes, conçues pour vos équipes.</div>
-    <div class="intro-stats">
-      <div><div class="stat-n">6</div><div class="stat-l">Formations</div></div>
-      <div><div class="stat-n">200+</div><div class="stat-l">Entreprises</div></div>
-      <div><div class="stat-n">Qualiopi</div><div class="stat-l">Certifié</div></div>
-    </div>
-  </div>
-</div>
-
-<div class="catalogue" id="catalogue"></div>
-
-<script src="assets/formations-data.js"></script>
-<script>
-// Chaque carte transmet l'id UNIQUE de sa formation (jamais son nom affiché,
-// jamais sa position dans la liste) : c'est ce fil rouge qui garantit qu'on
-// n'affiche/n'envoie jamais la ressource ou le rendez-vous d'une autre formation.
-var cat=document.getElementById('catalogue');
-FORMATIONS.forEach(function(f){
-  var div=document.createElement('div');
-  div.className='formation';
-  div.dataset.formationId=f.id;
-  div.innerHTML='<div class="f-row"><div class="f-num">'+f.num+'</div><div class="f-main"><div class="f-tag">'+f.tag+'</div><div class="f-title">'+f.title+'</div><div class="f-desc">'+f.desc+'</div></div><div class="f-right"><div><div class="f-accent"></div><div class="f-format">'+f.format+'</div></div><div class="f-cta">Découvrir <i class="ti ti-arrow-right" aria-hidden="true"></i></div></div></div><div class="f-actions"><a class="f-resource-btn" href="recevoir-ma-ressource/index.html?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource</a></div>';
-  div.onclick=function(){openPanel(f.id);};
-  div.querySelector('.f-resource-btn').onclick=function(e){e.stopPropagation();};
-  cat.appendChild(div);
-});
-
-function openPanel(id){
-  var f=getFormationById(id);
-  if(!f) return;
-  // Bouton final du panneau : dirige toujours vers la page de récupération
-  // de ressource, avec l'id UNIQUE de la formation — jamais un lien générique.
-  var ctaHtml = '<a class="panel-cta" href="recevoir-ma-ressource/index.html?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>';
-  document.getElementById('panel-content').innerHTML=
-    '<div class="panel-close"><div class="panel-num">'+f.num+'</div><button class="close-btn" onclick="closePanel()">Fermer ✕</button></div>'+
-    '<div class="panel-accent"></div>'+
-    '<div class="panel-title">'+f.title+'</div>'+
-    '<div class="panel-desc">'+f.desc+'</div>'+
-    '<div class="panel-format"><div class="fmt-pill">'+f.format+'</div></div>'+
-    '<div class="panel-section"><div class="panel-section-label">Pour qui</div><div class="panel-section-text">'+f.who+'</div></div>'+
-    '<div class="panel-section"><div class="panel-section-label">Objectif</div><div class="panel-section-text">'+f.objective+'</div></div>'+
-    '<div class="panel-section"><div class="panel-section-label">Compétences travaillées</div><ul class="panel-list">'+f.skills.map(function(s){return'<li>'+s+'</li>';}).join('')+'</ul></div>'+
-    '<div class="panel-section"><div class="panel-section-label">Ce que vous allez vivre</div><div class="panel-section-text">'+f.experience+'</div></div>'+
-    '<div class="panel-section"><div class="panel-section-label">Programme</div><div class="panel-section-text">'+f.programme+'</div></div>'+
-    '<div class="panel-section"><div class="panel-section-label">Bénéfices pour l\'entreprise</div><ul class="panel-list">'+f.benefits.map(function(b){return'<li>'+b+'</li>';}).join('')+'</ul></div>'+
-    ctaHtml;
-  document.getElementById('overlay').classList.add('open');
-  document.getElementById('panel').classList.add('open');
-  document.body.style.overflow='hidden';
-}
-function closePanel(){
-  document.getElementById('overlay').classList.remove('open');
-  document.getElementById('panel').classList.remove('open');
-  document.body.style.overflow='';
-}
-</script>
-
 <section class="clients">
   <div class="clients-label">Ils nous font confiance</div>
   <div class="clients-track" id="clientsTrack"></div>
@@ -253,26 +134,6 @@ function closePanel(){
   <div class="fl">Get Up Corporate © 2026</div>
   <div class="fl">Paris, Certifié Qualiopi</div>
 </div>
-
-<script>
-// Scroll spy : le lien "Formations" passe en bleu quand la section
-// formations (intro + catalogue) est visible à l'écran, et redevient normal
-// dès qu'on la quitte. Les autres liens de nav (Impro Club, Artistes, À
-// propos) pointent vers d'autres pages : aucune section correspondante
-// n'existe sur cette page, donc pas de scroll spy à leur appliquer ici.
-(function(){
-  var link = document.getElementById('nav-formations');
-  var targets = [document.querySelector('.intro'), document.getElementById('catalogue')].filter(Boolean);
-  if (!link || !targets.length) return;
-  var visible = new Map();
-  var observer = new IntersectionObserver(function(entries){
-    entries.forEach(function(entry){ visible.set(entry.target, entry.isIntersecting); });
-    var isActive = targets.some(function(t){ return visible.get(t); });
-    link.classList.toggle('active', isActive);
-  }, { rootMargin: '-45% 0px -45% 0px', threshold: 0 });
-  targets.forEach(function(t){ observer.observe(t); });
-})();
-</script>
 
 <script src="script.js"></script>
 
