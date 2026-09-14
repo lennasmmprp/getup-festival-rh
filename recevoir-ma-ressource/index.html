@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recevoir ma ressource — GetUp Corporate</title>
+  <meta name="description" content="Recevez par email une ressource pratique liée à l'une de nos formations, et prenez rendez-vous avec Laurie si vous souhaitez aller plus loin.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+
+  <header class="site-header" id="siteHeader">
+    <div class="site-header-inner">
+      <a href="../index.html" class="logo-link"><img src="../assets/logo.png" alt="GetUp Corporate" class="logo-image"></a>
+
+      <nav class="site-nav" id="siteNav">
+        <a href="../formations/index.html" aria-current="page">Nos formations</a>
+        <a href="../impro-club/index.html">Impro Club</a>
+        <a href="../artistes/index.html">Nos artistes &amp; formateurs</a>
+        <a href="../a-propos/index.html">À propos</a>
+      </nav>
+
+      <div class="site-header-actions">
+        <a href="../rendez-vous/index.html" class="btn btn-primary btn-nav">Prendre rendez-vous</a>
+        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
+          <span></span><span></span><span></span>
+          <span class="sr-only">Ouvrir le menu</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <p class="breadcrumb"><a href="../index.html">Accueil</a> / Recevoir ma ressource</p>
+        <span class="eyebrow">Ressource gratuite</span>
+        <h1 id="pageTitle">Recevoir une ressource</h1>
+        <p class="page-pitch" id="pagePitch">Laissez-nous vos coordonnées pour recevoir votre ressource par email.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-inner" style="max-width: var(--content-width-narrow);">
+
+        <div class="resource-summary" id="resourceSummary" hidden>
+          <span class="eyebrow">Vous allez recevoir</span>
+          <h2 id="resourceTitle"></h2>
+          <p id="resourceText"></p>
+        </div>
+
+        <div id="formationNotFound" hidden style="margin-bottom: 32px;">
+          <p class="page-pitch">Nous n'avons pas retrouvé de formation correspondante. <a href="../formations/index.html" class="link-arrow">Voir toutes nos formations</a></p>
+        </div>
+
+        <form class="lead-form" id="leadForm" novalidate>
+          <input type="hidden" name="formation" id="formationIdField" value="">
+
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="firstName">Prénom *</label>
+              <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
+              <div class="form-field-error" id="firstNameError"></div>
+            </div>
+            <div class="form-field">
+              <label for="lastName">Nom *</label>
+              <input type="text" id="lastName" name="lastName" required autocomplete="family-name">
+              <div class="form-field-error" id="lastNameError"></div>
+            </div>
+            <div class="form-field">
+              <label for="email">Adresse email *</label>
+              <input type="email" id="email" name="email" required autocomplete="email">
+              <div class="form-field-error" id="emailError"></div>
+            </div>
+            <div class="form-field">
+              <label for="phone">Téléphone <span class="optional-tag">(facultatif)</span></label>
+              <input type="tel" id="phone" name="phone" autocomplete="tel">
+              <div class="form-field-error"></div>
+            </div>
+            <div class="form-field" style="grid-column: 1 / -1;">
+              <label for="company">Entreprise / activité <span class="optional-tag">(facultatif)</span></label>
+              <input type="text" id="company" name="company" autocomplete="organization">
+              <div class="form-field-error"></div>
+            </div>
+          </div>
+
+          <div>
+            <label class="form-consent">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span>J'accepte de recevoir cette ressource par email, ainsi que les communications associées de GetUp Corporate. *</span>
+            </label>
+            <div class="form-field-error" id="consentError"></div>
+          </div>
+
+          <div class="form-submit-row">
+            <button type="submit" class="btn btn-primary" id="submitBtn">Recevoir ma ressource</button>
+            <div class="form-global-error" id="globalError"></div>
+          </div>
+        </form>
+
+        <div class="form-success" id="formSuccess" hidden>
+          <strong>Merci ! Votre demande a bien été enregistrée.</strong>
+          <p>Vous allez recevoir votre ressource par email.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section" style="border-top: 1px solid var(--border);">
+      <div class="section-inner" style="max-width: var(--content-width-narrow);">
+        <div class="section-head">
+          <span class="eyebrow">Vous souhaitez aller plus loin ?</span>
+          <h2>Prenez rendez-vous avec Laurie</h2>
+        </div>
+
+        <div class="booking-embed" id="bookingEmbed">
+          <strong>Calendrier de réservation à intégrer</strong>
+          <p>Cet espace accueillera l'agenda en ligne (Calendly ou équivalent) pour choisir un créneau directement, sans quitter cette page.</p>
+          <p class="booking-fallback">En attendant, écrivez-nous à <a href="mailto:contact@getup-corporate.fr" id="bookingMailto">contact@getup-corporate.fr</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col footer-brand">
+        <span class="logo-text">GetUp Corporate</span>
+        <p>Formations professionnelles par l'improvisation théâtrale.</p>
+      </div>
+
+      <div class="footer-col">
+        <h3>Nos formations</h3>
+        <a href="../formations/prise-de-parole/index.html">Prise de parole en public</a>
+        <a href="../formations/communication/index.html">Redécouvrir la communication</a>
+        <a href="../formations/ia/index.html">Apprivoiser l'IA</a>
+        <a href="../formations/generation-z/index.html">Dialoguer avec la génération Z</a>
+        <a href="../formations/recrutement/index.html">Recruter sans biais</a>
+        <a href="../formations/equipe-distance/index.html">Souder une équipe à distance</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Le studio</h3>
+        <a href="../impro-club/index.html">Impro Club</a>
+        <a href="../artistes/index.html">Nos artistes &amp; formateurs</a>
+        <a href="../a-propos/index.html">À propos</a>
+        <a href="../rendez-vous/index.html">Prendre rendez-vous</a>
+      </div>
+
+      <div class="footer-col">
+        <h3>Informations</h3>
+        <a href="../mentions-legales/index.html">Mentions légales</a>
+        <a href="../confidentialite/index.html">Confidentialité</a>
+        <a href="../contact/index.html">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 GetUp Corporate</p>
+    </div>
+  </footer>
+
+  <script src="../assets/formations-data.js"></script>
+  <script src="../assets/site-config.js"></script>
+  <script>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var formationId = params.get('formation');
+      var f = typeof getFormationById === 'function' ? getFormationById(formationId) : null;
+
+      var mailto = document.getElementById('bookingMailto');
+      var calendlyUtmContent = 'inconnue';
+
+      if (f) {
+        document.title = 'Recevoir ma ressource — ' + f.title + ' — GetUp Corporate';
+        document.getElementById('pageTitle').textContent = 'Recevoir une ressource sur ' + f.title;
+        document.getElementById('pagePitch').textContent = f.desc;
+        document.getElementById('formationIdField').value = f.id;
+        calendlyUtmContent = f.id;
+
+        var summary = document.getElementById('resourceSummary');
+        document.getElementById('resourceTitle').textContent = f.ressourceNom || ('Une ressource pratique sur ' + f.title);
+        document.getElementById('resourceText').textContent = f.ressourceNom
+          ? f.objective
+          : 'Laissez-nous vos coordonnées : nous vous envoyons par email un contenu pratique sur cette formation, directement applicable avec votre équipe. ' + f.objective;
+        summary.hidden = false;
+
+        var subject = 'Ressource — ' + f.title;
+        var body = 'Bonjour, je viens de demander la ressource liée à la formation « ' + f.title + ' ».';
+        mailto.href = 'mailto:contact@getup-corporate.fr?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+      } else {
+        document.getElementById('formationNotFound').hidden = false;
+        document.getElementById('pagePitch').textContent = 'Sélectionnez une formation depuis le catalogue pour recevoir sa ressource.';
+      }
+
+      if (typeof CALENDLY_URL !== 'undefined' && CALENDLY_URL) {
+        var embed = document.getElementById('bookingEmbed');
+        embed.innerHTML = '<iframe src="' + CALENDLY_URL + '?utm_campaign=ressource&utm_content=' + encodeURIComponent(calendlyUtmContent) + '" style="width:100%;min-height:700px;border:0;" title="Prendre rendez-vous avec Laurie"></iframe>';
+      }
+    })();
+
+    // --- Validation et soumission du formulaire ---
+    // Aucun service d'envoi d'email n'est branché : le projet n'en a pas
+    // encore (aucun Resend/Brevo/Formspree/etc. présent). Ce script valide
+    // le formulaire et affiche la confirmation côté client uniquement.
+    //
+    // TODO avant mise en production réelle : remplacer le bloc marqué
+    // ci-dessous par un vrai envoi, par exemple :
+    //   fetch('https://formspree.io/f/VOTRE_ID', {
+    //     method: 'POST',
+    //     body: new FormData(form),
+    //     headers: { Accept: 'application/json' }
+    //   })
+    // Champs déjà collectés : firstName, lastName, email, phone, company,
+    // formation (id de la formation demandée), consent.
+    (function () {
+      var form = document.getElementById('leadForm');
+      if (!form) return;
+
+      function setFieldError(id, message) {
+        var el = document.getElementById(id + 'Error');
+        var input = document.getElementById(id);
+        if (el) el.textContent = message || '';
+        if (input) input.classList.toggle('has-error', !!message);
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        document.getElementById('globalError').textContent = '';
+
+        var firstName = document.getElementById('firstName').value.trim();
+        var lastName = document.getElementById('lastName').value.trim();
+        var email = document.getElementById('email').value.trim();
+        var consent = document.getElementById('consent').checked;
+        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        var valid = true;
+
+        setFieldError('firstName', firstName ? '' : "Merci d'indiquer votre prénom.");
+        if (!firstName) valid = false;
+
+        setFieldError('lastName', lastName ? '' : 'Merci d\'indiquer votre nom.');
+        if (!lastName) valid = false;
+
+        if (!email) {
+          setFieldError('email', "Merci d'indiquer votre email.");
+          valid = false;
+        } else if (!emailPattern.test(email)) {
+          setFieldError('email', 'Merci d\'indiquer un email valide.');
+          valid = false;
+        } else {
+          setFieldError('email', '');
+        }
+
+        document.getElementById('consentError').textContent = consent ? '' : 'Merci de cocher la case pour recevoir la ressource.';
+        if (!consent) valid = false;
+
+        if (!valid) {
+          document.getElementById('globalError').textContent = 'Merci de corriger les champs indiqués ci-dessus.';
+          return;
+        }
+
+        // TODO : brancher ici l'envoi réel vers votre service email/CRM
+        // (voir commentaire au-dessus de ce script).
+
+        form.style.display = 'none';
+        document.getElementById('formSuccess').hidden = false;
+      });
+    })();
+  </script>
+</body>
+</html>
