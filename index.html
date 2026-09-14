@@ -7,150 +7,279 @@
   <meta name="description" content="GetUp Corporate forme vos équipes avec les techniques de l'improvisation théâtrale : prise de parole, communication, cohésion. Formations sur-mesure pour entreprises.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,700;0,900;1,300&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+.w{font-family:'Inter',sans-serif;background:#f5f2ec;color:#0d0d0d;min-height:100vh;}
+nav{display:flex;align-items:center;justify-content:space-between;padding:24px 48px;background:#f5f2ec;position:sticky;top:0;z-index:10;border-bottom:0.5px solid rgba(0,0,0,0.08);}
+.nl{font-size:11px;font-weight:700;letter-spacing:4px;color:#0d0d0d;text-transform:uppercase;}
+.nr{display:flex;align-items:center;gap:32px;}
+.nr a{font-size:11px;color:rgba(0,0,0,0.4);letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;}
+.ncta{font-size:11px;font-weight:700;background:#0d0d0d;color:#f5f2ec;padding:10px 22px;border-radius:2px;letter-spacing:1.5px;text-transform:uppercase;border:none;cursor:pointer;}
+.hero{display:grid;grid-template-columns:1fr 1fr;min-height:90vh;border-bottom:0.5px solid rgba(0,0,0,0.1);}
+.hl{background:#0d1f5e;padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;}
+.hl-tag{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:3px;text-transform:uppercase;margin-bottom:auto;}
+.hl-title{font-size:clamp(3.5rem,8vw,6.5rem);font-weight:900;color:#fff2b2;line-height:0.88;letter-spacing:-3px;text-transform:uppercase;margin:auto 0;}
+.hl-bottom{display:flex;align-items:flex-end;justify-content:space-between;margin-top:auto;}
+.hl-year{font-size:11px;color:rgba(255,255,255,0.25);letter-spacing:2px;}
+.hl-cert{font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:1.5px;text-transform:uppercase;border:0.5px solid rgba(255,255,255,0.15);padding:6px 12px;border-radius:2px;}
+.hr{padding:56px 48px;display:flex;flex-direction:column;justify-content:space-between;background:#f5f2ec;}
+.hr-top{font-size:11px;color:rgba(0,0,0,0.3);letter-spacing:2px;text-transform:uppercase;}
+.hr-mid{flex:1;display:flex;align-items:center;}
+.hr-text{font-size:18px;font-weight:300;font-style:italic;color:#0d0d0d;line-height:1.6;max-width:340px;}
+.hr-text strong{font-weight:700;font-style:normal;}
+.hr-bottom{display:flex;justify-content:space-between;align-items:flex-end;}
+.hr-stat{display:flex;flex-direction:column;gap:2px;}
+.hr-num{font-size:28px;font-weight:900;color:#0d1f5e;line-height:1;}
+.hr-lbl{font-size:10px;color:rgba(0,0,0,0.35);letter-spacing:2px;text-transform:uppercase;}
+.hr-btn{display:flex;align-items:center;gap:8px;background:#0d1f5e;color:#fff2b2;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 24px;border-radius:2px;border:none;cursor:pointer;}
+.ticker{border-bottom:0.5px solid rgba(0,0,0,0.1);border-top:0.5px solid rgba(0,0,0,0.1);padding:14px 0;overflow:hidden;background:#f5f2ec;}
+.tk{display:flex;white-space:nowrap;animation:tk 30s linear infinite;}
+.tki{display:flex;gap:40px;padding-right:40px;}
+.tki span{font-size:11px;color:rgba(0,0,0,0.3);letter-spacing:2.5px;text-transform:uppercase;}
+.tki .dot{color:#0d1f5e;font-weight:900;}
+@keyframes tk{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tips{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:0.5px solid rgba(0,0,0,0.1);}
+.tip{padding:48px 40px;border-right:0.5px solid rgba(0,0,0,0.08);}
+.tip:last-child{border-right:none;}
+.tip-n{font-size:10px;color:#0d1f5e;letter-spacing:3px;font-weight:700;margin-bottom:24px;}
+.tip-t{font-size:15px;font-weight:700;color:#0d0d0d;margin-bottom:12px;line-height:1.3;}
+.tip-b{font-size:13px;color:rgba(0,0,0,0.45);line-height:1.7;font-weight:300;}
+.diag{padding:64px 48px;background:#0d1f5e;}
+.diag-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:48px;}
+.diag-t{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:#fff2b2;line-height:1.15;max-width:320px;}
+.diag-s{font-size:12px;color:rgba(255,255,255,0.3);letter-spacing:1px;max-width:200px;text-align:right;line-height:1.7;}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px;}
+.pill{padding:10px 20px;border:0.5px solid rgba(255,255,255,0.15);border-radius:2px;font-size:11px;color:rgba(255,255,255,0.4);letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;transition:all .15s;}
+.pill:hover,.pill.on{border-color:#fff2b2;color:#fff2b2;background:rgba(255,242,178,0.06);}
+.dcta{display:none;align-items:center;gap:10px;background:#fff2b2;color:#0d1f5e;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:14px 28px;border-radius:2px;border:none;cursor:pointer;}
+.dcta.show{display:inline-flex;}
+.foot{display:flex;justify-content:space-between;align-items:center;padding:24px 48px;border-top:0.5px solid rgba(0,0,0,0.08);background:#f5f2ec;}
+.fl{font-size:10px;color:rgba(0,0,0,0.3);letter-spacing:2px;text-transform:uppercase;}
+
+:root{--blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--dark);overflow-x:hidden;}
+.intro{padding:80px 48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;border-bottom:0.5px solid rgba(0,0,0,0.08);}
+.intro-label{font-size:10px;color:rgba(0,0,0,0.3);letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;}
+.intro-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--blue);line-height:1.05;letter-spacing:-1px;text-transform:uppercase;}
+.intro-right{display:flex;flex-direction:column;justify-content:flex-end;}
+.intro-text{font-size:15px;font-weight:300;color:rgba(0,0,0,0.5);line-height:1.75;max-width:380px;}
+.intro-stats{display:flex;gap:40px;margin-top:32px;padding-top:32px;border-top:0.5px solid rgba(0,0,0,0.08);}
+.stat-n{font-size:22px;font-weight:900;color:var(--blue);}
+.stat-l{font-size:10px;color:rgba(0,0,0,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
+.catalogue{padding:0 48px 80px;}
+.formation{display:grid;grid-template-columns:80px 1fr 200px;align-items:center;gap:0;border-bottom:0.5px solid rgba(0,0,0,0.08);padding:0;cursor:pointer;transition:background .2s;position:relative;overflow:hidden;}
+.formation::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue);transform:scaleY(0);transition:transform .25s;transform-origin:bottom;}
+.formation:hover::before{transform:scaleY(1);}
+.formation:hover{background:rgba(13,65,154,0.02);}
+.f-num{font-size:11px;color:rgba(0,0,0,0.2);letter-spacing:3px;font-weight:700;padding:40px 0 40px 24px;}
+.f-main{padding:40px 48px 40px 0;}
+.f-tag{font-size:10px;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;opacity:0.6;}
+.f-title{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:900;color:var(--dark);letter-spacing:-0.5px;text-transform:uppercase;margin-bottom:8px;transition:color .2s;}
+.formation:hover .f-title{color:var(--blue);}
+.f-desc{font-size:13px;color:rgba(0,0,0,0.4);font-weight:300;line-height:1.6;}
+.f-right{display:flex;flex-direction:column;align-items:flex-end;gap:16px;padding:40px 24px 40px 0;}
+.f-format{font-size:10px;color:rgba(0,0,0,0.25);letter-spacing:2px;text-transform:uppercase;text-align:right;}
+.f-cta{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;opacity:0;transition:opacity .2s;}
+.formation:hover .f-cta{opacity:1;}
+.f-accent{width:32px;height:2px;background:var(--yellow);margin-bottom:4px;transition:width .2s;}
+.formation:hover .f-accent{width:48px;}
+.panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;}
+.panel-overlay.open{opacity:1;pointer-events:all;}
+.panel{position:fixed;right:0;top:0;bottom:0;width:min(600px,100vw);background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);overflow-y:auto;}
+.panel.open{transform:translateX(0);}
+.panel-inner{padding:48px 48px 80px;}
+.panel-close{display:flex;align-items:center;justify-content:space-between;margin-bottom:48px;}
+.close-btn{background:none;border:0.5px solid rgba(0,0,0,0.15);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,0.4);padding:8px 16px;cursor:pointer;}
+.panel-num{font-size:11px;color:rgba(0,0,0,0.2);letter-spacing:3px;font-weight:700;}
+.panel-accent{width:40px;height:3px;background:var(--yellow);margin-bottom:20px;}
+.panel-title{font-size:clamp(1.5rem,3vw,2.2rem);font-weight:900;color:var(--blue);text-transform:uppercase;letter-spacing:-1px;line-height:1.05;margin-bottom:16px;}
+.panel-desc{font-size:16px;font-weight:300;color:rgba(0,0,0,0.55);line-height:1.7;margin-bottom:40px;padding-bottom:40px;border-bottom:0.5px solid rgba(0,0,0,0.08);}
+.panel-section{margin-bottom:32px;}
+.panel-section-label{font-size:10px;color:var(--blue);letter-spacing:3px;text-transform:uppercase;font-weight:700;margin-bottom:14px;}
+.panel-section-text{font-size:13px;color:rgba(0,0,0,0.55);line-height:1.7;font-weight:300;}
+.panel-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
+.panel-list li{font-size:13px;color:rgba(0,0,0,0.55);font-weight:300;padding-left:16px;position:relative;}
+.panel-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:11px;}
+.panel-format{display:flex;gap:16px;margin-bottom:40px;}
+.fmt-pill{background:var(--blue);color:var(--yellow);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;}
+.panel-cta{width:100%;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:40px;}
+</style>
 </head>
-<body class="page-home">
+<body>
 
-  <header class="site-header header-mm" id="siteHeader">
-    <div class="header-topbar">
-      <a href="index.html" class="header-logo-link">
-        <img src="assets/logo.png" alt="GetUp Corporate" height="48" class="header-logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='inline-block';">
-        <span class="header-logo-fallback">GET UP</span>
-      </a>
-      <span class="header-date">Festival RH · 1 &amp; 2 oct. 2026</span>
+<div class="w">
+  <nav>
+    <div class="nl">Get Up Corporate</div>
+    <div class="nr">
+      <a>Formations</a>
+      <a>Impro Club</a>
+      <a>Artistes</a>
+      <a>À propos</a>
+      <button class="ncta">Rendez-vous</button>
     </div>
+  </nav>
 
-    <div class="header-nav-row">
-      <nav class="site-nav header-nav-mm" id="siteNav">
-        <a href="formations/index.html">Nos formations</a>
-        <a href="impro-club/index.html">Impro Club</a>
-        <a href="artistes/index.html">Nos artistes</a>
-        <a href="rendez-vous/index.html">Prendre rendez-vous</a>
-        <a href="a-propos/index.html">À propos</a>
-      </nav>
-      <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
-        <span></span><span></span><span></span>
-        <span class="sr-only">Ouvrir le menu</span>
-      </button>
-    </div>
-  </header>
-
-  <main>
-
-    <section class="hero hero-split">
-      <div class="hero-split-left">
-        <h1 class="hero-giant">Get up</h1>
-      </div>
-      <div class="hero-split-right">
-        <span class="hero-badge">Depuis 2018</span>
-        <p class="hero-tagline">Formations professionnelles animées par des artistes. Certifié Qualiopi.</p>
-        <p class="hero-subtag">Festival RH · 1 &amp; 2 oct. 2026</p>
-      </div>
-    </section>
-
-    <section class="section why-section">
-      <div class="section-inner why-inner">
-        <span class="eyebrow">Pourquoi l'improvisation</span>
-        <p class="why-text">L'improvisation théâtrale entraîne exactement ce qu'on demande à vos équipes tous les jours&nbsp;: écouter vraiment, décider vite, s'adapter sans perdre le fil. Ce ne sont pas des jeux — ce sont des réflexes qu'on muscle sur scène pour qu'ils tiennent en réunion.</p>
-        <a href="a-propos/index.html" class="link-arrow">Notre approche en détail</a>
-      </div>
-    </section>
-
-    <section class="section formations-section">
-      <div class="section-inner">
-        <div class="section-head">
-          <span class="eyebrow">Nos formations</span>
-          <h2>Six formations, un objectif RH précis</h2>
-        </div>
-
-        <div class="teaser-grid">
-          <article class="teaser-card">
-            <h3>Prise de parole en public</h3>
-            <p>Vos équipes redoutent la prise de parole&nbsp;? On désamorce le trac par la pratique, pas par la théorie.</p>
-            <a href="formations/prise-de-parole/index.html" class="link-arrow">En savoir plus</a>
-          </article>
-          <article class="teaser-card">
-            <h3>Souder une équipe à distance</h3>
-            <p>Le télétravail dilue les liens. On les retisse en une session, à distance ou sur site.</p>
-            <a href="formations/equipe-distance/index.html" class="link-arrow">En savoir plus</a>
-          </article>
-          <article class="teaser-card">
-            <h3>Apprivoiser l'IA pour gagner en efficacité</h3>
-            <p>L'IA fait peur ou fait perdre du temps. On apprend à s'en servir, vite et bien.</p>
-            <a href="formations/ia/index.html" class="link-arrow">En savoir plus</a>
-          </article>
-        </div>
-
-        <a href="formations/index.html" class="btn btn-outline">Voir les 6 formations →</a>
-      </div>
-    </section>
-
-    <section class="section split-section">
-      <div class="section-inner split-inner">
-        <div class="split-block">
-          <span class="eyebrow">Le spectacle</span>
-          <h2>Impro Club&nbsp;: le spectacle qui fédère vos équipes</h2>
-          <p>Une soirée d'improvisation où votre équipe monte sur scène avec nos comédiens professionnels — sur des situations tirées de votre quotidien pro. Rires garantis, cohésion en prime.</p>
-          <a href="impro-club/index.html" class="link-arrow">Découvrir le spectacle</a>
-        </div>
-        <div class="split-block">
-          <span class="eyebrow">L'équipe</span>
-          <h2>Des comédiens professionnels, pas des animateurs</h2>
-          <p>Chaque formateur GetUp joue sur scène autant qu'il forme en entreprise. L'expertise pédagogique vient de la pratique artistique, pas l'inverse.</p>
-          <a href="artistes/index.html" class="link-arrow">Rencontrer l'équipe</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section cta-band">
-      <div class="section-inner cta-band-inner">
-        <h2>Prêt·e à tester sur votre équipe&nbsp;?</h2>
-        <p>Quinze minutes suffisent pour identifier la formation adaptée à votre contexte.</p>
-        <a href="rendez-vous/index.html" class="btn btn-primary">Prendre rendez-vous →</a>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-col footer-brand">
-        <span class="logo-text">GetUp Corporate</span>
-        <p>Formations professionnelles par l'improvisation théâtrale.</p>
-      </div>
-
-      <div class="footer-col">
-        <h3>Nos formations</h3>
-        <a href="formations/prise-de-parole/index.html">Prise de parole en public</a>
-        <a href="formations/communication/index.html">Redécouvrir la communication</a>
-        <a href="formations/ia/index.html">Apprivoiser l'IA</a>
-        <a href="formations/generation-z/index.html">Dialoguer avec la génération Z</a>
-        <a href="formations/recrutement/index.html">Recruter sans biais</a>
-        <a href="formations/equipe-distance/index.html">Souder une équipe à distance</a>
-      </div>
-
-      <div class="footer-col">
-        <h3>Le studio</h3>
-        <a href="impro-club/index.html">Impro Club</a>
-        <a href="artistes/index.html">Nos artistes &amp; formateurs</a>
-        <a href="a-propos/index.html">À propos</a>
-        <a href="rendez-vous/index.html">Prendre rendez-vous</a>
-      </div>
-
-      <div class="footer-col">
-        <h3>Informations</h3>
-        <a href="mentions-legales/index.html">Mentions légales</a>
-        <a href="confidentialite/index.html">Confidentialité</a>
-        <a href="contact/index.html">Contact</a>
+  <div class="hero">
+    <div class="hl">
+      <div class="hl-tag">Festival RH · 1 & 2 octobre 2026</div>
+      <div class="hl-title">Get<br>Up<br>Corp.</div>
+      <div class="hl-bottom">
+        <span class="hl-year">Est. 2018</span>
+        <span class="hl-cert">Certifié Qualiopi</span>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <p>© 2026 GetUp Corporate</p>
+    <div class="hr">
+      <div class="hr-top">Formations professionnelles</div>
+      <div class="hr-mid">
+        <p class="hr-text">Des artistes qui transforment vos <strong>formations obligatoires</strong> en expériences que vos équipes ne sont pas près d'oublier.</p>
+      </div>
+      <div class="hr-bottom">
+        <div style="display:flex;gap:40px;">
+          <div class="hr-stat"><div class="hr-num">200+</div><div class="hr-lbl">Entreprises</div></div>
+          <div class="hr-stat"><div class="hr-num">4.8</div><div class="hr-lbl">Satisfaction</div></div>
+          <div class="hr-stat"><div class="hr-num">6</div><div class="hr-lbl">Formations</div></div>
+        </div>
+        <button class="hr-btn">Découvrir <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+      </div>
     </div>
-  </footer>
+  </div>
 
-  <script src="script.js"></script>
+  <div class="ticker">
+    <div class="tk">
+      <div class="tki">
+        <span>Prise de parole</span><span class="dot">◆</span>
+        <span>Apprivoiser l'IA</span><span class="dot">◆</span>
+        <span>Génération Z</span><span class="dot">◆</span>
+        <span>Recruter sans biais</span><span class="dot">◆</span>
+        <span>Communication</span><span class="dot">◆</span>
+        <span>Équipe à distance</span><span class="dot">◆</span>
+        <span>Prise de parole</span><span class="dot">◆</span>
+        <span>Apprivoiser l'IA</span><span class="dot">◆</span>
+        <span>Génération Z</span><span class="dot">◆</span>
+        <span>Recruter sans biais</span><span class="dot">◆</span>
+        <span>Communication</span><span class="dot">◆</span>
+        <span>Équipe à distance</span><span class="dot">◆</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel-overlay" id="overlay" onclick="closePanel()"></div>
+<div class="panel" id="panel">
+  <div class="panel-inner" id="panel-content"></div>
+</div>
+
+<div class="intro">
+  <div>
+    <div class="intro-label">Catalogue 2026</div>
+    <div class="intro-title">Nos<br>formations</div>
+  </div>
+  <div class="intro-right">
+    <div class="intro-text">Des formations professionnelles pour développer les compétences qui font la différence — animées par des artistes, conçues pour vos équipes.</div>
+    <div class="intro-stats">
+      <div><div class="stat-n">6</div><div class="stat-l">Formations</div></div>
+      <div><div class="stat-n">200+</div><div class="stat-l">Entreprises</div></div>
+      <div><div class="stat-n">Qualiopi</div><div class="stat-l">Certifié</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="catalogue" id="catalogue"></div>
+
+<script>
+var formations=[
+  {num:"01",tag:"Intelligence relationnelle",title:"Prise de parole en public",desc:"Pitchs, CODIR, réunions : prenez le contrôle de chaque prise de parole.",format:"3H · 15 PERSONNES MAX",who:"Managers, commerciaux, dirigeants — tout collaborateur amené à prendre la parole en public.",objective:"Développer une présence scénique naturelle et une communication impactante dans tout contexte professionnel.",skills:["Structuration d'un discours captivant","Gestion du stress et de l'imprévu","Posture, voix et langage non-verbal","Écoute et interaction avec l'audience"],experience:"Des mises en situation progressives issues de l'improvisation théâtrale : prises de parole courtes, feedback immédiat, exercices de présence et d'ancrage.",programme:"Introduction aux techniques de l'impro — Exercices de respiration et d'ancrage — Pitchs express (30 sec, 2 min, 5 min) — Gestion de l'imprévu et des questions difficiles — Debriefing collectif",benefits:["Pitchs et présentations plus percutants","Image professionnelle renforcée","Meilleure représentation en conférence et salon","Réunions internes plus efficaces"]},
+  {num:"02",tag:"Transformation digitale",title:"Apprivoiser l'IA",desc:"Levez les peurs, alignez vos équipes, maîtrisez l'outil collectivement.",format:"3H · 15 PERSONNES MAX",who:"Toutes les équipes confrontées à l'intégration de l'IA dans leur quotidien professionnel.",objective:"Transformer l'appréhension face à l'IA en curiosité constructive et créer une dynamique collective d'adoption.",skills:["Compréhension des mécanismes de l'IA","Communication efficace avec les outils (prompting)","Coordination collective face à l'innovation","Gestion du changement par la confiance"],experience:"Exercices d'improvisation autour de l'inconnu et de l'adaptation. Mises en situation de collaboration humain/IA. Temps d'expression libre des peurs et des attentes.",programme:"Expression des représentations et peurs — Démystification par l'expérimentation — Exercices de prompting collectif — Construction d'une posture d'équipe face à l'IA — Plan d'action partagé",benefits:["Équipes alignées sur l'usage réel de l'IA","Réduction des résistances internes","Gain de productivité immédiat","Direction et terrain réconciliés sur le sujet"]},
+  {num:"03",tag:"Cohésion d'équipe",title:"Redécouvrir la communication",desc:"Écoute active, coordination, expression équilibrée dans vos équipes.",format:"3H · 15 PERSONNES MAX",who:"Équipes en tension, services qui collaborent peu, groupes avec des profils très différents.",objective:"Fluidifier la communication interne et créer les conditions d'une coopération authentique.",skills:["Écoute active et reformulation","Principe du oui-et (acceptation et rebond)","Prise de parole équilibrée","Coordination face à l'imprévu"],experience:"Scènes d'improvisation en binôme et en groupe. Exercices d'écoute sans parole. Situations reproduisant les blocages de la vie professionnelle réelle.",programme:"Diagnostic des modes de communication — Exercices d'écoute profonde — Scènes de co-construction — Travail sur les silences et la place de chacun — Retours en groupe",benefits:["Information qui circule mieux","Moins de malentendus et de tensions","Profils discrets mieux inclus","Services en silos qui se rapprochent"]},
+  {num:"04",tag:"Management intergénérationnel",title:"Dialoguer avec la Gen Z",desc:"Déconstruisez les préjugés, alignez les langages, créez la cohésion.",format:"3H · 20 PERSONNES MAX",who:"Équipes mixtes Gen X/Y/Z, managers de jeunes équipes, services RH et formation.",objective:"Créer un dialogue authentique entre générations pour transformer les incompréhensions en complémentarités.",skills:["Déconstruction des stéréotypes générationnels","Adaptation du langage et des codes","Valorisation des forces de chaque génération","Construction d'une culture commune"],experience:"Scènes jouées par des membres de générations différentes, échanges guidés, exercices de traduction intergénérationnelle.",programme:"Cartographie des représentations mutuelles — Mise en scène des incompréhensions — Exercices de traduction — Construction de ponts communs — Engagements collectifs",benefits:["Réduction des conflits générationnels","Meilleure rétention des talents Gen Z","Transmission des savoirs facilitée","Marque employeur renforcée"]},
+  {num:"05",tag:"Ressources humaines",title:"Recruter sans biais",desc:"Des décisions basées sur la compétence, pas sur des critères subjectifs.",format:"3H · 15 PERSONNES MAX",who:"Recruteurs, managers qui participent aux entretiens, équipes RH.",objective:"Développer une posture de recruteur objectif et équitable pour attirer et sélectionner les meilleurs profils.",skills:["Identification de ses propres biais cognitifs","Conduite d'entretien structurée","Évaluation basée sur les compétences","Décision collective objective"],experience:"Simulations d'entretiens avec rôles inversés, débriefings sur les biais observés, mises en situation de décision collective.",programme:"Sensibilisation aux biais inconscients — Jeux de rôle entretien — Grilles d'évaluation objective — Simulation de comité de sélection — Plan d'action individuel",benefits:["Recrutements plus objectifs et équitables","Meilleure marque employeur","Équipes plus diversifiées et performantes","Réduction du turnover lié aux mauvais recrutements"]},
+  {num:"06",tag:"Travail hybride",title:"Souder une équipe à distance",desc:"Recréez du lien malgré l'écran, osez prendre la parole en visio.",format:"3H · 15 PERSONNES MAX",who:"Équipes en télétravail total ou partiel, managers d'équipes dispersées géographiquement.",objective:"Recréer de la proximité et de la confiance dans un contexte de travail hybride ou entièrement distant.",skills:["Présence et expression en visioconférence","Création de rituels de cohésion à distance","Communication non-verbale adaptée à l'écran","Identification des relais informels à distance"],experience:"Exercices d'improvisation en visio, création de rituels d'équipe, mises en situation de réunions hybrides.",programme:"Diagnostic du vécu à distance — Exercices de présence en visio — Création de rituels collectifs — Cartographie des ressources informelles — Engagements d'équipe",benefits:["Lien humain recréé malgré la distance","Réunions hybrides plus inclusives","Moins d'isolement et de démotivation","Meilleure connaissance mutuelle des périmètres"]}
+];
+
+var cat=document.getElementById('catalogue');
+formations.forEach(function(f,i){
+  var div=document.createElement('div');
+  div.className='formation';
+  div.innerHTML='<div class="f-num">'+f.num+'</div><div class="f-main"><div class="f-tag">'+f.tag+'</div><div class="f-title">'+f.title+'</div><div class="f-desc">'+f.desc+'</div></div><div class="f-right"><div><div class="f-accent"></div><div class="f-format">'+f.format+'</div></div><div class="f-cta">Découvrir <i class="ti ti-arrow-right" aria-hidden="true"></i></div></div>';
+  div.onclick=function(){openPanel(i);};
+  cat.appendChild(div);
+});
+
+function openPanel(i){
+  var f=formations[i];
+  document.getElementById('panel-content').innerHTML=
+    '<div class="panel-close"><div class="panel-num">'+f.num+'</div><button class="close-btn" onclick="closePanel()">Fermer ✕</button></div>'+
+    '<div class="panel-accent"></div>'+
+    '<div class="panel-title">'+f.title+'</div>'+
+    '<div class="panel-desc">'+f.desc+'</div>'+
+    '<div class="panel-format"><div class="fmt-pill">'+f.format+'</div></div>'+
+    '<div class="panel-section"><div class="panel-section-label">Pour qui</div><div class="panel-section-text">'+f.who+'</div></div>'+
+    '<div class="panel-section"><div class="panel-section-label">Objectif</div><div class="panel-section-text">'+f.objective+'</div></div>'+
+    '<div class="panel-section"><div class="panel-section-label">Compétences travaillées</div><ul class="panel-list">'+f.skills.map(function(s){return'<li>'+s+'</li>';}).join('')+'</ul></div>'+
+    '<div class="panel-section"><div class="panel-section-label">Ce que vous allez vivre</div><div class="panel-section-text">'+f.experience+'</div></div>'+
+    '<div class="panel-section"><div class="panel-section-label">Programme</div><div class="panel-section-text">'+f.programme+'</div></div>'+
+    '<div class="panel-section"><div class="panel-section-label">Bénéfices pour l\'entreprise</div><ul class="panel-list">'+f.benefits.map(function(b){return'<li>'+b+'</li>';}).join('')+'</ul></div>'+
+    '<button class="panel-cta">Parler de cette formation →</button>';
+  document.getElementById('overlay').classList.add('open');
+  document.getElementById('panel').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePanel(){
+  document.getElementById('overlay').classList.remove('open');
+  document.getElementById('panel').classList.remove('open');
+  document.body.style.overflow='';
+}
+</script>
+
+<div class="w">
+  <div class="tips">
+    <div class="tip">
+      <div class="tip-n">01 — Ressource offerte</div>
+      <div class="tip-t">Ne jamais imposer, toujours co-construire</div>
+      <div class="tip-b">Les équipes résistent à ne pas avoir été consultées, pas à l'outil. Une session d'expression libre avant tout déploiement change tout.</div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">02 — Ressource offerte</div>
+      <div class="tip-t">Montrez une victoire rapide et concrète</div>
+      <div class="tip-b">Identifiez une tâche répétitive détestée. Montrez comment l'IA la réduit à 2 minutes. Une démo ciblée vaut 10 slides.</div>
+    </div>
+    <div class="tip">
+      <div class="tip-n">03 — Ressource offerte</div>
+      <div class="tip-t">Valorisez les compétences humaines</div>
+      <div class="tip-b">Le message qui rassure : "ce que vous savez faire, l'IA ne peut pas le remplacer." Repositionnez l'outil comme assistant.</div>
+    </div>
+  </div>
+
+  <div class="diag">
+    <div class="diag-top">
+      <div class="diag-t">Quel est votre défi RH ?</div>
+      <div class="diag-s">Sélectionnez ce qui s'applique — on vous envoie les ressources adaptées.</div>
+    </div>
+    <div class="pills">
+      <div class="pill" onclick="tog(this)">Prise de parole</div>
+      <div class="pill" onclick="tog(this)">Communication d'équipe</div>
+      <div class="pill" onclick="tog(this)">Intégrer l'IA</div>
+      <div class="pill" onclick="tog(this)">Générations au travail</div>
+      <div class="pill" onclick="tog(this)">Recrutement objectif</div>
+      <div class="pill" onclick="tog(this)">Équipe à distance</div>
+    </div>
+    <button class="dcta" id="dcta">Recevoir les ressources <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+  </div>
+
+  <div class="foot">
+    <div class="fl">Get Up Corporate © 2026</div>
+    <div class="fl">Paris — Certifié Qualiopi</div>
+  </div>
+</div>
+
+<script>
+function tog(el){
+  el.classList.toggle('on');
+  document.getElementById('dcta').classList.toggle('show',document.querySelectorAll('.pill.on').length>0);
+}
+</script>
+
 </body>
 </html>
