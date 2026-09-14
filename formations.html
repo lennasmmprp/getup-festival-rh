@@ -37,34 +37,31 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
 :root{--blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;}
 body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
-.intro{padding:80px 48px 56px;display:grid;grid-template-columns:1fr 1fr;gap:80px;border-bottom:0.5px solid rgba(0,0,0,0.08);}
-.intro-label{font-size:10px;font-weight:700;color:rgba(0,0,0,0.3);letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;}
-.intro-title{font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--blue);line-height:1.05;letter-spacing:-1px;text-transform:uppercase;}
+.intro{padding:64px 48px;display:grid;grid-template-columns:1fr 1fr;gap:80px;border-bottom:0.5px solid rgba(0,0,0,0.08);}
+.intro-label{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:4px;text-transform:uppercase;margin-bottom:20px;}
+.intro-title{font-size:clamp(2.5rem,5vw,4rem);font-weight:900;color:var(--blue);line-height:1;letter-spacing:-1px;text-transform:uppercase;}
 .intro-right{display:flex;flex-direction:column;justify-content:flex-end;}
-.intro-text{font-size:15px;font-weight:400;color:rgba(0,0,0,0.5);line-height:1.75;max-width:380px;}
+.intro-text{font-size:15px;font-weight:300;color:rgba(0,0,0,0.5);line-height:1.75;max-width:380px;}
 .intro-stats{display:flex;gap:40px;margin-top:32px;padding-top:32px;border-top:0.5px solid rgba(0,0,0,0.08);}
-.stat-n{font-size:22px;font-weight:900;text-transform:uppercase;color:var(--blue);}
+.stat-n{font-size:28px;font-weight:900;text-transform:uppercase;color:var(--blue);}
 .stat-l{font-size:10px;font-weight:700;color:rgba(0,0,0,0.3);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 .catalogue{padding:0 48px 80px;}
 .formation{display:flex;flex-direction:column;border-bottom:0.5px solid rgba(0,0,0,0.08);cursor:pointer;transition:background .2s;position:relative;overflow:hidden;}
 .formation::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue);transform:scaleY(0);transition:transform .25s;transform-origin:bottom;}
 .formation:hover::before{transform:scaleY(1);}
 .formation:hover{background:rgba(13,65,154,0.02);}
-.f-row{display:grid;grid-template-columns:80px 1fr 200px;align-items:center;}
-.f-num{font-size:11px;color:rgba(0,0,0,0.2);letter-spacing:3px;font-weight:900;padding:40px 0 40px 24px;}
-.f-main{padding:40px 48px 40px 0;}
-.f-tag{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;opacity:0.6;}
-.f-title{font-size:clamp(1.1rem,2vw,1.5rem);font-weight:900;color:var(--dark);letter-spacing:-0.5px;text-transform:uppercase;margin-bottom:8px;transition:color .2s;}
+.f-row{display:grid;grid-template-columns:80px 1fr 120px;align-items:center;padding:40px 48px;}
+.f-num{font-size:11px;color:rgba(0,0,0,0.15);letter-spacing:3px;font-weight:700;}
+.f-tag{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px;opacity:0.7;}
+.f-title{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:900;color:#0D0D0D;letter-spacing:-0.5px;text-transform:uppercase;transition:color .2s;}
 .formation:hover .f-title{color:var(--blue);}
-.f-desc{font-size:13px;color:rgba(0,0,0,0.4);font-weight:400;line-height:1.6;}
-.f-right{display:flex;flex-direction:column;align-items:flex-end;gap:16px;padding:40px 24px 40px 0;}
+.f-desc{font-size:13px;color:rgba(0,0,0,0.4);font-weight:300;line-height:1.6;margin-top:8px;}
+.f-right{display:flex;flex-direction:column;align-items:flex-end;gap:16px;}
 .f-format{font-size:10px;font-weight:700;color:rgba(0,0,0,0.25);letter-spacing:2px;text-transform:uppercase;text-align:right;}
-.f-cta{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:900;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;opacity:0;transition:opacity .2s;}
+.f-cta{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;opacity:0;transition:opacity .2s;}
 .formation:hover .f-cta{opacity:1;}
 .f-accent{width:32px;height:2px;background:var(--yellow);margin-bottom:4px;transition:width .2s;}
 .formation:hover .f-accent{width:48px;}
-.f-actions{padding:0 24px 32px 24px;}
-.f-resource-btn{display:inline-flex;align-items:center;gap:8px;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:13px 22px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;}
 .panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;}
 .panel-overlay.open{opacity:1;pointer-events:all;}
 .panel{position:fixed;right:0;top:0;bottom:0;width:min(600px,100vw);background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);overflow-y:auto;}
@@ -155,9 +152,8 @@ FORMATIONS.forEach(function(f){
   var div=document.createElement('div');
   div.className='formation';
   div.dataset.formationId=f.id;
-  div.innerHTML='<div class="f-row"><div class="f-num">'+f.num+'</div><div class="f-main"><div class="f-tag">'+f.tag+'</div><div class="f-title">'+f.title+'</div><div class="f-desc">'+f.desc+'</div></div><div class="f-right"><div><div class="f-accent"></div><div class="f-format">'+f.format+'</div></div><div class="f-cta">Découvrir <i class="ti ti-arrow-right" aria-hidden="true"></i></div></div></div><div class="f-actions"><a class="f-resource-btn" href="recevoir-ma-ressource/index.html?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource</a></div>';
+  div.innerHTML='<div class="f-row"><div class="f-num">'+f.num+'</div><div class="f-main"><div class="f-tag">'+f.tag+'</div><div class="f-title">'+f.title+'</div><div class="f-desc">'+f.desc+'</div></div><div class="f-right"><div><div class="f-accent"></div><div class="f-format">'+f.format+'</div></div><div class="f-cta">Découvrir →</div></div></div>';
   div.onclick=function(){openPanel(f.id);};
-  div.querySelector('.f-resource-btn').onclick=function(e){e.stopPropagation();};
   cat.appendChild(div);
 });
 
