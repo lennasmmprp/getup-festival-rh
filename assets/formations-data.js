@@ -21,11 +21,11 @@ var FORMATIONS = [
     title: "Prise de parole en public",
     desc: "Pitchs, CODIR, réunions : prenez le contrôle de chaque prise de parole.",
     format: "3H · 15 PERSONNES MAX",
-    who: "Managers, commerciaux, dirigeants — tout collaborateur amené à prendre la parole en public.",
+    who: "Managers, commerciaux, dirigeants, tout collaborateur amené à prendre la parole en public.",
     objective: "Développer une présence scénique naturelle et une communication impactante dans tout contexte professionnel.",
     skills: ["Structuration d'un discours captivant", "Gestion du stress et de l'imprévu", "Posture, voix et langage non-verbal", "Écoute et interaction avec l'audience"],
     experience: "Des mises en situation progressives issues de l'improvisation théâtrale : prises de parole courtes, feedback immédiat, exercices de présence et d'ancrage.",
-    programme: "Introduction aux techniques de l'impro — Exercices de respiration et d'ancrage — Pitchs express (30 sec, 2 min, 5 min) — Gestion de l'imprévu et des questions difficiles — Debriefing collectif",
+    programme: "Introduction aux techniques de l'impro, exercices de respiration et d'ancrage, pitchs express (30 sec, 2 min, 5 min), gestion de l'imprévu et des questions difficiles, debriefing collectif",
     benefits: ["Pitchs et présentations plus percutants", "Image professionnelle renforcée", "Meilleure représentation en conférence et salon", "Réunions internes plus efficaces"],
     ressourceUrl: null,
     ressourceNom: null
@@ -41,7 +41,7 @@ var FORMATIONS = [
     objective: "Transformer l'appréhension face à l'IA en curiosité constructive et créer une dynamique collective d'adoption.",
     skills: ["Compréhension des mécanismes de l'IA", "Communication efficace avec les outils (prompting)", "Coordination collective face à l'innovation", "Gestion du changement par la confiance"],
     experience: "Exercices d'improvisation autour de l'inconnu et de l'adaptation. Mises en situation de collaboration humain/IA. Temps d'expression libre des peurs et des attentes.",
-    programme: "Expression des représentations et peurs — Démystification par l'expérimentation — Exercices de prompting collectif — Construction d'une posture d'équipe face à l'IA — Plan d'action partagé",
+    programme: "Expression des représentations et peurs, démystification par l'expérimentation, exercices de prompting collectif, construction d'une posture d'équipe face à l'IA, plan d'action partagé",
     benefits: ["Équipes alignées sur l'usage réel de l'IA", "Réduction des résistances internes", "Gain de productivité immédiat", "Direction et terrain réconciliés sur le sujet"],
     ressourceUrl: null,
     ressourceNom: null
@@ -57,7 +57,7 @@ var FORMATIONS = [
     objective: "Fluidifier la communication interne et créer les conditions d'une coopération authentique.",
     skills: ["Écoute active et reformulation", "Principe du oui-et (acceptation et rebond)", "Prise de parole équilibrée", "Coordination face à l'imprévu"],
     experience: "Scènes d'improvisation en binôme et en groupe. Exercices d'écoute sans parole. Situations reproduisant les blocages de la vie professionnelle réelle.",
-    programme: "Diagnostic des modes de communication — Exercices d'écoute profonde — Scènes de co-construction — Travail sur les silences et la place de chacun — Retours en groupe",
+    programme: "Diagnostic des modes de communication, exercices d'écoute profonde, scènes de co-construction, travail sur les silences et la place de chacun, retours en groupe",
     benefits: ["Information qui circule mieux", "Moins de malentendus et de tensions", "Profils discrets mieux inclus", "Services en silos qui se rapprochent"],
     ressourceUrl: null,
     ressourceNom: null
@@ -73,7 +73,7 @@ var FORMATIONS = [
     objective: "Créer un dialogue authentique entre générations pour transformer les incompréhensions en complémentarités.",
     skills: ["Déconstruction des stéréotypes générationnels", "Adaptation du langage et des codes", "Valorisation des forces de chaque génération", "Construction d'une culture commune"],
     experience: "Scènes jouées par des membres de générations différentes, échanges guidés, exercices de traduction intergénérationnelle.",
-    programme: "Cartographie des représentations mutuelles — Mise en scène des incompréhensions — Exercices de traduction — Construction de ponts communs — Engagements collectifs",
+    programme: "Cartographie des représentations mutuelles, mise en scène des incompréhensions, exercices de traduction, construction de ponts communs, engagements collectifs",
     benefits: ["Réduction des conflits générationnels", "Meilleure rétention des talents Gen Z", "Transmission des savoirs facilitée", "Marque employeur renforcée"],
     ressourceUrl: null,
     ressourceNom: null
@@ -89,7 +89,7 @@ var FORMATIONS = [
     objective: "Développer une posture de recruteur objectif et équitable pour attirer et sélectionner les meilleurs profils.",
     skills: ["Identification de ses propres biais cognitifs", "Conduite d'entretien structurée", "Évaluation basée sur les compétences", "Décision collective objective"],
     experience: "Simulations d'entretiens avec rôles inversés, débriefings sur les biais observés, mises en situation de décision collective.",
-    programme: "Sensibilisation aux biais inconscients — Jeux de rôle entretien — Grilles d'évaluation objective — Simulation de comité de sélection — Plan d'action individuel",
+    programme: "Sensibilisation aux biais inconscients, jeux de rôle entretien, grilles d'évaluation objective, simulation de comité de sélection, plan d'action individuel",
     benefits: ["Recrutements plus objectifs et équitables", "Meilleure marque employeur", "Équipes plus diversifiées et performantes", "Réduction du turnover lié aux mauvais recrutements"],
     ressourceUrl: null,
     ressourceNom: null
@@ -105,7 +105,7 @@ var FORMATIONS = [
     objective: "Recréer de la proximité et de la confiance dans un contexte de travail hybride ou entièrement distant.",
     skills: ["Présence et expression en visioconférence", "Création de rituels de cohésion à distance", "Communication non-verbale adaptée à l'écran", "Identification des relais informels à distance"],
     experience: "Exercices d'improvisation en visio, création de rituels d'équipe, mises en situation de réunions hybrides.",
-    programme: "Diagnostic du vécu à distance — Exercices de présence en visio — Création de rituels collectifs — Cartographie des ressources informelles — Engagements d'équipe",
+    programme: "Diagnostic du vécu à distance, exercices de présence en visio, création de rituels collectifs, cartographie des ressources informelles, engagements d'équipe",
     benefits: ["Lien humain recréé malgré la distance", "Réunions hybrides plus inclusives", "Moins d'isolement et de démotivation", "Meilleure connaissance mutuelle des périmètres"],
     ressourceUrl: null,
     ressourceNom: null
