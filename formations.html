@@ -23,8 +23,17 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .nr a{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:#012460;letter-spacing:0.5px;text-transform:uppercase;text-decoration:none;transition:opacity .15s;}
 .nr a.active{font-weight:800;}
 .ncta{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;background:#012460;color:#FFF2A1;padding:12px 24px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;border:none;cursor:pointer;justify-self:end;}
-.foot{display:flex;justify-content:space-between;align-items:center;padding:24px 48px;border-top:0.5px solid rgba(0,0,0,0.08);background:#f5f2ec;}
-.fl{font-size:10px;font-weight:700;color:rgba(0,0,0,0.3);letter-spacing:2px;text-transform:uppercase;}
+.foot{background:#012460;padding:48px;}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;}
+.foot-brand{color:#FFF2B2;font-size:clamp(1.5rem,3vw,2.5rem);font-weight:900;text-transform:uppercase;}
+.foot-cert{display:flex;align-items:center;}
+.foot-cert img{height:190px;width:auto;object-fit:contain;display:block;border-radius:16px;}
+.foot-cert-fallback{display:none;color:#FFF2B2;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;border-top:0.5px solid rgba(255,255,255,0.1);margin-top:32px;padding-top:24px;}
+.foot-copy{font-size:11px;color:rgba(255,255,255,0.4);}
+.foot-links{font-size:11px;color:rgba(255,255,255,0.4);}
+.foot-links a{color:rgba(255,255,255,0.4);text-decoration:none;}
+.foot-links a:hover{color:#FFF2B2;}
 
 :root{--blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;}
 body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
@@ -121,8 +130,19 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 <div class="catalogue" id="catalogue"></div>
 
 <div class="foot">
-  <div class="fl">Get Up Corporate © 2026</div>
-  <div class="fl">Paris, Certifié Qualiopi</div>
+  <div class="foot-top">
+    <div class="foot-brand">Get Up Corporate</div>
+    <div class="foot-cert">
+      <img src="/images/qualiopi.png" alt="Certifié Qualiopi" height="60" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+      <span class="foot-cert-fallback">Certifié Qualiopi</span>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© Get Up Corporate. Tous droits réservés.</div>
+    <div class="foot-links">
+      <a href="mentions-legales/index.html">Mentions légales</a> · <a href="confidentialite/index.html">Politique de confidentialité</a> · <a href="cgv/index.html">CGV</a>
+    </div>
+  </div>
 </div>
 
 <script src="assets/formations-data.js"></script>
