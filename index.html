@@ -33,18 +33,13 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .hl-title{display:flex;flex-direction:column;font-family:'Syne',sans-serif;font-size:clamp(5rem,11vw,9.5rem);font-weight:800;line-height:0.9;text-transform:uppercase;}
 .hl-solid{color:#FFF2A1;}
 .hl-outline{color:transparent;-webkit-text-stroke:3px #FFF2A1;}
-.hr{position:relative;background:linear-gradient(135deg,#ffffff 0%,#ffffff 65%,rgba(13,65,154,0.05) 100%);border-radius:32px;padding:56px 48px;display:flex;align-items:center;min-height:420px;overflow:hidden;}
+.hr{background:#ffffff;border-radius:32px;padding:56px 48px;display:flex;align-items:center;min-height:420px;overflow:hidden;}
 .hr-content{position:relative;}
-.hr-quote{position:absolute;top:-52px;left:-6px;font-family:'Syne',sans-serif;font-size:160px;font-weight:800;color:rgba(13,65,154,0.08);line-height:1;pointer-events:none;user-select:none;}
-.hr-eyebrow{position:relative;display:inline-flex;align-items:center;gap:8px;font-family:'Jost',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0D419A;background:rgba(13,65,154,0.08);padding:8px 16px;border-radius:999px;margin-bottom:24px;}
-.hr-eyebrow-dot{width:6px;height:6px;border-radius:50%;background:#F7D000;flex-shrink:0;}
+.hr-quote{position:absolute;top:-52px;left:-6px;font-family:'Syne',sans-serif;font-size:160px;font-weight:800;color:rgba(13,65,154,0.07);line-height:1;pointer-events:none;user-select:none;}
 .hr-heading{position:relative;font-family:'Jost',sans-serif;font-size:clamp(1.5rem,3vw,2.5rem);font-weight:700;color:#012460;line-height:1.3;max-width:520px;text-transform:uppercase;}
-.hr-mark{position:relative;display:inline-block;background:linear-gradient(180deg,transparent 58%,#FFF2A1 58%);padding:0 2px;}
-.hr-mark svg{position:absolute;left:-4%;bottom:-14px;width:108%;height:10px;overflow:visible;}
-.hr-sub{position:relative;display:inline-flex;align-items:center;gap:10px;font-family:'Jost',sans-serif;font-size:12px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0D419A;margin-top:28px;background:rgba(13,65,154,0.06);padding:10px 18px 10px 14px;border-radius:999px;}
-.hr-sub-bar{width:16px;height:2px;background:#0D419A;flex-shrink:0;}
-.hr-dots{position:absolute;right:40px;bottom:32px;display:grid;grid-template-columns:repeat(2,6px);gap:6px;}
-.hr-dots span{width:6px;height:6px;border-radius:50%;background:rgba(13,65,154,0.15);}
+.hr-mark{background:linear-gradient(180deg,transparent 58%,#FFF2A1 58%);padding:0 2px;}
+.hr-sub{position:relative;display:flex;align-items:center;gap:12px;font-family:'Jost',sans-serif;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#0D419A;margin-top:24px;}
+.hr-sub-bar{width:28px;height:2px;background:#0D419A;flex-shrink:0;}
 .hero-cta{margin:24px auto 0;width:100%;max-width:100%;min-height:100px;border-radius:24px;background:#0a2d7a;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding:40px 48px;text-decoration:none;box-sizing:border-box;}
 .hero-cta-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:#FFF2B2;text-align:left;}
 .hero-cta-icon{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;width:56px;height:56px;border-radius:50%;background:#FFF2B2;color:#0D419A;font-size:1.4rem;font-weight:700;}
@@ -114,11 +109,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
     <div class="hr">
       <div class="hr-content">
         <span class="hr-quote" aria-hidden="true">"</span>
-        <span class="hr-eyebrow"><span class="hr-eyebrow-dot"></span>Notre conviction</span>
-        <p class="hr-heading">Réapprendre aux humains à <span class="hr-mark">se parler<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><path d="M0,6 Q15,0 30,5 T60,5 T100,4" fill="none" stroke="#0D419A" stroke-width="2.5" stroke-linecap="round"/></svg></span>.</p>
+        <p class="hr-heading">Réapprendre aux humains à <span class="hr-mark">se parler</span>.</p>
         <div class="hr-sub"><span class="hr-sub-bar"></span>L'impro au service des relations professionnelles.</div>
       </div>
-      <div class="hr-dots" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
     </div>
   </div>
   <a href="formations.html" class="hero-cta">
