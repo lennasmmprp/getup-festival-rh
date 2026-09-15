@@ -9,7 +9,7 @@
  *
  * Exemple attendu : "https://calendly.com/getup-corporate/decouverte"
  */
-var CALENDLY_URL = "";
+var CALENDLY_URL = "https://calendly.com/lenna-smm-pro";
 
 /*
  * INSTAGRAM_URL : lien du compte Instagram Impro Club. Laisser vide tant
