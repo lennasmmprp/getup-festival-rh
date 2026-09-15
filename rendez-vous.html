@@ -26,18 +26,24 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .nr a.active{font-weight:800;}
 .ncta{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;background:#012460;color:#FFF2A1;padding:12px 24px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;border:none;cursor:pointer;justify-self:end;text-decoration:none;display:inline-block;}
 
-.rdv-hero{background:#0D419A;padding:80px 48px;text-align:center;}
+.rdv-wrap{background:#f8f7f3;padding:24px;}
+.rdv-hero{background:radial-gradient(ellipse at 70% 20%,#1a4fc4 0%,#0a2d7a 35%,#071e52 70%,#040f2e 100%);border-radius:32px;padding:80px 48px;text-align:center;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
 .rdv-title{font-family:'Syne',sans-serif;font-size:clamp(2rem,4vw,3rem);font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:#FFF2B2;}
 .rdv-pitch{font-size:16px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.6;max-width:480px;margin:16px auto 0;}
 .rdv-context{display:inline-flex;flex-direction:column;gap:4px;margin-top:32px;padding:16px 24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;}
 .rdv-context-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,242,178,0.6);letter-spacing:2px;text-transform:uppercase;}
 .rdv-context-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#FFF2B2;}
 
-.rdv-cta-section{background:#f8f7f3;padding:64px 48px;text-align:center;}
-.rdv-points{display:flex;justify-content:center;gap:48px;flex-wrap:wrap;margin-bottom:48px;}
+.rdv-cta-section{background:#ffffff;border-radius:32px;margin-top:24px;padding:64px 48px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.rdv-points{display:flex;justify-content:center;gap:0;flex-wrap:wrap;margin-bottom:48px;}
+.rdv-point{padding:0 40px;position:relative;}
+.rdv-point+.rdv-point::before{content:'';position:absolute;left:0;top:4px;bottom:4px;width:1px;background:rgba(0,0,0,0.08);}
+.rdv-point-dot{width:6px;height:6px;border-radius:50%;background:#F7D000;margin:0 auto 10px;}
 .rdv-point-n{font-family:'Jost',sans-serif;font-size:22px;font-weight:900;color:#0D419A;}
 .rdv-point-l{font-family:'Jost',sans-serif;font-size:11px;font-weight:700;color:rgba(0,0,0,0.35);text-transform:uppercase;letter-spacing:2px;margin-top:4px;}
-.rdv-cta-btn{display:inline-block;background:#0D419A;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:18px 48px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;}
+.rdv-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#0D419A;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:18px 48px;border-radius:2px;text-decoration:none;border:none;cursor:pointer;transition:transform .2s,box-shadow .2s,background .2s;}
+.rdv-cta-btn:hover{background:#0a2d7a;transform:translateY(-2px);box-shadow:0 8px 24px rgba(13,65,154,0.3);}
+.rdv-cta-note{margin-top:20px;font-size:12px;color:rgba(0,0,0,0.35);}
 
 .foot{background:#012460;padding:48px;}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;}
@@ -54,9 +60,10 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 @media (max-width:860px){
   nav{margin:14px 16px 0;padding:10px 18px;max-width:100%;}
   .nr{justify-content:center;row-gap:10px;column-gap:18px;}
+  .rdv-wrap{padding:16px;}
   .rdv-hero{padding:56px 28px;}
-  .rdv-cta-section{padding:48px 28px;}
-  .rdv-points{gap:32px;}
+  .rdv-cta-section{padding:40px 24px;}
+  .rdv-point{padding:0 20px;}
 }
 </style>
 </head>
@@ -73,22 +80,25 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   <a href="rendez-vous.html" class="ncta active" aria-current="page">Prendre RDV</a>
 </nav>
 
-<div class="rdv-hero">
-  <div class="rdv-title">Prendre rendez-vous</div>
-  <p class="rdv-pitch">Un appel de 30 min pour découvrir comment GetUp peut transformer vos équipes.</p>
-  <div class="rdv-context" id="rdvContext" hidden>
-    <span class="rdv-context-label">Vous nous contactez au sujet de</span>
-    <span class="rdv-context-title" id="rdvContextTitle"></span>
+<div class="rdv-wrap">
+  <div class="rdv-hero">
+    <div class="rdv-title">Prendre rendez-vous</div>
+    <p class="rdv-pitch">Un appel de 30 min pour découvrir comment GetUp peut transformer vos équipes.</p>
+    <div class="rdv-context" id="rdvContext" hidden>
+      <span class="rdv-context-label">Vous nous contactez au sujet de</span>
+      <span class="rdv-context-title" id="rdvContextTitle"></span>
+    </div>
   </div>
-</div>
 
-<div class="rdv-cta-section">
-  <div class="rdv-points">
-    <div><div class="rdv-point-n">30 min</div><div class="rdv-point-l">Appel découverte</div></div>
-    <div><div class="rdv-point-n">Gratuit</div><div class="rdv-point-l">Sans engagement</div></div>
-    <div><div class="rdv-point-n">Sous 24h</div><div class="rdv-point-l">Réponse garantie</div></div>
+  <div class="rdv-cta-section">
+    <div class="rdv-points">
+      <div class="rdv-point"><div class="rdv-point-dot"></div><div class="rdv-point-n">30 min</div><div class="rdv-point-l">Appel découverte</div></div>
+      <div class="rdv-point"><div class="rdv-point-dot"></div><div class="rdv-point-n">Gratuit</div><div class="rdv-point-l">Sans engagement</div></div>
+      <div class="rdv-point"><div class="rdv-point-dot"></div><div class="rdv-point-n">Sous 24h</div><div class="rdv-point-l">Réponse garantie</div></div>
+    </div>
+    <a href="https://calendly.com/lenna-smm-pro/30min" target="_blank" rel="noopener" id="rdvCtaBtn" class="rdv-cta-btn">Réserver mon appel →</a>
+    <p class="rdv-cta-note">Choisissez le créneau qui vous arrange, on s'occupe du reste.</p>
   </div>
-  <a href="https://calendly.com/lenna-smm-pro/30min" target="_blank" rel="noopener" id="rdvCtaBtn" class="rdv-cta-btn">Réserver mon appel →</a>
 </div>
 
 <div class="foot">
