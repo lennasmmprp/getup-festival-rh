@@ -33,7 +33,10 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .ic-solid{color:#FFF2A1;}
 .ic-outline{color:transparent;-webkit-text-stroke:2px #FFF2A1;}
 .ic-pitch{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:500;color:rgba(255,242,161,0.85);line-height:1.6;max-width:420px;}
-.ic-right{background:#ffffff;border-radius:32px;display:flex;align-items:center;justify-content:center;padding:48px;min-height:420px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.ic-right{position:relative;background:repeating-linear-gradient(100deg,#7a0e1e 0px,#8f1526 40px,#6b0a18 80px,#9c1a2c 120px);border-radius:32px;display:flex;align-items:center;justify-content:center;padding:64px 48px 48px;min-height:420px;overflow:hidden;box-shadow:inset 0 0 60px rgba(0,0,0,0.35),0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.ic-right::before{content:'';position:absolute;top:0;left:0;right:0;height:36px;background:repeating-radial-gradient(circle at 18px -6px,#4a0710 0 9px,#7a0e1e 9px 18px);z-index:1;}
+.ic-right::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,0.1) 0px,transparent 10px,rgba(0,0,0,0.18) 20px,transparent 30px);pointer-events:none;}
+.ic-right img{position:relative;z-index:2;}
 
 
 .foot{background:#012460;padding:48px;}
