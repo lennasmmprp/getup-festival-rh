@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impro Club — GetUp Corporate</title>
-  <meta name="description" content="Impro Club, le spectacle d'improvisation théâtrale GetUp Corporate qui fédère vos équipes sur scène.">
+  <title>Prendre rendez-vous — GetUp Corporate</title>
+  <meta name="description" content="Prenez rendez-vous avec GetUp Corporate : quinze minutes pour identifier la formation ou le format adapté à votre équipe.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -26,15 +26,21 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .nr a.active{font-weight:800;}
 .ncta{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;background:#012460;color:#FFF2A1;padding:12px 24px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;border:none;cursor:pointer;justify-self:end;text-decoration:none;display:inline-block;}
 
-.ic-wrap{background:#F8F5EC;padding:24px;}
-.ic-hero{max-width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.ic-left{background: radial-gradient(ellipse at 70% 20%, #1a4fc4 0%, #0a2d7a 35%, #071e52 70%, #040f2e 100%);border-radius:32px;display:flex;flex-direction:column;justify-content:center;padding:48px;min-height:420px;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
-.ic-title{display:flex;flex-direction:column;font-family:'Syne',sans-serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:800;line-height:0.95;text-transform:uppercase;margin-bottom:24px;}
-.ic-solid{color:#FFF2A1;}
-.ic-outline{color:transparent;-webkit-text-stroke:2px #FFF2A1;}
-.ic-pitch{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:500;color:rgba(255,242,161,0.85);line-height:1.6;max-width:420px;}
-.ic-right{background:#ffffff;border-radius:32px;display:flex;align-items:center;justify-content:center;padding:48px;min-height:420px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.rdv-wrap{background:#F8F5EC;padding:24px;}
+.rdv-hero{max-width:100%;margin:0 auto;background: radial-gradient(ellipse at 70% 20%, #1a4fc4 0%, #0a2d7a 35%, #071e52 70%, #040f2e 100%);border-radius:32px;padding:72px 48px;text-align:center;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
+.rdv-title{font-family:'Syne',sans-serif;font-size:clamp(2.5rem,6vw,4.5rem);font-weight:800;line-height:0.95;text-transform:uppercase;color:#FFF2A1;margin-bottom:24px;}
+.rdv-pitch{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:500;color:rgba(255,242,161,0.85);line-height:1.6;max-width:560px;margin:0 auto;}
+.rdv-context{display:inline-flex;flex-direction:column;gap:4px;margin-top:32px;padding:16px 24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;}
+.rdv-context-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,242,161,0.6);letter-spacing:2px;text-transform:uppercase;}
+.rdv-context-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#FFF2A1;}
 
+.rdv-booking-wrap{max-width:100%;margin:24px auto 0;}
+.rdv-booking{background:#ffffff;border-radius:32px;padding:48px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.rdv-booking strong{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#012460;display:block;margin-bottom:12px;}
+.rdv-booking p{font-family:'Jost',sans-serif;font-size:14px;color:rgba(0,0,0,0.5);line-height:1.7;}
+.rdv-booking a{color:#0D419A;font-weight:600;text-decoration:none;}
+.rdv-booking a:hover{text-decoration:underline;}
+.rdv-booking iframe{border-radius:16px;}
 
 .foot{background:#012460;padding:48px;}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;}
@@ -51,9 +57,9 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 @media (max-width:860px){
   nav{margin:14px 16px 0;padding:10px 18px;max-width:100%;}
   .nr{justify-content:center;row-gap:10px;column-gap:18px;}
-  .ic-wrap{padding:16px;}
-  .ic-hero{grid-template-columns:1fr;max-width:100%;}
-  .ic-left,.ic-right{min-height:280px;padding:32px;}
+  .rdv-wrap{padding:16px;}
+  .rdv-hero{padding:40px 28px;}
+  .rdv-booking{padding:32px 24px;}
 }
 </style>
 </head>
@@ -63,34 +69,29 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   <a href="/index.html" class="nl"><img src="/images/rh get.png" alt="GetUp Corporate" height="48px" style="object-fit:contain;display:block"></a>
   <div class="nr">
     <a href="formations.html">Formations</a>
-    <a href="impro-club.html" class="active" aria-current="page">Impro Club</a>
+    <a href="impro-club.html">Impro Club</a>
     <a>Artistes</a>
     <a>À propos</a>
   </div>
-  <a href="rendez-vous.html" class="ncta">Prendre RDV</a>
+  <a href="rendez-vous.html" class="ncta active" aria-current="page">Prendre RDV</a>
 </nav>
 
-<div class="ic-wrap">
-  <div class="ic-hero">
-    <div class="ic-left">
-      <div class="ic-title">
-        <span class="ic-solid">Impro</span>
-        <span class="ic-outline">Club</span>
-      </div>
-      <p class="ic-pitch">Le spectacle d'improvisation qui fédère vos équipes, sur scène, avec des situations tirées de votre quotidien professionnel.</p>
-      <p style="font-size:18px;font-weight:500;color:#ffffff;line-height:1.7;margin-top:24px;max-width:480px;">
-        L'impro club est un plateau d'artiste 100% improvisé en France.<br><br>
-        Le concept est simple : 3 artistes seuls sur scène pendant 15 minutes de liberté, le tout en improvisation totale.<br><br>
-        Vous ne savez pas ce que vous allez voir, ils ne savent pas ce qu'ils vont faire. Une seule certitude, cette soirée sera mémorable !<br><br>
-        Un micro, un peu d'inspi, c'est tout ce qu'il faut à ces artistes pour vous faire passer un bon moment !<br><br>
-        Chaque soir ils seront différents, chaque soir ils seront surprenants, chaque soir vous aurez envie d'être présent.
-      </p>
-    </div>
-    <div class="ic-right">
-      <img src="/images/IMPROCLUB.jpg" alt="Affiche Impro Club" style="max-height:640px;width:auto;max-width:100%;object-fit:contain;border-radius:12px;">
+<div class="rdv-wrap">
+  <div class="rdv-hero">
+    <div class="rdv-title">Prendre RDV</div>
+    <p class="rdv-pitch">Quinze minutes pour identifier la formation ou le format adapté à votre équipe. Pas de discours commercial : on vous écoute décrire votre contexte et on vous dit honnêtement si l'improvisation théâtrale peut vous aider.</p>
+    <div class="rdv-context" id="rdvContext" hidden>
+      <span class="rdv-context-label">Vous nous contactez au sujet de</span>
+      <span class="rdv-context-title" id="rdvContextTitle"></span>
     </div>
   </div>
-  <a href="https://instagram.com" id="icInstagramLink" target="_blank" rel="noopener" style="display:block;margin-top:24px;color:#0D419A;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;">Instagram →</a>
+
+  <div class="rdv-booking-wrap">
+    <div class="rdv-booking" id="rdvBooking">
+      <strong>Calendrier de réservation à venir</strong>
+      <p>En attendant, écrivez-nous à <a href="mailto:contact@getup-corporate.fr" id="rdvMailto">contact@getup-corporate.fr</a></p>
+    </div>
+  </div>
 </div>
 
 <div class="foot">
@@ -109,13 +110,31 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   </div>
 </div>
 
+<script src="assets/formations-data.js"></script>
 <script src="assets/site-config.js"></script>
 <script>
-  // Lien Instagram centralisé dans assets/site-config.js (INSTAGRAM_URL) :
-  // le renseigner une seule fois là-bas suffit à l'activer ici.
-  if (INSTAGRAM_URL) {
-    document.getElementById('icInstagramLink').href = INSTAGRAM_URL;
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var formationId = params.get('formation');
+  var f = typeof getFormationById === 'function' ? getFormationById(formationId) : null;
+
+  if (f) {
+    document.getElementById('rdvContextTitle').textContent = f.title;
+    document.getElementById('rdvContext').hidden = false;
+
+    var subject = 'Rendez-vous — ' + f.title;
+    var body = 'Bonjour, je souhaite échanger au sujet de la formation « ' + f.title + ' ».';
+    document.getElementById('rdvMailto').href = 'mailto:contact@getup-corporate.fr?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
   }
+
+  // Calendrier centralisé dans assets/site-config.js (CALENDLY_URL) :
+  // le renseigner une seule fois là-bas suffit à l'activer ici.
+  if (typeof CALENDLY_URL !== 'undefined' && CALENDLY_URL) {
+    var embed = document.getElementById('rdvBooking');
+    var utm = f ? '&utm_content=' + encodeURIComponent(f.id) : '';
+    embed.innerHTML = '<iframe src="' + CALENDLY_URL + '?utm_campaign=site' + utm + '" style="width:100%;min-height:700px;border:0;" title="Prendre rendez-vous"></iframe>';
+  }
+})();
 </script>
 
 </body>
