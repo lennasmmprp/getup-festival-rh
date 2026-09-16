@@ -59,16 +59,26 @@ module.exports = async function handler(req, res) {
   }
 
   const formation = getFormationById(formationId);
+  const hasResource = !!(formation && formation.ressourceNom);
 
-  const resourceIntro = formation
-    ? (formation.ressourceNom
-        ? 'Comme demandé, voici « ' + escapeHtml(formation.ressourceNom) + ' », en lien avec la formation ' + escapeHtml(formation.title) + '.'
+  const introText = formation
+    ? (hasResource
+        ? 'Merci ' + escapeHtml(firstName) + ' ! Comme promis, votre ressource sur « ' + escapeHtml(formation.title) + ' » est prête.'
         : 'Votre ressource sur « ' + escapeHtml(formation.title) + ' » est en cours de finalisation par notre équipe — elle vous parviendra très vite. En attendant, voici l\'essentiel : ' + escapeHtml(formation.objective))
     : 'Merci pour votre demande. Notre équipe revient vers vous rapidement avec les informations adaptées à votre besoin.';
 
-  const resourceLinkHtml = formation && formation.ressourceUrl
-    ? '<tr><td style="padding:8px 0 4px;">' +
-      '<a href="' + escapeHtml(formation.ressourceUrl) + '" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:14px 28px;border-radius:6px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">Télécharger la ressource →</a>' +
+  // Carte ressource mise en avant, uniquement quand une vraie ressource existe
+  // (formation.ressourceNom renseigné) — sinon on reste sur un simple texte.
+  const resourceCardHtml = hasResource
+    ? '<tr><td style="padding:4px 0 8px;">' +
+      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4fb;border:1px solid #dde6f7;border-radius:12px;">' +
+      '<tr><td style="padding:28px 28px 24px;">' +
+      '<span style="display:inline-block;background:#FFF2B2;color:#0D419A;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:14px;">Votre ressource</span><br>' +
+      '<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:800;color:#012460;line-height:1.3;margin-bottom:10px;">' + escapeHtml(formation.ressourceNom) + '</span>' +
+      '<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#4a5568;margin-bottom:20px;">' + escapeHtml(formation.objective) + '</span>' +
+      '<a href="' + escapeHtml(formation.ressourceUrl) + '" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:14px 30px;border-radius:6px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">Télécharger la ressource →</a>' +
+      '</td></tr>' +
+      '</table>' +
       '</td></tr>'
     : '';
 
@@ -77,21 +87,26 @@ module.exports = async function handler(req, res) {
     '<tr><td align="center">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;font-family:Arial,Helvetica,sans-serif;">' +
 
+    // Accent haut
+    '<tr><td style="background:#FFF2B2;height:6px;line-height:6px;font-size:0;">&nbsp;</td></tr>' +
+
     // Bandeau bleu
     '<tr><td style="background:#0D419A;padding:32px 40px;text-align:center;">' +
-    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">GetUp Corporate</span>' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">GetUp Corporate</span><br>' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.5px;">Formations par l\'improvisation théâtrale</span>' +
     '</td></tr>' +
 
     // Corps
-    '<tr><td style="padding:40px;">' +
+    '<tr><td style="padding:36px 40px 8px;">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' +
     '<tr><td style="padding-bottom:16px;">' +
     '<span style="font-family:Arial,Helvetica,sans-serif;font-size:19px;font-weight:800;color:#012460;">Bonjour ' + escapeHtml(firstName) + ',</span>' +
     '</td></tr>' +
-    '<tr><td style="padding-bottom:20px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#333333;">' + resourceIntro + '</td></tr>' +
-    resourceLinkHtml +
-    '<tr><td style="padding-top:24px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#333333;">' +
-    'Si vous souhaitez aller plus loin, vous pouvez <a href="https://calendly.com/lenna-smm-pro/30min" style="color:#0D419A;font-weight:700;text-decoration:none;">prendre rendez-vous avec nous</a> pour en discuter de vive voix.' +
+    '<tr><td style="padding-bottom:20px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#333333;">' + introText + '</td></tr>' +
+    resourceCardHtml +
+    '<tr><td style="padding:24px 0 8px;border-top:1px solid #f0f0f0;margin-top:8px;">' +
+    '<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#333333;margin-bottom:12px;">Envie d\'aller plus loin ?</span>' +
+    '<a href="https://calendly.com/lenna-smm-pro/30min" style="display:inline-block;background:#ffffff;color:#0D419A;padding:12px 24px;border-radius:6px;border:1.5px solid #0D419A;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.3px;">Réserver un appel de 30 min →</a>' +
     '</td></tr>' +
     '</table>' +
     '</td></tr>' +

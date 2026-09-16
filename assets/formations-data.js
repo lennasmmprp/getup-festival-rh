@@ -43,8 +43,10 @@ var FORMATIONS = [
     experience: "Exercices d'improvisation autour de l'inconnu et de l'adaptation. Mises en situation de collaboration humain/IA. Temps d'expression libre des peurs et des attentes.",
     programme: "Expression des représentations et peurs, démystification par l'expérimentation, exercices de prompting collectif, construction d'une posture d'équipe face à l'IA, plan d'action partagé",
     benefits: ["Équipes alignées sur l'usage réel de l'IA", "Réduction des résistances internes", "Gain de productivité immédiat", "Direction et terrain réconciliés sur le sujet"],
-    ressourceUrl: null,
-    ressourceNom: null
+    // TEST TEMPORAIRE — contenu placeholder à but de démo visuelle de l'email
+    // (thème chat, clin d'œil "chat/IA"), à remplacer par la vraie ressource.
+    ressourceUrl: "https://cataas.com/cat",
+    ressourceNom: "Le guide du Chat qui a apprivoisé l'IA"
   },
   {
     id: "communication",
