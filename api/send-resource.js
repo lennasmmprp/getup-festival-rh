@@ -67,17 +67,43 @@ module.exports = async function handler(req, res) {
     : 'Merci pour votre demande. Notre équipe revient vers vous rapidement avec les informations adaptées à votre besoin.';
 
   const resourceLinkHtml = formation && formation.ressourceUrl
-    ? '<p><a href="' + escapeHtml(formation.ressourceUrl) + '" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:12px 24px;border-radius:4px;text-decoration:none;font-weight:700;">Télécharger la ressource →</a></p>'
+    ? '<tr><td style="padding:8px 0 4px;">' +
+      '<a href="' + escapeHtml(formation.ressourceUrl) + '" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:14px 28px;border-radius:6px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">Télécharger la ressource →</a>' +
+      '</td></tr>'
     : '';
 
   const visitorHtml =
-    '<div style="font-family:sans-serif;color:#0a0a0a;line-height:1.6;max-width:560px;margin:0 auto;">' +
-    '<h1 style="color:#0D419A;font-size:20px;">Bonjour ' + escapeHtml(firstName) + ',</h1>' +
-    '<p>' + resourceIntro + '</p>' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8f7f3;padding:40px 16px;">' +
+    '<tr><td align="center">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;font-family:Arial,Helvetica,sans-serif;">' +
+
+    // Bandeau bleu
+    '<tr><td style="background:#0D419A;padding:32px 40px;text-align:center;">' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">GetUp Corporate</span>' +
+    '</td></tr>' +
+
+    // Corps
+    '<tr><td style="padding:40px;">' +
+    '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' +
+    '<tr><td style="padding-bottom:16px;">' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:19px;font-weight:800;color:#012460;">Bonjour ' + escapeHtml(firstName) + ',</span>' +
+    '</td></tr>' +
+    '<tr><td style="padding-bottom:20px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#333333;">' + resourceIntro + '</td></tr>' +
     resourceLinkHtml +
-    '<p>Si vous souhaitez aller plus loin, vous pouvez <a href="https://calendly.com/lenna-smm-pro/30min" style="color:#0D419A;">prendre rendez-vous avec nous</a> pour en discuter de vive voix.</p>' +
-    '<p style="margin-top:32px;color:rgba(0,0,0,0.5);font-size:12px;">GetUp Corporate — vous recevez cet email suite à votre demande sur notre site.</p>' +
-    '</div>';
+    '<tr><td style="padding-top:24px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#333333;">' +
+    'Si vous souhaitez aller plus loin, vous pouvez <a href="https://calendly.com/lenna-smm-pro/30min" style="color:#0D419A;font-weight:700;text-decoration:none;">prendre rendez-vous avec nous</a> pour en discuter de vive voix.' +
+    '</td></tr>' +
+    '</table>' +
+    '</td></tr>' +
+
+    // Footer
+    '<tr><td style="background:#f8f7f3;padding:24px 40px;text-align:center;border-top:1px solid #eeeeee;">' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#999999;">GetUp Corporate — vous recevez cet email suite à votre demande sur notre site.</span>' +
+    '</td></tr>' +
+
+    '</table>' +
+    '</td></tr>' +
+    '</table>';
 
   const notifyHtml =
     '<div style="font-family:sans-serif;line-height:1.6;">' +
