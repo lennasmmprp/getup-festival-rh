@@ -4,287 +4,313 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recevoir ma ressource — GetUp Corporate</title>
-  <meta name="description" content="Recevez par email une ressource pratique liée à l'une de nos formations, et prenez rendez-vous avec Laurie si vous souhaitez aller plus loin.">
+  <meta name="description" content="Recevez par email une ressource pratique liée à l'une de nos formations.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="../style.css">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,400;0,700;0,900;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;overflow-x:hidden;}
+:root{--blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;}
+body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
+nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:24px;padding:14px 28px;background:rgba(255,255,255,0.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:999px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.nl{display:block;justify-self:start;}
+.nr{display:flex;align-items:center;gap:32px;min-width:0;flex-wrap:wrap;}
+.nr a{font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:600;color:#012460;letter-spacing:0.5px;text-transform:uppercase;text-decoration:none;transition:opacity .15s;}
+.nr a.active{font-weight:800;}
+.ncta{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;background:#012460;color:#FFF2A1;padding:12px 24px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;border:none;cursor:pointer;justify-self:end;text-decoration:none;display:inline-block;}
+
+.res-wrap{background:#f8f7f3;padding:24px;}
+.res-hero{background:radial-gradient(ellipse at 70% 20%,#1a4fc4 0%,#0a2d7a 35%,#071e52 70%,#040f2e 100%);border-radius:32px;padding:64px 48px;text-align:center;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
+.res-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:rgba(255,242,178,0.7);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
+.res-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:#FFF2B2;}
+.res-pitch{font-size:15px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.6;max-width:480px;margin:16px auto 0;}
+.res-summary{display:inline-flex;flex-direction:column;gap:4px;margin-top:28px;padding:16px 24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;max-width:420px;}
+.res-summary-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,242,178,0.6);letter-spacing:2px;text-transform:uppercase;}
+.res-summary-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#FFF2B2;}
+.res-summary-text{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;margin-top:4px;}
+
+.res-card{background:#ffffff;border-radius:32px;margin-top:24px;padding:56px 48px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);max-width:640px;margin-left:auto;margin-right:auto;}
+.res-not-found{text-align:center;font-size:14px;color:rgba(0,0,0,0.5);line-height:1.7;}
+.res-not-found a{color:#0D419A;font-weight:600;text-decoration:none;}
+.res-not-found a:hover{text-decoration:underline;}
+
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
+.form-field{display:flex;flex-direction:column;gap:6px;}
+.form-field.full{grid-column:1 / -1;}
+.form-field label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#012460;text-transform:uppercase;letter-spacing:0.5px;}
+.optional-tag{color:rgba(0,0,0,0.35);font-weight:500;text-transform:none;letter-spacing:0;}
+.form-field input{font-family:'Jost',sans-serif;font-size:14px;padding:12px 14px;border:1px solid rgba(0,0,0,0.12);border-radius:8px;background:#f8f7f3;color:#0a0a0a;outline:none;transition:border-color .15s,background .15s;}
+.form-field input:focus{border-color:#0D419A;background:#ffffff;}
+.form-field input.has-error{border-color:#c0392b;}
+.form-field-error{font-size:11px;color:#c0392b;min-height:14px;}
+.form-consent{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(0,0,0,0.6);line-height:1.5;cursor:pointer;}
+.form-consent input{margin-top:3px;}
+.form-submit-row{margin-top:12px;}
+.res-submit-btn{width:100%;background:#0D419A;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:16px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
+.res-submit-btn:hover{background:#0a2d7a;}
+.res-submit-btn:disabled{opacity:0.6;cursor:default;}
+.form-global-error{color:#c0392b;font-size:12px;margin-top:10px;}
+.res-privacy-note{margin-top:24px;font-size:11px;line-height:1.6;color:rgba(0,0,0,0.4);}
+.res-privacy-note a{color:#0D419A;font-weight:600;text-decoration:none;}
+.res-privacy-note a:hover{text-decoration:underline;}
+
+.res-success{text-align:center;padding:8px;}
+.res-success strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;color:#012460;font-size:17px;margin-bottom:8px;}
+.res-success p{font-size:14px;color:rgba(0,0,0,0.55);line-height:1.6;}
+
+.res-cta{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);max-width:640px;margin-left:auto;margin-right:auto;}
+.res-cta h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:#012460;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
+.res-cta p{font-size:14px;color:rgba(0,0,0,0.5);line-height:1.6;margin-bottom:20px;}
+.res-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#0a2d7a;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 32px;border-radius:2px;text-decoration:none;transition:background .2s;}
+.res-cta-btn:hover{background:#071e52;}
+
+.foot{background:#012460;padding:48px;}
+.foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;}
+.foot-brand{color:#FFF2B2;font-size:clamp(1.5rem,3vw,2.5rem);font-weight:900;text-transform:uppercase;}
+.foot-cert{display:flex;align-items:center;}
+.foot-cert img{height:190px;width:auto;object-fit:contain;display:block;border-radius:16px;}
+.foot-cert-fallback{display:none;color:#FFF2B2;font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:1px;}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:12px;border-top:0.5px solid rgba(255,255,255,0.1);margin-top:32px;padding-top:24px;}
+.foot-copy{font-size:11px;color:rgba(255,255,255,0.4);}
+.foot-links{font-size:11px;color:rgba(255,255,255,0.4);}
+.foot-links a{color:rgba(255,255,255,0.4);text-decoration:none;}
+.foot-links a:hover{color:#FFF2B2;}
+
+@media (max-width:860px){
+  nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:14px 16px 0;padding:12px 18px;border-radius:20px;max-width:calc(100% - 32px);}
+  .nl{order:1;}
+  .ncta{order:2;}
+  .nr{order:3;width:100%;min-width:0;flex-wrap:wrap;justify-content:center;row-gap:8px;column-gap:16px;}
+  .nr a{font-size:11px;}
+  .res-wrap{padding:16px;}
+  .res-hero{padding:40px 24px;}
+  .res-card,.res-cta{padding:32px 24px;}
+  .form-grid{grid-template-columns:1fr;gap:16px;}
+}
+@media (max-width:600px){
+  .foot{padding:32px 24px;}
+  .foot-top{gap:20px;}
+  .foot-brand{font-size:1.6rem;}
+  .foot-cert img{height:64px;}
+  .foot-bottom{margin-top:24px;padding-top:16px;}
+  .foot-links{font-size:10px;}
+}
+</style>
 </head>
 <body>
 
-  <header class="site-header" id="siteHeader">
-    <div class="site-header-inner">
-      <a href="../index.html" class="logo-link"><img src="../assets/logo.png" alt="GetUp Corporate" class="logo-image"></a>
+<nav>
+  <a href="/index.html" class="nl"><img src="/images/rh get.png" alt="GetUp Corporate" height="48px" style="object-fit:contain;display:block"></a>
+  <div class="nr">
+    <a href="/formations.html">Formations</a>
+    <a href="/impro-club.html">Impro Club</a>
+    <a>Artistes</a>
+    <a>À propos</a>
+  </div>
+  <a href="/rendez-vous.html" class="ncta">Prendre RDV</a>
+</nav>
 
-      <nav class="site-nav" id="siteNav">
-        <a href="../formations/index.html" aria-current="page">Nos formations</a>
-        <a href="../impro-club/index.html">Impro Club</a>
-        <a href="../artistes/index.html">Nos artistes &amp; formateurs</a>
-        <a href="../a-propos/index.html">À propos</a>
-      </nav>
-
-      <div class="site-header-actions">
-        <a href="../rendez-vous/index.html" class="btn btn-primary btn-nav">Prendre rendez-vous</a>
-        <button type="button" class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">
-          <span></span><span></span><span></span>
-          <span class="sr-only">Ouvrir le menu</span>
-        </button>
-      </div>
+<div class="res-wrap">
+  <div class="res-hero">
+    <div class="res-eyebrow">Ressource gratuite</div>
+    <div class="res-title" id="pageTitle">Recevoir une ressource</div>
+    <p class="res-pitch" id="pagePitch">Laissez-nous vos coordonnées pour recevoir votre ressource par email.</p>
+    <div class="res-summary" id="resourceSummary" hidden>
+      <span class="res-summary-label">Vous allez recevoir</span>
+      <span class="res-summary-title" id="resourceTitle"></span>
+      <span class="res-summary-text" id="resourceText"></span>
     </div>
-  </header>
+  </div>
 
-  <main>
-
-    <section class="page-hero">
-      <div class="page-hero-inner">
-        <p class="breadcrumb"><a href="../index.html">Accueil</a> / Recevoir ma ressource</p>
-        <span class="eyebrow">Ressource gratuite</span>
-        <h1 id="pageTitle">Recevoir une ressource</h1>
-        <p class="page-pitch" id="pagePitch">Laissez-nous vos coordonnées pour recevoir votre ressource par email.</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="section-inner" style="max-width: var(--content-width-narrow);">
-
-        <div class="resource-summary" id="resourceSummary" hidden>
-          <span class="eyebrow">Vous allez recevoir</span>
-          <h2 id="resourceTitle"></h2>
-          <p id="resourceText"></p>
-        </div>
-
-        <div id="formationNotFound" hidden style="margin-bottom: 32px;">
-          <p class="page-pitch">Nous n'avons pas retrouvé de formation correspondante. <a href="../formations/index.html" class="link-arrow">Voir toutes nos formations</a></p>
-        </div>
-
-        <form class="lead-form" id="leadForm" novalidate>
-          <input type="hidden" name="formation" id="formationIdField" value="">
-
-          <div class="form-grid">
-            <div class="form-field">
-              <label for="firstName">Prénom *</label>
-              <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
-              <div class="form-field-error" id="firstNameError"></div>
-            </div>
-            <div class="form-field">
-              <label for="lastName">Nom *</label>
-              <input type="text" id="lastName" name="lastName" required autocomplete="family-name">
-              <div class="form-field-error" id="lastNameError"></div>
-            </div>
-            <div class="form-field">
-              <label for="email">Adresse email *</label>
-              <input type="email" id="email" name="email" required autocomplete="email">
-              <div class="form-field-error" id="emailError"></div>
-            </div>
-            <div class="form-field">
-              <label for="phone">Téléphone <span class="optional-tag">(facultatif)</span></label>
-              <input type="tel" id="phone" name="phone" autocomplete="tel">
-              <div class="form-field-error"></div>
-            </div>
-            <div class="form-field" style="grid-column: 1 / -1;">
-              <label for="company">Entreprise / activité <span class="optional-tag">(facultatif)</span></label>
-              <input type="text" id="company" name="company" autocomplete="organization">
-              <div class="form-field-error"></div>
-            </div>
-          </div>
-
-          <div>
-            <label class="form-consent">
-              <input type="checkbox" id="consent" name="consent" required>
-              <span>J'accepte de recevoir cette ressource par email, ainsi que les communications associées de GetUp Corporate. *</span>
-            </label>
-            <div class="form-field-error" id="consentError"></div>
-          </div>
-
-          <div class="form-submit-row">
-            <button type="submit" class="btn btn-primary" id="submitBtn">Recevoir ma ressource</button>
-            <div class="form-global-error" id="globalError"></div>
-          </div>
-
-          <p style="margin-top: 24px; font-size: 0.82rem; line-height: 1.6; color: var(--text-faint);">Les informations recueillies sont utilisées par GetUp afin de traiter votre demande. Pour en savoir plus sur la gestion de vos données et vos droits, consultez notre <a href="/politique-de-confidentialite/" style="color: inherit; text-decoration: underline;">Politique de confidentialité</a>.</p>
-        </form>
-
-        <div class="form-success" id="formSuccess" hidden>
-          <strong>Merci ! Votre demande a bien été enregistrée.</strong>
-          <p>Vous allez recevoir votre ressource par email.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <section class="section" style="border-top: 1px solid var(--border);">
-      <div class="section-inner" style="max-width: var(--content-width-narrow);">
-        <div class="section-head">
-          <span class="eyebrow">Vous souhaitez aller plus loin ?</span>
-          <h2>Prenez rendez-vous avec Laurie</h2>
-        </div>
-
-        <div class="booking-embed" id="bookingEmbed">
-          <strong>Calendrier de réservation à intégrer</strong>
-          <p>Cet espace accueillera l'agenda en ligne (Calendly ou équivalent) pour choisir un créneau directement, sans quitter cette page.</p>
-          <p class="booking-fallback">En attendant, écrivez-nous à <a href="mailto:contact@getup-corporate.fr" id="bookingMailto">contact@getup-corporate.fr</a></p>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="footer-inner">
-      <div class="footer-col footer-brand">
-        <span class="logo-text">GetUp Corporate</span>
-        <p>Formations professionnelles par l'improvisation théâtrale.</p>
-      </div>
-
-      <div class="footer-col">
-        <h3>Nos formations</h3>
-        <a href="../formations/prise-de-parole/index.html">Prise de parole en public</a>
-        <a href="../formations/communication/index.html">Redécouvrir la communication</a>
-        <a href="../formations/ia/index.html">Apprivoiser l'IA</a>
-        <a href="../formations/generation-z/index.html">Dialoguer avec la génération Z</a>
-        <a href="../formations/recrutement/index.html">Recruter sans biais</a>
-        <a href="../formations/equipe-distance/index.html">Souder une équipe à distance</a>
-      </div>
-
-      <div class="footer-col">
-        <h3>Le studio</h3>
-        <a href="../impro-club/index.html">Impro Club</a>
-        <a href="../artistes/index.html">Nos artistes &amp; formateurs</a>
-        <a href="../a-propos/index.html">À propos</a>
-        <a href="../rendez-vous/index.html">Prendre rendez-vous</a>
-      </div>
-
-      <div class="footer-col">
-        <h3>Informations</h3>
-        <a href="../mentions-legales/index.html">Mentions légales</a>
-        <a href="../confidentialite/index.html">Confidentialité</a>
-        <a href="../contact/index.html">Contact</a>
-      </div>
+  <div class="res-card">
+    <div id="formationNotFound" hidden class="res-not-found">
+      Nous n'avons pas retrouvé de formation correspondante. <a href="/formations.html">Voir toutes nos formations →</a>
     </div>
 
-    <div class="footer-bottom">
-      <p>© 2026 GetUp Corporate</p>
+    <form id="leadForm" novalidate>
+      <input type="hidden" name="formation" id="formationIdField" value="">
+
+      <div class="form-grid">
+        <div class="form-field">
+          <label for="firstName">Prénom *</label>
+          <input type="text" id="firstName" name="firstName" required autocomplete="given-name">
+          <div class="form-field-error" id="firstNameError"></div>
+        </div>
+        <div class="form-field">
+          <label for="lastName">Nom *</label>
+          <input type="text" id="lastName" name="lastName" required autocomplete="family-name">
+          <div class="form-field-error" id="lastNameError"></div>
+        </div>
+        <div class="form-field">
+          <label for="email">Adresse email *</label>
+          <input type="email" id="email" name="email" required autocomplete="email">
+          <div class="form-field-error" id="emailError"></div>
+        </div>
+        <div class="form-field">
+          <label for="phone">Téléphone <span class="optional-tag">(facultatif)</span></label>
+          <input type="tel" id="phone" name="phone" autocomplete="tel">
+          <div class="form-field-error"></div>
+        </div>
+        <div class="form-field full">
+          <label for="company">Entreprise / activité <span class="optional-tag">(facultatif)</span></label>
+          <input type="text" id="company" name="company" autocomplete="organization">
+          <div class="form-field-error"></div>
+        </div>
+      </div>
+
+      <div>
+        <label class="form-consent">
+          <input type="checkbox" id="consent" name="consent" required>
+          <span>J'accepte de recevoir cette ressource par email, ainsi que les communications associées de GetUp Corporate. *</span>
+        </label>
+        <div class="form-field-error" id="consentError"></div>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="res-submit-btn" id="submitBtn">Recevoir ma ressource</button>
+        <div class="form-global-error" id="globalError"></div>
+      </div>
+
+      <p class="res-privacy-note">Les informations recueillies sont utilisées par GetUp afin de traiter votre demande. Pour en savoir plus sur la gestion de vos données et vos droits, consultez notre <a href="/politique-de-confidentialite/">Politique de confidentialité</a>.</p>
+    </form>
+
+    <div class="res-success" id="formSuccess" hidden>
+      <strong>Merci ! Votre demande a bien été enregistrée.</strong>
+      <p>Vous allez recevoir votre ressource par email.</p>
     </div>
-  </footer>
+  </div>
 
-  <script src="../assets/formations-data.js"></script>
-  <script src="../assets/site-config.js"></script>
-  <script>
-    (function () {
-      var params = new URLSearchParams(window.location.search);
-      var formationId = params.get('formation');
-      var f = typeof getFormationById === 'function' ? getFormationById(formationId) : null;
+  <div class="res-cta">
+    <h2>Envie d'aller plus loin ?</h2>
+    <p>Réservez un appel de 30 min pour en discuter directement avec nous.</p>
+    <a href="/rendez-vous.html" class="res-cta-btn">Prendre rendez-vous →</a>
+  </div>
+</div>
 
-      var mailto = document.getElementById('bookingMailto');
-      var calendlyUtmContent = 'inconnue';
+<div class="foot">
+  <div class="foot-top">
+    <div class="foot-brand">Get Up Corporate</div>
+    <div class="foot-cert">
+      <img src="/images/qualiopi.png" alt="Certifié Qualiopi" height="60" onerror="this.style.display='none';this.nextElementSibling.style.display='inline-block';">
+      <span class="foot-cert-fallback">Certifié Qualiopi</span>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <div class="foot-copy">© Get Up Corporate. Tous droits réservés.</div>
+    <div class="foot-links">
+      <a href="/mentions-legales/index.html">Mentions légales</a> · <a href="/politique-de-confidentialite/">Politique de confidentialité</a> · <a href="/cgv/index.html">CGV</a>
+    </div>
+  </div>
+</div>
 
-      if (f) {
-        document.title = 'Recevoir ma ressource — ' + f.title + ' — GetUp Corporate';
-        document.getElementById('pageTitle').textContent = 'Recevoir une ressource sur ' + f.title;
-        document.getElementById('pagePitch').textContent = f.desc;
-        document.getElementById('formationIdField').value = f.id;
-        calendlyUtmContent = f.id;
+<script src="/assets/formations-data.js"></script>
+<script>
+(function () {
+  var params = new URLSearchParams(window.location.search);
+  var formationId = params.get('formation');
+  var f = typeof getFormationById === 'function' ? getFormationById(formationId) : null;
 
-        var summary = document.getElementById('resourceSummary');
-        document.getElementById('resourceTitle').textContent = f.ressourceNom || ('Une ressource pratique sur ' + f.title);
-        document.getElementById('resourceText').textContent = f.ressourceNom
-          ? f.objective
-          : 'Laissez-nous vos coordonnées : nous vous envoyons par email un contenu pratique sur cette formation, directement applicable avec votre équipe. ' + f.objective;
-        summary.hidden = false;
+  if (f) {
+    document.title = 'Recevoir ma ressource — ' + f.title + ' — GetUp Corporate';
+    document.getElementById('pageTitle').textContent = 'Recevoir une ressource sur ' + f.title;
+    document.getElementById('pagePitch').textContent = f.desc;
+    document.getElementById('formationIdField').value = f.id;
 
-        var subject = 'Ressource — ' + f.title;
-        var body = 'Bonjour, je viens de demander la ressource liée à la formation « ' + f.title + ' ».';
-        mailto.href = 'mailto:contact@getup-corporate.fr?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-      } else {
-        document.getElementById('formationNotFound').hidden = false;
-        document.getElementById('pagePitch').textContent = 'Sélectionnez une formation depuis le catalogue pour recevoir sa ressource.';
-      }
+    var summary = document.getElementById('resourceSummary');
+    document.getElementById('resourceTitle').textContent = f.ressourceNom || ('Une ressource pratique sur ' + f.title);
+    document.getElementById('resourceText').textContent = f.ressourceNom
+      ? f.objective
+      : 'Nous vous envoyons par email un contenu pratique sur cette formation, directement applicable avec votre équipe.';
+    summary.hidden = false;
+  } else {
+    document.getElementById('formationNotFound').hidden = false;
+    document.getElementById('pagePitch').textContent = 'Sélectionnez une formation depuis le catalogue pour recevoir sa ressource.';
+  }
+})();
 
-      if (typeof CALENDLY_URL !== 'undefined' && CALENDLY_URL) {
-        var embed = document.getElementById('bookingEmbed');
-        embed.innerHTML = '<iframe src="' + CALENDLY_URL + '?utm_campaign=ressource&utm_content=' + encodeURIComponent(calendlyUtmContent) + '" style="width:100%;min-height:700px;border:0;" title="Prendre rendez-vous avec Laurie"></iframe>';
-      }
-    })();
+// --- Validation et soumission du formulaire ---
+// Envoi réel via la fonction serverless /api/send-resource (Resend),
+// qui envoie un email personnalisé au visiteur.
+(function () {
+  var form = document.getElementById('leadForm');
+  if (!form) return;
 
-    // --- Validation et soumission du formulaire ---
-    // Envoi réel via la fonction serverless /api/send-resource (Resend),
-    // qui envoie un email personnalisé au visiteur et notifie GetUp.
-    (function () {
-      var form = document.getElementById('leadForm');
-      if (!form) return;
+  function setFieldError(id, message) {
+    var el = document.getElementById(id + 'Error');
+    var input = document.getElementById(id);
+    if (el) el.textContent = message || '';
+    if (input) input.classList.toggle('has-error', !!message);
+  }
 
-      function setFieldError(id, message) {
-        var el = document.getElementById(id + 'Error');
-        var input = document.getElementById(id);
-        if (el) el.textContent = message || '';
-        if (input) input.classList.toggle('has-error', !!message);
-      }
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('globalError').textContent = '';
 
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        document.getElementById('globalError').textContent = '';
+    var firstName = document.getElementById('firstName').value.trim();
+    var lastName = document.getElementById('lastName').value.trim();
+    var email = document.getElementById('email').value.trim();
+    var phone = document.getElementById('phone').value.trim();
+    var company = document.getElementById('company').value.trim();
+    var formationId = document.getElementById('formationIdField').value.trim();
+    var consent = document.getElementById('consent').checked;
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-        var firstName = document.getElementById('firstName').value.trim();
-        var lastName = document.getElementById('lastName').value.trim();
-        var email = document.getElementById('email').value.trim();
-        var phone = document.getElementById('phone').value.trim();
-        var company = document.getElementById('company').value.trim();
-        var formationId = document.getElementById('formationIdField').value.trim();
-        var consent = document.getElementById('consent').checked;
-        var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    var valid = true;
 
-        var valid = true;
+    setFieldError('firstName', firstName ? '' : "Merci d'indiquer votre prénom.");
+    if (!firstName) valid = false;
 
-        setFieldError('firstName', firstName ? '' : "Merci d'indiquer votre prénom.");
-        if (!firstName) valid = false;
+    setFieldError('lastName', lastName ? '' : 'Merci d\'indiquer votre nom.');
+    if (!lastName) valid = false;
 
-        setFieldError('lastName', lastName ? '' : 'Merci d\'indiquer votre nom.');
-        if (!lastName) valid = false;
+    if (!email) {
+      setFieldError('email', "Merci d'indiquer votre email.");
+      valid = false;
+    } else if (!emailPattern.test(email)) {
+      setFieldError('email', 'Merci d\'indiquer un email valide.');
+      valid = false;
+    } else {
+      setFieldError('email', '');
+    }
 
-        if (!email) {
-          setFieldError('email', "Merci d'indiquer votre email.");
-          valid = false;
-        } else if (!emailPattern.test(email)) {
-          setFieldError('email', 'Merci d\'indiquer un email valide.');
-          valid = false;
-        } else {
-          setFieldError('email', '');
-        }
+    document.getElementById('consentError').textContent = consent ? '' : 'Merci de cocher la case pour recevoir la ressource.';
+    if (!consent) valid = false;
 
-        document.getElementById('consentError').textContent = consent ? '' : 'Merci de cocher la case pour recevoir la ressource.';
-        if (!consent) valid = false;
+    if (!valid) {
+      document.getElementById('globalError').textContent = 'Merci de corriger les champs indiqués ci-dessus.';
+      return;
+    }
 
-        if (!valid) {
-          document.getElementById('globalError').textContent = 'Merci de corriger les champs indiqués ci-dessus.';
-          return;
-        }
+    document.getElementById('submitBtn').disabled = true;
 
-        document.getElementById('submitBtn').disabled = true;
-
-        fetch('/api/send-resource', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            phone: phone,
-            company: company,
-            formation: formationId,
-            consent: consent
-          })
-        })
-          .then(function (resp) {
-            if (!resp.ok) throw new Error('send failed');
-            form.style.display = 'none';
-            document.getElementById('formSuccess').hidden = false;
-          })
-          .catch(function () {
-            document.getElementById('submitBtn').disabled = false;
-            document.getElementById('globalError').textContent = "Une erreur est survenue lors de l'envoi. Merci de réessayer, ou de nous écrire directement à laproductiongetup@gmail.com.";
-          });
+    fetch('/api/send-resource', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        phone: phone,
+        company: company,
+        formation: formationId,
+        consent: consent
+      })
+    })
+      .then(function (resp) {
+        if (!resp.ok) throw new Error('send failed');
+        form.style.display = 'none';
+        document.getElementById('formSuccess').hidden = false;
+      })
+      .catch(function () {
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('globalError').textContent = "Une erreur est survenue lors de l'envoi. Merci de réessayer.";
       });
-    })();
-  </script>
+  });
+})();
+</script>
+
 </body>
 </html>
