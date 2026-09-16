@@ -18,4 +18,4 @@ var CALENDLY_URL = "https://calendly.com/lenna-smm-pro/30min";
  *
  * Exemple attendu : "https://instagram.com/improclub"
  */
-var INSTAGRAM_URL = "";
+var INSTAGRAM_URL = "https://www.instagram.com/improclub/";
