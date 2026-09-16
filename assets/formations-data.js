@@ -121,3 +121,10 @@ function getFormationById(id) {
   }
   return null;
 }
+
+// Rend ce fichier utilisable à la fois dans le navigateur (var globale FORMATIONS)
+// et côté serveur via require() (les fonctions Vercel dans /api) — une seule
+// source de vérité pour les formations, jamais deux listes à maintenir.
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { FORMATIONS: FORMATIONS, getFormationById: getFormationById };
+}

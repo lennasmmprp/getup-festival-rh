@@ -207,19 +207,8 @@
     })();
 
     // --- Validation et soumission du formulaire ---
-    // Aucun service d'envoi d'email n'est branché : le projet n'en a pas
-    // encore (aucun Resend/Brevo/Formspree/etc. présent). Ce script valide
-    // le formulaire et affiche la confirmation côté client uniquement.
-    //
-    // TODO avant mise en production réelle : remplacer le bloc marqué
-    // ci-dessous par un vrai envoi, par exemple :
-    //   fetch('https://formspree.io/f/VOTRE_ID', {
-    //     method: 'POST',
-    //     body: new FormData(form),
-    //     headers: { Accept: 'application/json' }
-    //   })
-    // Champs déjà collectés : firstName, lastName, email, phone, company,
-    // formation (id de la formation demandée), consent.
+    // Envoi réel via la fonction serverless /api/send-resource (Resend),
+    // qui envoie un email personnalisé au visiteur et notifie GetUp.
     (function () {
       var form = document.getElementById('leadForm');
       if (!form) return;
@@ -238,6 +227,9 @@
         var firstName = document.getElementById('firstName').value.trim();
         var lastName = document.getElementById('lastName').value.trim();
         var email = document.getElementById('email').value.trim();
+        var phone = document.getElementById('phone').value.trim();
+        var company = document.getElementById('company').value.trim();
+        var formationId = document.getElementById('formationIdField').value.trim();
         var consent = document.getElementById('consent').checked;
         var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
@@ -267,11 +259,30 @@
           return;
         }
 
-        // TODO : brancher ici l'envoi réel vers votre service email/CRM
-        // (voir commentaire au-dessus de ce script).
+        document.getElementById('submitBtn').disabled = true;
 
-        form.style.display = 'none';
-        document.getElementById('formSuccess').hidden = false;
+        fetch('/api/send-resource', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phone: phone,
+            company: company,
+            formation: formationId,
+            consent: consent
+          })
+        })
+          .then(function (resp) {
+            if (!resp.ok) throw new Error('send failed');
+            form.style.display = 'none';
+            document.getElementById('formSuccess').hidden = false;
+          })
+          .catch(function () {
+            document.getElementById('submitBtn').disabled = false;
+            document.getElementById('globalError').textContent = "Une erreur est survenue lors de l'envoi. Merci de réessayer, ou de nous écrire directement à laproductiongetup@gmail.com.";
+          });
       });
     })();
   </script>
