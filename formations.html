@@ -48,17 +48,16 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 .stat-l{font-size:10px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 .catalogue{padding:0 48px 80px;}
 .formation{display:flex;flex-direction:column;border-bottom:0.5px solid rgba(0,0,0,0.08);cursor:pointer;transition:background .2s;position:relative;overflow:hidden;}
-.formation::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue);transform:scaleY(0);transition:transform .25s;transform-origin:bottom;}
-.formation:hover::before{transform:scaleY(1);}
+.formation::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue);}
 .formation:hover{background:rgba(13,65,154,0.02);}
 .f-row{display:grid;grid-template-columns:80px 1fr 120px;align-items:center;padding:40px 48px;}
-.f-num{font-size:11px;color:rgba(0,0,0,0.15);letter-spacing:3px;font-weight:700;}
+.f-num{font-size:11px;color:rgba(13,65,154,0.4);letter-spacing:3px;font-weight:700;}
 .f-tag{font-size:10px;font-weight:700;color:var(--blue);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:8px;opacity:0.7;}
 .f-title{font-size:clamp(1.2rem,2vw,1.6rem);font-weight:900;color:#0D0D0D;letter-spacing:-0.5px;text-transform:uppercase;transition:color .2s;}
 .formation:hover .f-title{color:var(--blue);}
 .f-desc{font-size:13px;color:rgba(0,0,0,0.4);font-weight:300;line-height:1.6;margin-top:8px;}
 .f-right{display:flex;flex-direction:column;align-items:flex-end;gap:16px;}
-.f-format{font-size:10px;font-weight:700;color:rgba(0,0,0,0.25);letter-spacing:2px;text-transform:uppercase;text-align:right;}
+.f-format{font-size:11px;font-weight:800;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;text-align:center;background:rgba(13,65,154,0.08);padding:6px 12px;border-radius:999px;}
 .f-cta{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:700;color:var(--blue);letter-spacing:1.5px;text-transform:uppercase;opacity:0;transition:opacity .2s;}
 .formation:hover .f-cta{opacity:1;}
 .f-accent{width:32px;height:2px;background:var(--yellow);margin-bottom:4px;transition:width .2s;}
@@ -84,12 +83,36 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 .fmt-pill{background:var(--blue);color:var(--yellow);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;}
 .panel-cta{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:40px;}
 @media (max-width:860px){
-  nav{margin:14px 16px 0;padding:10px 18px;max-width:100%;}
-  .nr{min-width:0;flex-wrap:wrap;justify-content:center;row-gap:10px;column-gap:18px;}
+  nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:14px 16px 0;padding:12px 18px;border-radius:20px;max-width:calc(100% - 32px);}
+  .nl{order:1;}
+  .ncta{order:2;}
+  .nr{order:3;width:100%;min-width:0;flex-wrap:wrap;justify-content:center;row-gap:8px;column-gap:16px;}
+  .nr a{font-size:11px;}
   .intro-wrap{padding:16px;}
-  .intro{grid-template-columns:1fr;gap:40px;padding:40px 32px;}
+  .intro{grid-template-columns:1fr;gap:32px;padding:36px 28px;}
   .intro>div{min-width:0;}
+  .intro-title{font-size:clamp(2rem,9vw,2.8rem);}
   .intro-stats{flex-wrap:wrap;row-gap:20px;}
+  .catalogue{padding:0 20px 48px;}
+  .f-row{grid-template-columns:32px 1fr;column-gap:16px;row-gap:16px;padding:24px 20px;}
+  .f-num{grid-column:1;grid-row:1;}
+  .f-main{grid-column:2;grid-row:1;}
+  .f-right{grid-column:1 / -1;grid-row:2;flex-direction:row;align-items:center;justify-content:space-between;}
+  .f-right>div:first-child{display:flex;align-items:center;gap:10px;}
+  .f-accent{margin-bottom:0;}
+  .f-cta{opacity:1;}
+}
+@media (max-width:480px){
+  .intro{padding:28px 20px;}
+  .intro-title{font-size:2rem;}
+}
+@media (max-width:600px){
+  .foot{padding:32px 24px;}
+  .foot-top{gap:20px;}
+  .foot-brand{font-size:1.6rem;}
+  .foot-cert img{height:64px;}
+  .foot-bottom{margin-top:24px;padding-top:16px;}
+  .foot-links{font-size:10px;}
 }
 </style>
 </head>
