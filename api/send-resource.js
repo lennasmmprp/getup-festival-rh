@@ -1,13 +1,11 @@
 // Fonction serverless Vercel — reçoit le formulaire "Recevoir ma ressource"
-// et envoie un email personnalisé au visiteur (+ une notification à GetUp
-// pour ne perdre aucun lead, aucun CRM n'étant branché sur ce projet).
+// et envoie un email personnalisé au visiteur.
 //
 // Nécessite la variable d'environnement RESEND_API_KEY, à définir dans
 // Vercel (Project Settings → Environment Variables) — jamais dans le code.
 const { getFormationById } = require('../assets/formations-data.js');
 
 const RESEND_API_URL = 'https://api.resend.com/emails';
-const NOTIFY_EMAIL = 'laproductiongetup@gmail.com';
 // Expéditeur par défaut de Resend, utilisable sans vérifier de domaine.
 // À remplacer par une adresse @getup-corporate.fr (ou équivalent) une fois
 // le domaine du site vérifié dans Resend, pour une meilleure délivrabilité.
@@ -49,8 +47,6 @@ module.exports = async function handler(req, res) {
   const firstName = (body.firstName || '').trim();
   const lastName = (body.lastName || '').trim();
   const email = (body.email || '').trim();
-  const phone = (body.phone || '').trim();
-  const company = (body.company || '').trim();
   const formationId = (body.formation || '').trim();
   const consent = !!body.consent;
 
@@ -80,32 +76,12 @@ module.exports = async function handler(req, res) {
     '<p style="margin-top:32px;color:rgba(0,0,0,0.5);font-size:12px;">GetUp Corporate — vous recevez cet email suite à votre demande sur notre site.</p>' +
     '</div>';
 
-  const notifyHtml =
-    '<div style="font-family:sans-serif;line-height:1.6;">' +
-    '<p><strong>Nouvelle demande de ressource</strong></p>' +
-    '<ul>' +
-    '<li>Nom : ' + escapeHtml(firstName) + ' ' + escapeHtml(lastName) + '</li>' +
-    '<li>Email : ' + escapeHtml(email) + '</li>' +
-    '<li>Téléphone : ' + (phone ? escapeHtml(phone) : '—') + '</li>' +
-    '<li>Entreprise : ' + (company ? escapeHtml(company) : '—') + '</li>' +
-    '<li>Formation : ' + (formation ? escapeHtml(formation.title) : '(non identifiée : ' + escapeHtml(formationId) + ')') + '</li>' +
-    '</ul>' +
-    '</div>';
-
   try {
     await sendEmail({
       from: FROM_EMAIL,
       to: [email],
       subject: formation ? 'Votre ressource — ' + formation.title : 'Votre demande — GetUp Corporate',
       html: visitorHtml
-    });
-
-    await sendEmail({
-      from: FROM_EMAIL,
-      to: [NOTIFY_EMAIL],
-      reply_to: email,
-      subject: 'Nouveau lead — ' + firstName + ' ' + lastName,
-      html: notifyHtml
     });
 
     return res.status(200).json({ ok: true });
