@@ -64,8 +64,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .res-cta{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);max-width:640px;margin-left:auto;margin-right:auto;}
 .res-cta h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:#012460;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
 .res-cta p{font-size:14px;color:rgba(0,0,0,0.5);line-height:1.6;margin-bottom:20px;}
-.res-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#0a2d7a;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 32px;border-radius:2px;text-decoration:none;transition:background .2s;}
-.res-cta-btn:hover{background:#071e52;}
+.res-cta-btn{display:inline-flex;align-items:center;gap:10px;background:#0a2d7a;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 32px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;}
+.res-cta-btn:hover{background:#071e52;transform:translateY(-2px);}
 
 .foot{background:#012460;padding:48px;}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;}
@@ -86,9 +86,15 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .nr{order:3;width:100%;min-width:0;flex-wrap:wrap;justify-content:center;row-gap:8px;column-gap:16px;}
   .nr a{font-size:11px;}
   .res-wrap{padding:16px;}
-  .res-hero{padding:40px 24px;}
-  .res-card,.res-cta{padding:32px 24px;}
+  .res-hero{padding:36px 24px;border-radius:24px;}
+  .res-summary{max-width:100%;padding:14px 18px;}
+  .res-card,.res-cta{padding:28px 20px;border-radius:24px;}
   .form-grid{grid-template-columns:1fr;gap:16px;}
+  .res-cta-btn{width:100%;justify-content:center;padding:14px 20px;}
+}
+@media (max-width:480px){
+  .res-title{font-size:1.7rem;}
+  .res-pitch{font-size:14px;}
 }
 @media (max-width:600px){
   .foot{padding:32px 24px;}
