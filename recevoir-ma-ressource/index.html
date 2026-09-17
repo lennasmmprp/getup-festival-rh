@@ -138,6 +138,11 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
     <form id="leadForm" novalidate>
       <input type="hidden" name="formation" id="formationIdField" value="">
+      <input type="hidden" id="formLoadedAt" value="">
+      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+        <label for="website">Ne pas remplir ce champ</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+      </div>
 
       <div class="form-grid">
         <div class="form-field">
@@ -215,6 +220,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 <script src="/assets/formations-data.js"></script>
 <script>
 (function () {
+  document.getElementById('formLoadedAt').value = Date.now();
+
   var params = new URLSearchParams(window.location.search);
   var formationId = params.get('formation');
   var f = typeof getFormationById === 'function' ? getFormationById(formationId) : null;
@@ -302,7 +309,9 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
         phone: phone,
         company: company,
         formation: formationId,
-        consent: consent
+        consent: consent,
+        website: document.getElementById('website').value,
+        formLoadedAt: document.getElementById('formLoadedAt').value
       })
     })
       .then(function (resp) {

@@ -53,6 +53,18 @@ module.exports = async function handler(req, res) {
   const formationId = (body.formation || '').trim();
   const consent = !!body.consent;
 
+  // Anti-spam : champ piège invisible (les bots le remplissent, jamais un humain)
+  // + délai minimum de remplissage (un envoi en moins de 3s trahit un script).
+  // On répond un faux succès plutôt qu'une erreur, pour ne pas indiquer au bot
+  // ce qui a été détecté.
+  const honeypotFilled = !!(body.website || '').trim();
+  const loadedAt = Number(body.formLoadedAt) || 0;
+  const submittedTooFast = loadedAt > 0 && Date.now() - loadedAt < 3000;
+  if (honeypotFilled || submittedTooFast) {
+    console.warn('Soumission bloquée (anti-spam) :', { honeypotFilled, submittedTooFast, email });
+    return res.status(200).json({ ok: true });
+  }
+
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!firstName || !lastName || !email || !emailPattern.test(email) || !consent) {
     return res.status(400).json({ error: 'Champs manquants ou invalides.' });
