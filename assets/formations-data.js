@@ -27,8 +27,8 @@ var FORMATIONS = [
     experience: "Des mises en situation progressives issues de l'improvisation théâtrale : prises de parole courtes, feedback immédiat, exercices de présence et d'ancrage.",
     programme: "Introduction aux techniques de l'impro, exercices de respiration et d'ancrage, pitchs express (30 sec, 2 min, 5 min), gestion de l'imprévu et des questions difficiles, debriefing collectif",
     benefits: ["Pitchs et présentations plus percutants", "Image professionnelle renforcée", "Meilleure représentation en conférence et salon", "Réunions internes plus efficaces"],
-    ressourceUrl: null,
-    ressourceNom: null
+    ressourceUrl: "/ressources/lead-magnet-getup-p1-4.pdf",
+    ressourceNom: "Les 3 techniques de nos artistes pour captiver votre audience"
   },
   {
     id: "ia",
