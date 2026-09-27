@@ -7,10 +7,19 @@ const { getFormationById } = require('../assets/formations-data.js');
 
 const RESEND_API_URL = 'https://api.resend.com/emails';
 const NOTIFY_EMAIL = 'lenna.smm.pro@gmail.com';
+// Un email n'a pas de "page courante" : un lien commençant par "/" (comme
+// formation.ressourceUrl) ne peut pas s'y résoudre tout seul. On le préfixe
+// donc toujours avec le domaine complet du site avant de l'insérer dans l'email.
+const SITE_URL = 'https://getup-corporate.vercel.app';
 // Expéditeur par défaut de Resend, utilisable sans vérifier de domaine.
 // À remplacer par une adresse @getup-corporate.fr (ou équivalent) une fois
 // le domaine du site vérifié dans Resend, pour une meilleure délivrabilité.
 const FROM_EMAIL = 'GetUp Corporate <onboarding@resend.dev>';
+
+function resolveResourceUrl(url) {
+  if (!url) return url;
+  return /^https?:\/\//i.test(url) ? url : SITE_URL + url;
+}
 
 function escapeHtml(str) {
   return String(str || '').replace(/[&<>"']/g, function (c) {
@@ -88,7 +97,7 @@ module.exports = async function handler(req, res) {
       '<span style="display:inline-block;background:#FFF2B2;color:#0D419A;font-family:Arial,Helvetica,sans-serif;font-size:10px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:14px;">Votre ressource</span><br>' +
       '<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:800;color:#012460;line-height:1.3;margin-bottom:10px;">' + escapeHtml(formation.ressourceNom) + '</span>' +
       '<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-size:14px;line-height:1.6;color:#4a5568;margin-bottom:20px;">' + escapeHtml(formation.objective) + '</span>' +
-      '<a href="' + escapeHtml(formation.ressourceUrl) + '" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:14px 30px;border-radius:6px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">Télécharger la ressource →</a>' +
+      '<a href="' + escapeHtml(resolveResourceUrl(formation.ressourceUrl)) + '" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:14px 30px;border-radius:6px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;">Télécharger la ressource →</a>' +
       '</td></tr>' +
       '</table>' +
       '</td></tr>'
