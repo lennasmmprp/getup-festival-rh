@@ -28,11 +28,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .nr a.active{font-weight:800;}
 .ncta{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;background:#012460;color:#FFF2A1;padding:12px 24px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;border:none;cursor:pointer;justify-self:end;text-decoration:none;display:inline-block;}
 .hero-wrap{background:#F8F5EC;padding:24px;}
-.hero{max-width:100%;margin:0 auto;display:grid;grid-template-columns:58% 1fr;gap:24px;}
-.hl{background: radial-gradient(ellipse at 70% 20%, #ff6fa8 0%, #d63b84 35%, #9c1f60 70%, #5c0f3a 100%);border-radius:16px;padding:72px 48px;display:flex;flex-direction:column;justify-content:center;min-height:85vh;}
-.hl-title{display:flex;flex-direction:column;font-family:'Syne',sans-serif;font-size:clamp(5rem,11vw,9.5rem);font-weight:800;line-height:0.9;text-transform:uppercase;}
-.hl-solid{color:#FFF2A1;}
-.hl-outline{color:transparent;-webkit-text-stroke:3px #FFF2A1;}
+.hero{max-width:100%;margin:0 auto;display:grid;grid-template-columns:1fr;gap:24px;}
 .hr{background:#ffffff;border-radius:32px;padding:56px 48px;display:flex;align-items:center;min-height:420px;overflow:hidden;}
 .hr-content{position:relative;}
 .hr-quote{position:absolute;top:-52px;left:-6px;font-family:'Syne',sans-serif;font-size:160px;font-weight:800;color:rgba(13,65,154,0.07);line-height:1;pointer-events:none;user-select:none;}
@@ -82,11 +78,11 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
   .nr{order:3;width:100%;min-width:0;flex-wrap:wrap;justify-content:center;row-gap:8px;column-gap:16px;}
   .nr a{font-size:11px;}
   .hero-wrap{padding:16px;}
-  .hero{grid-template-columns:1fr;max-width:100%;}
+  .hero{max-width:100%;}
   .hero-cta{max-width:100%;padding:20px 24px;min-height:auto;}
   .hero-cta-label{font-size:1rem;}
   .hero-cta-icon{width:40px;height:40px;font-size:1.1rem;}
-  .hl,.hr{min-height:280px;padding:40px 32px;}
+  .hr{min-height:280px;padding:40px 32px;}
 }
 @media (max-width:600px){
   .foot{padding:32px 24px;}
@@ -113,12 +109,6 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 
 <div class="hero-wrap">
   <div class="hero">
-    <div class="hl">
-      <div class="hl-title">
-        <span class="hl-solid">Get</span>
-        <span class="hl-outline">Up</span>
-      </div>
-    </div>
     <div class="hr">
       <div class="hr-content">
         <span class="hr-quote" aria-hidden="true">"</span>
