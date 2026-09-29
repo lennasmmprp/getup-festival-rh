@@ -47,6 +47,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 .stat-n{font-size:28px;font-weight:900;text-transform:uppercase;color:#FFF2A1;}
 .stat-l{font-size:10px;font-weight:700;color:rgba(255,255,255,0.5);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 .catalogue{padding:0 48px 80px;}
+.catalogue-note{font-style:italic;font-size:13px;color:rgba(0,0,0,0.4);text-align:center;padding:0 48px 64px;margin-top:-40px;}
 .formation{display:flex;flex-direction:column;border-bottom:0.5px solid rgba(0,0,0,0.08);cursor:pointer;transition:background .2s;position:relative;overflow:hidden;}
 .formation::before{content:'';position:absolute;left:0;top:0;width:3px;height:100%;background:var(--blue);}
 .formation:hover{background:rgba(13,65,154,0.02);}
@@ -79,6 +80,9 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 .panel-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
 .panel-list li{font-size:13px;color:rgba(0,0,0,0.55);font-weight:400;padding-left:16px;position:relative;}
 .panel-list li::before{content:'→';position:absolute;left:0;color:var(--blue);font-size:11px;}
+.programme-modules{display:flex;flex-direction:column;gap:20px;}
+.programme-module-title{font-size:13px;font-weight:800;color:var(--blue);letter-spacing:0.5px;margin-bottom:6px;}
+.programme-module-text{font-size:13px;color:rgba(0,0,0,0.55);line-height:1.7;font-weight:400;}
 .panel-format{display:flex;gap:16px;margin-bottom:40px;}
 .fmt-pill{background:var(--blue);color:var(--yellow);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;}
 .panel-cta{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:40px;}
@@ -99,6 +103,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
   .stat-n{font-size:20px;}
   .stat-l{font-size:9px;}
   .catalogue{padding:0 20px 48px;}
+  .catalogue-note{padding:0 20px 40px;margin-top:-24px;}
   .f-row{grid-template-columns:32px 1fr;column-gap:16px;row-gap:16px;padding:24px 20px;}
   .f-num{grid-column:1;grid-row:1;}
   .f-main{grid-column:2;grid-row:1;}
@@ -156,6 +161,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 </div>
 
 <div class="catalogue" id="catalogue"></div>
+<div class="catalogue-note">Chaque formation peut être adaptée à vos besoins.</div>
 
 <div class="foot">
   <div class="foot-top">
@@ -202,6 +208,15 @@ function openPanel(id){
   var apprentissageHtml = f.apprentissage
     ? '<div class="panel-section"><div class="panel-section-label">Apprentissage</div><div class="panel-section-text">'+f.apprentissage+'</div></div>'
     : '';
+  // f.programme accepte soit un texte (string), soit une liste de modules
+  // numérotés {title, text} (array) : rendu en texte simple ou en blocs
+  // numérotés selon le cas.
+  var programmeHtml = Array.isArray(f.programme)
+    ? '<div class="programme-modules">'+f.programme.map(function(m,i){
+        var n=(i+1)<10?'0'+(i+1):String(i+1);
+        return '<div><div class="programme-module-title">'+n+' · '+m.title+'</div><div class="programme-module-text">'+m.text+'</div></div>';
+      }).join('')+'</div>'
+    : '<div class="panel-section-text">'+f.programme+'</div>';
   // Bouton final du panneau : dirige toujours vers la page de récupération
   // de ressource, avec l'id UNIQUE de la formation — jamais un lien générique.
   var ctaHtml = '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>';
@@ -217,7 +232,7 @@ function openPanel(id){
     apprentissageHtml+
     '<div class="panel-section"><div class="panel-section-label">Compétences travaillées</div><ul class="panel-list">'+f.skills.map(function(s){return'<li>'+s+'</li>';}).join('')+'</ul></div>'+
     '<div class="panel-section"><div class="panel-section-label">Ce que vous allez vivre</div><div class="panel-section-text">'+f.experience+'</div></div>'+
-    '<div class="panel-section"><div class="panel-section-label">Programme</div><div class="panel-section-text">'+f.programme+'</div></div>'+
+    '<div class="panel-section"><div class="panel-section-label">Programme</div>'+programmeHtml+'</div>'+
     '<div class="panel-section"><div class="panel-section-label">Bénéfices pour l\'entreprise</div><ul class="panel-list">'+f.benefits.map(function(b){return'<li>'+b+'</li>';}).join('')+'</ul></div>'+
     pageHtml+
     ctaHtml;
