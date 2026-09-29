@@ -92,11 +92,19 @@ var FORMATIONS = [
     desc: "Déconstruisez les préjugés, alignez les langages, créez la cohésion.",
     format: "Formation collective — 3 h",
     who: "Équipes mixtes Gen X/Y/Z, managers de jeunes équipes, services RH et formation.",
-    objective: "Créer un dialogue authentique entre générations pour transformer les incompréhensions en complémentarités.",
-    apprentissage: null,
-    skills: ["Déconstruction des stéréotypes générationnels", "Adaptation du langage et des codes", "Valorisation des forces de chaque génération", "Construction d'une culture commune"],
+    objective: "Réduisez les incompréhensions entre générations, favorisez la transmission des savoirs et restez connecté aux nouvelles tendances, pour que vos collaborateurs de la Gen Z se sentent compris.",
+    apprentissage: [
+      { title: "S'ouvrir et se connaître", text: "Déconstruire les préjugés, révéler les points communs" },
+      { title: "Aligner les langages", text: "Comprendre les références et les codes de chaque génération" },
+      { title: "Coopérer pour plus de performance", text: "Renforcer la coordination collective avec les différences générationnelles" }
+    ],
+    skills: ["Communication intergénérationnelle", "Écoute active et ouverture aux autres points de vue", "Déconstruction des préjugés", "Compréhension des codes et références de chaque génération", "Coopération au sein d'équipes mixtes", "Transmission des savoirs"],
     experience: "Scènes jouées par des membres de générations différentes, échanges guidés, exercices de traduction intergénérationnelle.",
-    programme: "Cartographie des représentations mutuelles, mise en scène des incompréhensions, exercices de traduction, construction de ponts communs, engagements collectifs",
+    programme: [
+      { title: "Échauffement", text: "Pose du cadre, principes de la voix, corps et écoute" },
+      { title: "Expérimentation collective", text: "Exercices et jeux de communication" },
+      { title: "Mises en situation intergénérationnelles", text: "En sous-groupe puis collectif" }
+    ],
     benefits: ["Réduction des conflits générationnels", "Meilleure rétention des talents Gen Z", "Transmission des savoirs facilitée", "Marque employeur renforcée"],
     ressourceUrl: null,
     ressourceNom: null
