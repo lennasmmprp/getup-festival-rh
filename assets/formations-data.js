@@ -48,7 +48,11 @@ var FORMATIONS = [
     apprentissage: null,
     skills: ["Confiance — Oser utiliser l'IA", "Communication — Formuler des demandes efficaces", "Collaboration — Travailler ensemble avec l'IA"],
     experience: "Exercices d'improvisation autour de l'inconnu et de l'adaptation. Mises en situation de collaboration humain/IA. Temps d'expression libre des peurs et des attentes.",
-    programme: "Expression des représentations et peurs, démystification par l'expérimentation, exercices de prompting collectif, construction d'une posture d'équipe face à l'IA, plan d'action partagé",
+    programme: [
+      { title: "Échauffement", text: "Voix, corps & écoute" },
+      { title: "Expérimentation", text: "Exercices & jeux de communication" },
+      { title: "Mises en situation", text: "Comprendre l'IA en collectif" }
+    ],
     benefits: ["Équipes alignées sur l'usage réel de l'IA", "Réduction des résistances internes", "Gain de productivité immédiat", "Direction et terrain réconciliés sur le sujet"],
     // TEST TEMPORAIRE — contenu placeholder à but de démo visuelle de l'email
     // (thème chat, clin d'œil "chat/IA"), à remplacer par la vraie ressource.
