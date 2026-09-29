@@ -21,7 +21,7 @@ var FORMATIONS = [
     tag: "Intelligence relationnelle",
     title: "Prise de parole en public",
     desc: "Pitchs, CODIR, réunions : prenez le contrôle de chaque prise de parole.",
-    format: "Formation collective → 3h",
+    format: "Formation individuelle → 2x2 h",
     who: ["Managers", "Commerciaux", "Dirigeants", "Auto-entrepreneurs"],
     objective: "Faire de chaque prise de parole un levier de performance pour l'entreprise.",
     apprentissage: "Apprenez à incarner une posture impactante, construire un discours marquant et transformer l'imprévu en opportunité.",
