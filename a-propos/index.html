@@ -35,14 +35,16 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
 .ap-block{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
 .ap-block h2{font-family:'Syne',sans-serif;font-weight:800;color:#012460;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.2;margin-bottom:16px;}
-.ap-block p{font-size:15px;color:rgba(0,0,0,0.6);line-height:1.7;max-width:680px;}
+.ap-block p{font-size:15px;color:#0a0a0a;line-height:1.7;max-width:680px;}
 .ap-block p + p{margin-top:14px;}
+.ap-block-compact{padding:28px 32px;}
+.ap-block-compact p{max-width:none;}
 
 .ap-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:24px;}
 .ap-card{background:#f8f7f3;border-radius:20px;padding:28px 24px;}
 .ap-card h3{font-family:'Syne',sans-serif;font-weight:800;color:#0D419A;font-size:16px;margin-bottom:10px;}
-.ap-card p{font-size:14px;color:rgba(0,0,0,0.6);line-height:1.6;max-width:none;}
-.ap-block-note{margin-top:24px;font-style:italic;color:rgba(0,0,0,0.45);}
+.ap-card p{font-size:14px;color:#0a0a0a;line-height:1.6;max-width:none;}
+.ap-block-note{margin-top:24px;font-style:italic;color:#0a0a0a;white-space:nowrap;}
 
 .ap-founders{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:24px;}
 .ap-founder{background:#f8f7f3;border-radius:20px;padding:28px;}
@@ -53,7 +55,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .ap-founder h3{font-family:'Syne',sans-serif;font-weight:800;color:#012460;font-size:18px;margin-bottom:4px;}
 .ap-founder-role{font-size:13px;color:#0D419A;font-weight:700;margin-bottom:14px;}
 .ap-list{list-style:none;display:flex;flex-direction:column;gap:8px;}
-.ap-list li{font-size:14px;color:rgba(0,0,0,0.6);line-height:1.5;padding-left:20px;position:relative;max-width:none;}
+.ap-list li{font-size:14px;color:#0a0a0a;line-height:1.5;padding-left:20px;position:relative;max-width:none;}
 .ap-list li::before{content:'→';position:absolute;left:0;color:#0D419A;font-weight:700;}
 
 .ap-cta{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
@@ -83,6 +85,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .ap-founders{grid-template-columns:1fr;}
   .ap-cta{padding:28px 20px;}
   .ap-cta-btn{width:100%;justify-content:center;}
+  .ap-block-note{white-space:normal;}
 }
 @media (max-width:600px){
   .foot{padding:32px 24px;}
@@ -109,11 +112,11 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 <div class="ap-wrap">
   <div class="ap-hero">
     <span class="ap-eyebrow">À propos</span>
-    <h1 class="ap-h1">Ce ne sont pas des jeux. Ce sont des réflexes.</h1>
+    <h1 class="ap-h1">Ce ne sont pas des jeux.<br>Ce sont des réflexes.</h1>
     <p class="ap-pitch">Get Up Skills est né d'un constat simple&nbsp;: les compétences d'un comédien d'improvisation sont exactement celles qu'on attend d'un collaborateur en entreprise.</p>
   </div>
 
-  <div class="ap-block">
+  <div class="ap-block ap-block-compact">
     <h2>Notre vision</h2>
     <p>Écouter vraiment, décider sans avoir toutes les cartes en main, s'adapter pendant que l'IA redessine le monde du travail&nbsp;: ces soft skills sont devenues incontournables.</p>
     <p>Ce sont elles qui vous permettent d'avoir de l'impact en réunion, d'être pertinent face à un client ou de rassurer votre équipe en pleine crise.</p>
