@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impro Club — Get Up Skills</title>
-  <meta name="description" content="Impro Club, le spectacle d'improvisation théâtrale Get Up Skills qui fédère vos équipes sur scène.">
+  <title>Impro Club, le spectacle d'impro du Jamel Comedy Club en entreprise | Get Up</title>
+  <meta name="description" content="Le spectacle d'impro du Jamel Comedy Club, joué dans votre entreprise, à partir des anecdotes de vos équipes. 6 ans de scène, plus de 80 000 spectateurs.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -29,15 +29,28 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .ic-wrap{background:#F8F5EC;padding:24px;}
 .ic-hero{max-width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .ic-left{background: radial-gradient(ellipse at 70% 20%, #1a4fc4 0%, #0a2d7a 35%, #071e52 70%, #040f2e 100%);border-radius:32px;display:flex;flex-direction:column;justify-content:center;padding:48px;min-height:420px;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
-.ic-title{display:flex;flex-direction:column;font-family:'Syne',sans-serif;font-size:clamp(3rem,7vw,5.5rem);font-weight:800;line-height:0.95;text-transform:uppercase;margin-bottom:24px;}
-.ic-solid{color:#FFF2A1;}
-.ic-outline{color:transparent;-webkit-text-stroke:2px #FFF2A1;}
 .ic-pitch{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:500;color:rgba(255,242,161,0.85);line-height:1.6;max-width:420px;}
 .ic-right{background:#ffffff;border-radius:32px;display:flex;align-items:center;justify-content:center;padding:48px;min-height:420px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
 
+.ic-h1{font-family:'Syne',sans-serif;font-weight:800;color:#FFF2A1;text-transform:uppercase;line-height:1.1;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-0.3px;margin-bottom:20px;}
+.ic-hero-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 28px;border-radius:999px;text-decoration:none;background:#FFF2B2;color:#0D419A;margin-top:28px;transition:background .2s,transform .2s;}
+.ic-hero-btn:hover{background:#ffffff;transform:translateY(-2px);}
+
+.ic-photo-placeholder{width:100%;min-height:280px;border:2px dashed rgba(13,65,154,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(13,65,154,0.5);}
+
+.ic-block{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.ic-block h2{font-family:'Syne',sans-serif;font-weight:800;color:#012460;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.2;margin-bottom:16px;}
+.ic-block p{font-size:15px;color:rgba(0,0,0,0.6);line-height:1.7;max-width:640px;}
+.ic-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.ic-list li{font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;padding-left:24px;position:relative;max-width:640px;}
+.ic-list li::before{content:'→';position:absolute;left:0;color:#0D419A;font-weight:700;}
+.ic-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0D419A;margin-bottom:16px;display:block;}
+.ic-gallery{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.ic-gallery img{width:100%;height:240px;object-fit:cover;border-radius:16px;display:block;}
+.ic-gallery .ic-photo-placeholder{height:240px;min-height:0;}
+
 .ic-cta{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
-.ic-cta h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:#012460;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
-.ic-cta p{font-size:14px;color:rgba(0,0,0,0.5);line-height:1.6;margin:0 auto 24px;max-width:480px;}
+.ic-cta-final{font-family:'Syne',sans-serif;font-size:clamp(1.1rem,2.2vw,1.4rem);font-weight:800;color:#012460;line-height:1.4;margin:0 auto 24px;max-width:480px;}
 .ic-cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
 .ic-cta-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 28px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;}
 .ic-cta-btn.solid{background:#0D419A;color:#FFF2B2;}
@@ -63,6 +76,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .ic-wrap{padding:16px;}
   .ic-hero{grid-template-columns:1fr;max-width:100%;}
   .ic-left,.ic-right{min-height:280px;padding:32px;}
+  .ic-block{padding:28px 20px;}
+  .ic-gallery{grid-template-columns:1fr;}
   .ic-cta{padding:28px 20px;}
   .ic-cta-btn{width:100%;justify-content:center;}
 }
@@ -91,29 +106,55 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 <div class="ic-wrap">
   <div class="ic-hero">
     <div class="ic-right">
-      <img src="/images/IMPROCLUB.jpg" alt="Affiche Impro Club" style="max-height:640px;width:auto;max-width:100%;object-fit:contain;border-radius:12px;">
+      <img src="/images/impro-club-hero.jpg" alt="Impro Club — le spectacle du Jamel Comedy Club en entreprise" style="width:100%;height:100%;max-height:480px;object-fit:cover;border-radius:16px;" onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
+      <div class="ic-photo-placeholder" hidden>Photo à venir<br>impro-club-hero.jpg</div>
     </div>
     <div class="ic-left">
-      <div class="ic-title">
-        <span class="ic-solid">Impro</span>
-        <span class="ic-outline">Club</span>
-      </div>
-      <p class="ic-pitch">Le spectacle d'improvisation qui fédère vos équipes, sur scène, avec des situations tirées de votre quotidien professionnel.</p>
-      <p style="font-size:18px;font-weight:500;color:#ffffff;line-height:1.7;margin-top:24px;max-width:480px;">
-        L'impro club est un plateau d'artiste 100% improvisé en France.<br><br>
-        Le concept est simple : 3 artistes seuls sur scène pendant 15 minutes de liberté, le tout en improvisation totale.<br><br>
-        Vous ne savez pas ce que vous allez voir, ils ne savent pas ce qu'ils vont faire. Une seule certitude, cette soirée sera mémorable !<br><br>
-        Un micro, un peu d'inspi, c'est tout ce qu'il faut à ces artistes pour vous faire passer un bon moment !<br><br>
-        Chaque soir ils seront différents, chaque soir ils seront surprenants, chaque soir vous aurez envie d'être présent.
-      </p>
+      <h1 class="ic-h1">Impro Club, le spectacle d'impro du Jamel Comedy Club dans votre entreprise</h1>
+      <p class="ic-pitch">Vos équipes vivent des situations improbables au travail. Les comédiens du Jamel Comedy Club les jouent sur scène.</p>
+      <a href="/rendez-vous" class="ic-hero-btn">Réserver le spectacle →</a>
     </div>
   </div>
+
+  <div class="ic-block">
+    <h2>Un spectacle créé sur l'instant, avec vos équipes</h2>
+    <p>Impro Club, c'est un show 100&nbsp;% improvisé à partir des anecdotes et des expériences de vos collaborateurs (enfin, ce qu'ils voudront bien en dire&nbsp;!). Réunions qui s'éternisent, outils qui buggent, entretiens annuels… Vous donnez les idées, ils improvisent le reste.</p>
+  </div>
+
+  <div class="ic-block">
+    <h2>Pourquoi Impro Club pour votre événement&nbsp;?</h2>
+    <ul class="ic-list">
+      <li>Un spectacle reconnu : 6 ans de scène et plus de 80 000 spectateurs au Jamel Comedy Club.</li>
+      <li>Un show sur mesure : chaque représentation est unique et construite sur votre quotidien professionnel.</li>
+      <li>Un moment qui fédère : de l'humour bienveillant, sans vanne facile ni bashing du public, pour rire ensemble.</li>
+      <li>Des souvenirs communs : des situations que vos équipes se raconteront longtemps.</li>
+    </ul>
+  </div>
+
+  <div class="ic-block">
+    <h2>Pour quels événements&nbsp;?</h2>
+    <p>Séminaires, soirées d'entreprise, conventions, pauses déj, événements RH…</p>
+  </div>
+
+  <div class="ic-block">
+    <span class="ic-label">Galerie</span>
+    <div class="ic-gallery">
+      <div>
+        <img src="/images/impro-club-galerie-1.jpg" alt="Impro Club — photo de spectacle" onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
+        <div class="ic-photo-placeholder" hidden>Photo à venir<br>impro-club-galerie-1.jpg</div>
+      </div>
+      <div>
+        <img src="/images/impro-club-galerie-2.jpg" alt="Impro Club — photo de spectacle" onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
+        <div class="ic-photo-placeholder" hidden>Photo à venir<br>impro-club-galerie-2.jpg</div>
+      </div>
+    </div>
+  </div>
+
   <div class="ic-cta">
-    <h2>Réservez Impro Club pour votre entreprise</h2>
-    <p>Vous voulez programmer le spectacle pour votre soirée d'équipe ou de séminaire ? Toute réservation passe directement par Laurie.</p>
+    <p class="ic-cta-final">Le spectacle du Jamel Comedy Club sort de la salle et vient jouer chez vous.</p>
     <div class="ic-cta-btns">
+      <a href="/rendez-vous" class="ic-cta-btn solid">Demander un devis →</a>
       <a href="https://www.linkedin.com/in/laurie-b%C3%A9natte-wexecutive/" target="_blank" rel="noopener" class="ic-cta-btn outline">Contacter Laurie sur LinkedIn →</a>
-      <a href="/rendez-vous" class="ic-cta-btn solid">Prendre rendez-vous →</a>
     </div>
   </div>
 
