@@ -10,11 +10,11 @@ const NOTIFY_EMAIL = 'lenna.smm.pro@gmail.com';
 // Un email n'a pas de "page courante" : un lien commençant par "/" (comme
 // formation.ressourceUrl) ne peut pas s'y résoudre tout seul. On le préfixe
 // donc toujours avec le domaine complet du site avant de l'insérer dans l'email.
-const SITE_URL = 'https://getup-corporate.vercel.app';
+const SITE_URL = 'https://getupskills.vercel.app';
 // Expéditeur par défaut de Resend, utilisable sans vérifier de domaine.
 // À remplacer par une adresse @getup-corporate.fr (ou équivalent) une fois
 // le domaine du site vérifié dans Resend, pour une meilleure délivrabilité.
-const FROM_EMAIL = 'GetUp Corporate <onboarding@resend.dev>';
+const FROM_EMAIL = 'Get Up Skills <onboarding@resend.dev>';
 
 function resolveResourceUrl(url) {
   if (!url) return url;
@@ -113,7 +113,7 @@ module.exports = async function handler(req, res) {
 
     // Bandeau bleu
     '<tr><td style="background:#0D419A;padding:32px 40px;text-align:center;">' +
-    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">GetUp Corporate</span><br>' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">Get Up Skills</span><br>' +
     '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.5px;">Formations par l\'improvisation théâtrale</span>' +
     '</td></tr>' +
 
@@ -134,7 +134,7 @@ module.exports = async function handler(req, res) {
 
     // Footer
     '<tr><td style="background:#f8f7f3;padding:24px 40px;text-align:center;border-top:1px solid #eeeeee;">' +
-    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#999999;">GetUp Corporate — vous recevez cet email suite à votre demande sur notre site.</span>' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#999999;">Get Up Skills — vous recevez cet email suite à votre demande sur notre site.</span>' +
     '</td></tr>' +
 
     '</table>' +
@@ -157,7 +157,7 @@ module.exports = async function handler(req, res) {
     await sendEmail({
       from: FROM_EMAIL,
       to: [email],
-      subject: formation ? 'Votre ressource — ' + formation.title : 'Votre demande — GetUp Corporate',
+      subject: formation ? 'Votre ressource — ' + formation.title : 'Votre demande — Get Up Skills',
       html: visitorHtml
     });
 

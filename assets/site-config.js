@@ -1,5 +1,5 @@
 /*
- * Configuration partagée du site — GetUp Corporate.
+ * Configuration partagée du site — Get Up Skills.
  *
  * CALENDLY_URL : lien de réservation Calendly (ou Cal.com) de Laurie.
  * Laisser vide tant qu'il n'est pas fourni — ne JAMAIS mettre une URL

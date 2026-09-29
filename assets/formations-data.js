@@ -1,5 +1,5 @@
 /*
- * Source unique des données de formation — GetUp Corporate.
+ * Source unique des données de formation — Get Up Skills.
  *
  * Chargé par formations.html (catalogue + panneau), rendez-vous.html
  * (personnalisation du parcours de réservation) et recevoir-ma-ressource/index.html.
