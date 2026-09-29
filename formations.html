@@ -145,11 +145,11 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
       <div class="intro-title">Nos<br>formations</div>
     </div>
     <div class="intro-right">
-      <div class="intro-text">Des formations professionnelles pour développer les compétences qui font la différence, animées par des artistes, conçues pour vos équipes.</div>
+      <div class="intro-text">Des formations professionnelles pour développer les softskills de vos équipes par les techniques de l'improvisation.<br>Animées par des improvisateurs professionnels, adaptées à chaque contexte.</div>
       <div class="intro-stats">
-        <div><div class="stat-n">6</div><div class="stat-l">Formations</div></div>
-        <div><div class="stat-n">+15</div><div class="stat-l">Entreprises</div></div>
-        <div><div class="stat-n">100%</div><div class="stat-l">Satisfait</div></div>
+        <div><div class="stat-n">+400</div><div class="stat-l">Salariés formés</div></div>
+        <div><div class="stat-n">99%</div><div class="stat-l">Satisfaction</div></div>
+        <div><div class="stat-n">15</div><div class="stat-l">Années d'expérience</div></div>
       </div>
     </div>
   </div>
@@ -191,6 +191,11 @@ FORMATIONS.forEach(function(f){
 function openPanel(id){
   var f=getFormationById(id);
   if(!f) return;
+  // f.who accepte soit une phrase (string), soit une liste de profils (array) :
+  // rendu en texte simple ou en liste à puces selon le cas.
+  var whoHtml = Array.isArray(f.who)
+    ? '<ul class="panel-list">'+f.who.map(function(w){return'<li>'+w+'</li>';}).join('')+'</ul>'
+    : '<div class="panel-section-text">'+f.who+'</div>';
   // Bouton final du panneau : dirige toujours vers la page de récupération
   // de ressource, avec l'id UNIQUE de la formation — jamais un lien générique.
   var ctaHtml = '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>';
@@ -201,7 +206,7 @@ function openPanel(id){
     '<div class="panel-title">'+f.title+'</div>'+
     '<div class="panel-desc">'+f.desc+'</div>'+
     '<div class="panel-format"><div class="fmt-pill">'+f.format+'</div></div>'+
-    '<div class="panel-section"><div class="panel-section-label">Pour qui</div><div class="panel-section-text">'+f.who+'</div></div>'+
+    '<div class="panel-section"><div class="panel-section-label">Pour qui</div>'+whoHtml+'</div>'+
     '<div class="panel-section"><div class="panel-section-label">Objectif</div><div class="panel-section-text">'+f.objective+'</div></div>'+
     '<div class="panel-section"><div class="panel-section-label">Compétences travaillées</div><ul class="panel-list">'+f.skills.map(function(s){return'<li>'+s+'</li>';}).join('')+'</ul></div>'+
     '<div class="panel-section"><div class="panel-section-label">Ce que vous allez vivre</div><div class="panel-section-text">'+f.experience+'</div></div>'+
