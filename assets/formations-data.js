@@ -64,7 +64,7 @@ var FORMATIONS = [
     num: "03",
     tag: "Cohésion d'équipe",
     title: "Redécouvrir la communication",
-    desc: "Pratiquez l'écoute active, coordonnez vos équipes, équilibrez la prise de parole de chacun.",
+    desc: "Écoute active, coordination, communication saine dans vos équipes.",
     format: "Formation collective — 3 h",
     who: "Équipes en tension, services qui collaborent peu, groupes avec des profils très différents.",
     objective: "Fluidifier la communication interne et créer les conditions d'une coopération authentique.",
@@ -96,7 +96,7 @@ var FORMATIONS = [
   {
     id: "recrutement",
     num: "05",
-    tag: "Ressources humaines",
+    tag: "Anti-discrimination",
     title: "Recruter sans biais",
     desc: "Basez vos décisions sur la compétence, pas sur des critères subjectifs.",
     format: "Formation collective — 3 h",
@@ -113,7 +113,7 @@ var FORMATIONS = [
   {
     id: "equipe-distance",
     num: "06",
-    tag: "Travail hybride",
+    tag: "Télétravail",
     title: "Souder une équipe à distance",
     desc: "Recréez du lien malgré l'écran, osez prendre la parole en visio.",
     format: "Formation collective — 3 h",
