@@ -142,11 +142,19 @@ var FORMATIONS = [
     desc: "Recréez du lien malgré l'écran, osez prendre la parole en visio.",
     format: "Formation collective — 3 h",
     who: "Équipes en télétravail total ou partiel, managers d'équipes dispersées géographiquement.",
-    objective: "Recréer de la proximité et de la confiance dans un contexte de travail hybride ou entièrement distant.",
-    apprentissage: null,
-    skills: ["Présence et expression en visioconférence", "Création de rituels de cohésion à distance", "Communication non-verbale adaptée à l'écran", "Identification des relais informels à distance"],
+    objective: "Vous recréez du lien humain malgré le télétravail pour donner plus de sens et d'engagement à votre équipe, renforcer sa cohésion et clarifier les missions de chacun, afin de limiter les non-dits, la déperdition de savoir-faire et le risque de perte de clients.",
+    apprentissage: [
+      { title: "Recréer du lien malgré l'écran", text: "Sortir de postures professionnelles figées pour se connaître." },
+      { title: "Écouter et proposer", text: "Oser prendre la parole en visio." },
+      { title: "Coopérer pour plus de performance", text: "Identifier qui peut relayer, appuyer, faire avancer, même à distance." }
+    ],
+    skills: ["Recréer du lien humain à distance, malgré l'écran", "Sortir des postures professionnelles figées pour mieux se connaître", "Oser prendre la parole et proposer en visio", "Transmettre clairement un message, en face à face comme à distance", "Identifier le rôle et le périmètre de chacun pour mieux coopérer à distance"],
     experience: "Exercices d'improvisation en visio, création de rituels d'équipe, mises en situation de réunions hybrides.",
-    programme: "Diagnostic du vécu à distance, exercices de présence en visio, création de rituels collectifs, cartographie des ressources informelles, engagements d'équipe",
+    programme: [
+      { title: "Échauffement", text: "Pose du cadre, principes de la voix, corps et écoute." },
+      { title: "Expérimentation collective", text: "Exercices et jeux sur la transmission de messages face à face et à distance." },
+      { title: "Mises en situation de travail à distance", text: "En sous-groupe puis collectif." }
+    ],
     benefits: ["Lien humain recréé malgré la distance", "Réunions hybrides plus inclusives", "Moins d'isolement et de démotivation", "Meilleure connaissance mutuelle des périmètres"],
     ressourceUrl: null,
     ressourceNom: null

@@ -1,20 +1,27 @@
 // Fonction serverless Vercel — reçoit le formulaire "Recevoir ma ressource"
-// et envoie un email personnalisé au visiteur.
+// et envoie un email personnalisé au visiteur, via Gmail SMTP.
 //
-// Nécessite la variable d'environnement RESEND_API_KEY, à définir dans
-// Vercel (Project Settings → Environment Variables) — jamais dans le code.
+// Nécessite deux variables d'environnement, à définir dans Vercel
+// (Project Settings → Environment Variables) — jamais dans le code :
+// - GMAIL_USER : le compte Gmail utilisé pour l'envoi (ex. lauriegetup@gmail.com)
+// - GMAIL_APP_PASSWORD : un mot de passe d'application généré sur ce compte
+//   (nécessite la validation en 2 étapes activée sur le compte Google)
+//
+// Pour que l'email parte avec laurie.benatte@getupprod.fr comme expéditeur
+// visible (FROM_EMAIL ci-dessous) plutôt que l'adresse Gmail brute, cette
+// adresse doit être ajoutée et validée dans les paramètres Gmail du compte
+// GMAIL_USER : Paramètres → Comptes et importation → "Envoyer des emails
+// en tant que" → Ajouter une adresse. Sans cette étape, Gmail retombe sur
+// l'adresse GMAIL_USER comme expéditeur réel.
+const nodemailer = require('nodemailer');
 const { getFormationById } = require('../assets/formations-data.js');
 
-const RESEND_API_URL = 'https://api.resend.com/emails';
 const NOTIFY_EMAIL = 'lenna.smm.pro@gmail.com';
 // Un email n'a pas de "page courante" : un lien commençant par "/" (comme
 // formation.ressourceUrl) ne peut pas s'y résoudre tout seul. On le préfixe
 // donc toujours avec le domaine complet du site avant de l'insérer dans l'email.
 const SITE_URL = 'https://getupskills.vercel.app';
-// Expéditeur par défaut de Resend, utilisable sans vérifier de domaine.
-// À remplacer par une adresse @getup-corporate.fr (ou équivalent) une fois
-// le domaine du site vérifié dans Resend, pour une meilleure délivrabilité.
-const FROM_EMAIL = 'Get Up Skills <onboarding@resend.dev>';
+const FROM_EMAIL = 'Get Up Skills <laurie.benatte@getupprod.fr>';
 
 function resolveResourceUrl(url) {
   if (!url) return url;
@@ -27,18 +34,31 @@ function escapeHtml(str) {
   });
 }
 
+let transporter;
+function getTransporter() {
+  if (!transporter) {
+    transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.GMAIL_USER,
+        pass: process.env.GMAIL_APP_PASSWORD
+      }
+    });
+  }
+  return transporter;
+}
+
 async function sendEmail(payload) {
-  const resp = await fetch(RESEND_API_URL, {
-    method: 'POST',
-    headers: {
-      Authorization: 'Bearer ' + process.env.RESEND_API_KEY,
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(payload)
-  });
-  if (!resp.ok) {
-    const detail = await resp.text().catch(function () { return ''; });
-    throw new Error('Resend a refusé l\'envoi (' + resp.status + ') ' + detail);
+  try {
+    await getTransporter().sendMail({
+      from: FROM_EMAIL,
+      to: payload.to,
+      replyTo: payload.reply_to,
+      subject: payload.subject,
+      html: payload.html
+    });
+  } catch (err) {
+    throw new Error('Gmail SMTP a refusé l\'envoi : ' + (err && err.message ? err.message : err));
   }
 }
 
@@ -48,8 +68,8 @@ module.exports = async function handler(req, res) {
     return res.status(405).json({ error: 'Méthode non autorisée.' });
   }
 
-  if (!process.env.RESEND_API_KEY) {
-    console.error('RESEND_API_KEY manquante : configurez-la dans Vercel.');
+  if (!process.env.GMAIL_USER || !process.env.GMAIL_APP_PASSWORD) {
+    console.error('GMAIL_USER / GMAIL_APP_PASSWORD manquantes : configurez-les dans Vercel.');
     return res.status(500).json({ error: "Le service d'envoi n'est pas configuré." });
   }
 
@@ -159,7 +179,6 @@ module.exports = async function handler(req, res) {
 
   try {
     await sendEmail({
-      from: FROM_EMAIL,
       to: [email],
       subject: formation
         ? (hasRealResource ? 'Votre ressource — ' + formation.title : 'Votre demande bien reçue — ' + formation.title)
@@ -168,7 +187,6 @@ module.exports = async function handler(req, res) {
     });
 
     await sendEmail({
-      from: FROM_EMAIL,
       to: [NOTIFY_EMAIL],
       reply_to: email,
       subject: 'Nouveau lead — ' + firstName + ' ' + lastName,
