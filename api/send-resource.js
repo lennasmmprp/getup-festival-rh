@@ -80,17 +80,20 @@ module.exports = async function handler(req, res) {
   }
 
   const formation = getFormationById(formationId);
-  const hasResource = !!(formation && formation.ressourceNom);
+  // "Vraie" ressource = un fichier réellement hébergé sur le site
+  // (/ressources/...). formation.ressourceNom seul ne suffit pas : "ia" en a
+  // un, mais c'est un placeholder de test (cataas.com), pas un vrai lead
+  // magnet — même logique que côté front (formations.html, recevoir-ma-ressource).
+  const hasRealResource = !!(formation && formation.ressourceUrl && formation.ressourceUrl.indexOf('/ressources/') === 0);
 
   const introText = formation
-    ? (hasResource
+    ? (hasRealResource
         ? 'Merci ' + escapeHtml(firstName) + ' ! Comme promis, votre ressource sur « ' + escapeHtml(formation.title) + ' » est prête.'
-        : 'Votre ressource sur « ' + escapeHtml(formation.title) + ' » est en cours de finalisation par notre équipe — elle vous parviendra très vite. En attendant, voici l\'essentiel : ' + escapeHtml(formation.objective))
+        : 'Merci ' + escapeHtml(firstName) + ', votre demande pour « ' + escapeHtml(formation.title) + ' » a bien été enregistrée. Cette ressource est encore en préparation : vous ne recevez rien pour l\'instant, mais nous vous écrirons dès qu\'elle sera prête.')
     : 'Merci pour votre demande. Notre équipe revient vers vous rapidement avec les informations adaptées à votre besoin.';
 
-  // Carte ressource mise en avant, uniquement quand une vraie ressource existe
-  // (formation.ressourceNom renseigné) — sinon on reste sur un simple texte.
-  const resourceCardHtml = hasResource
+  // Carte ressource mise en avant, uniquement quand une vraie ressource existe.
+  const resourceCardHtml = hasRealResource
     ? '<tr><td style="padding:4px 0 8px;">' +
       '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f0f4fb;border:1px solid #dde6f7;border-radius:12px;">' +
       '<tr><td style="padding:28px 28px 24px;">' +
@@ -150,6 +153,7 @@ module.exports = async function handler(req, res) {
     '<li>Téléphone : ' + (phone ? escapeHtml(phone) : '—') + '</li>' +
     '<li>Entreprise : ' + (company ? escapeHtml(company) : '—') + '</li>' +
     '<li>Formation : ' + (formation ? escapeHtml(formation.title) : '(non identifiée : ' + escapeHtml(formationId) + ')') + '</li>' +
+    '<li>Type : ' + (formation ? (hasRealResource ? 'Ressource envoyée' : 'Demande enregistrée (ressource pas encore prête)') : '—') + '</li>' +
     '</ul>' +
     '</div>';
 
@@ -157,7 +161,9 @@ module.exports = async function handler(req, res) {
     await sendEmail({
       from: FROM_EMAIL,
       to: [email],
-      subject: formation ? 'Votre ressource — ' + formation.title : 'Votre demande — Get Up Skills',
+      subject: formation
+        ? (hasRealResource ? 'Votre ressource — ' + formation.title : 'Votre demande bien reçue — ' + formation.title)
+        : 'Votre demande — Get Up Skills',
       html: visitorHtml
     });
 

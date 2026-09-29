@@ -117,11 +117,19 @@ var FORMATIONS = [
     desc: "Basez vos décisions sur la compétence, pas sur des critères subjectifs.",
     format: "Formation collective — 3 h",
     who: "Recruteurs, managers qui participent aux entretiens, équipes RH.",
-    objective: "Développer une posture de recruteur objectif et équitable pour attirer et sélectionner les meilleurs profils.",
-    apprentissage: null,
-    skills: ["Identification de ses propres biais cognitifs", "Conduite d'entretien structurée", "Évaluation basée sur les compétences", "Décision collective objective"],
+    objective: "Vous prenez des décisions de recrutement fondées sur la compétence plutôt que sur des critères subjectifs, pour des recrutements plus objectifs, une marque employeur renforcée et des équipes qui se développent avec les bons profils.",
+    apprentissage: [
+      { title: "Avoir conscience de ses biais", text: "Identifier l'écart entre ce que je dis et ce que le candidat comprend." },
+      { title: "Écouter et mener un entretien sans intrusion", text: "Construire une discussion professionnelle plutôt qu'un interrogatoire." },
+      { title: "Coopérer pour plus de performance", text: "Ancrer des réflexes collectifs pour limiter les préjugés." }
+    ],
+    skills: ["Repérer ses biais et ceux de l'équipe en situation de recrutement", "Évaluer un candidat sur ses compétences plutôt que sur les apparences", "Adopter une posture de recruteur juste : voix, corps et écoute", "Mener un entretien sous forme de discussion professionnelle, sans intrusion", "Coopérer en équipe pour des décisions de recrutement plus objectives"],
     experience: "Simulations d'entretiens avec rôles inversés, débriefings sur les biais observés, mises en situation de décision collective.",
-    programme: "Sensibilisation aux biais inconscients, jeux de rôle entretien, grilles d'évaluation objective, simulation de comité de sélection, plan d'action individuel",
+    programme: [
+      { title: "Échauffement", text: "Pose du cadre, principes de la voix, corps et écoute." },
+      { title: "Expérimentation collective", text: "Exercices et jeux autour des perceptions et des biais." },
+      { title: "Mises en situation de recrutements décalés", text: "En sous-groupe puis collectif." }
+    ],
     benefits: ["Recrutements plus objectifs et équitables", "Meilleure marque employeur", "Équipes plus diversifiées et performantes", "Réduction du turnover lié aux mauvais recrutements"],
     ressourceUrl: null,
     ressourceNom: null
