@@ -21,7 +21,7 @@ var FORMATIONS = [
     tag: "Intelligence relationnelle",
     title: "Prise de parole en public",
     desc: "Pitchs, CODIR, réunions : prenez le contrôle de chaque prise de parole.",
-    format: "3H · 100% PERSONNALISÉ",
+    format: "Coaching individuel → 3 h, 100 % personnalisé.",
     who: "Managers, commerciaux, dirigeants, tout collaborateur amené à prendre la parole en public.",
     objective: "Développer une présence scénique naturelle et une communication impactante dans tout contexte professionnel.",
     skills: ["Structuration d'un discours captivant", "Gestion du stress et de l'imprévu", "Posture, voix et langage non-verbal", "Écoute et interaction avec l'audience"],
