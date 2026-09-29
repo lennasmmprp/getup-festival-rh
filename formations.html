@@ -201,20 +201,29 @@ function openPanel(id){
   var whoHtml = Array.isArray(f.who)
     ? '<ul class="panel-list">'+f.who.map(function(w){return'<li>'+w+'</li>';}).join('')+'</ul>'
     : '<div class="panel-section-text">'+f.who+'</div>';
-  // Section "Apprentissage" optionnelle : n'apparaît que si la formation
+  // Rend une liste de modules {title, text} en blocs titre+texte (comme sur
+  // le reste du site) ; numérotés ("01 · Titre") ou en puces selon le besoin.
+  function renderModules(items, numbered){
+    return '<div class="programme-modules">'+items.map(function(m,i){
+      var prefix = numbered ? ((i+1)<10?'0'+(i+1):String(i+1))+' · ' : '';
+      return '<div><div class="programme-module-title">'+prefix+m.title+'</div><div class="programme-module-text">'+m.text+'</div></div>';
+    }).join('')+'</div>';
+  }
+  // Section "Apprentissages" optionnelle : n'apparaît que si la formation
   // renseigne f.apprentissage (comme ressourceUrl/ressourceNom, reste absent
-  // tant qu'aucun texte réel n'est fourni).
-  var apprentissageHtml = f.apprentissage
-    ? '<div class="panel-section"><div class="panel-section-label">Apprentissage</div><div class="panel-section-text">'+f.apprentissage+'</div></div>'
-    : '';
+  // tant qu'aucun contenu réel n'est fourni). Accepte un texte (string) ou
+  // une liste de modules {title, text} (array).
+  var apprentissageHtml = !f.apprentissage ? '' :
+    '<div class="panel-section"><div class="panel-section-label">Apprentissages</div>'+
+    (Array.isArray(f.apprentissage)
+      ? renderModules(f.apprentissage, false)
+      : '<div class="panel-section-text">'+f.apprentissage+'</div>')+
+    '</div>';
   // f.programme accepte soit un texte (string), soit une liste de modules
   // numérotés {title, text} (array) : rendu en texte simple ou en blocs
   // numérotés selon le cas.
   var programmeHtml = Array.isArray(f.programme)
-    ? '<div class="programme-modules">'+f.programme.map(function(m,i){
-        var n=(i+1)<10?'0'+(i+1):String(i+1);
-        return '<div><div class="programme-module-title">'+n+' · '+m.title+'</div><div class="programme-module-text">'+m.text+'</div></div>';
-      }).join('')+'</div>'
+    ? renderModules(f.programme, true)
     : '<div class="panel-section-text">'+f.programme+'</div>';
   // Bouton final du panneau : dirige toujours vers la page de récupération
   // de ressource, avec l'id UNIQUE de la formation — jamais un lien générique.

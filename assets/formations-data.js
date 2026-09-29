@@ -46,7 +46,7 @@ var FORMATIONS = [
     who: "Les équipes confrontées à l'intégration de l'IA dans leur quotidien professionnel.",
     objective: "Transformer l'appréhension face à l'IA en curiosité constructive et créer une dynamique collective d'adoption.",
     apprentissage: null,
-    skills: ["Confiance — Oser utiliser l'IA", "Communication — Formuler des demandes efficaces", "Collaboration — Travailler ensemble avec l'IA"],
+    skills: ["Confiance : Oser utiliser l'IA", "Communication : Formuler des demandes efficaces", "Collaboration : Travailler ensemble avec l'IA"],
     experience: "Exercices d'improvisation autour de l'inconnu et de l'adaptation. Mises en situation de collaboration humain/IA. Temps d'expression libre des peurs et des attentes.",
     programme: [
       { title: "Échauffement", text: "Voix, corps & écoute" },
@@ -67,11 +67,19 @@ var FORMATIONS = [
     desc: "Écoute active, coordination, communication saine dans vos équipes.",
     format: "Formation collective — 3 h",
     who: "Équipes en tension, services qui collaborent peu, groupes avec des profils très différents.",
-    objective: "Fluidifier la communication interne et créer les conditions d'une coopération authentique.",
-    apprentissage: null,
-    skills: ["Écoute active et reformulation", "Principe du oui-et (acceptation et rebond)", "Prise de parole équilibrée", "Coordination face à l'imprévu"],
+    objective: "Fluidifiez la circulation de l’information, faites coopérer vos services et équilibrez la prise de parole pour que chaque talent, même discret, puisse porter ses idées.",
+    apprentissage: [
+      { title: "Écouter et favoriser la confiance", text: "Pratiquer l’écoute active et la reformulation" },
+      { title: "Accepter, relancer, dynamiser", text: "Accueillir l’idée de l’autre et rebondir dessus (« oui, et »)" },
+      { title: "Coopérer pour plus de performance", text: "Coordonner le collectif face à l’imprévu" }
+    ],
+    skills: ["Écoute active et reformulation", "Expression orale : voix, posture, présence", "Accueil et valorisation des idées des autres", "Capacité à rebondir et à faire avancer la discussion", "Coopération et intelligence collective", "Adaptabilité face à l’imprévu"],
     experience: "Scènes d'improvisation en binôme et en groupe. Exercices d'écoute sans parole. Situations reproduisant les blocages de la vie professionnelle réelle.",
-    programme: "Diagnostic des modes de communication, exercices d'écoute profonde, scènes de co-construction, travail sur les silences et la place de chacun, retours en groupe",
+    programme: [
+      { title: "Échauffement", text: "Pose du cadre, principes de la voix, corps et écoute" },
+      { title: "Expérimentation collective", text: "Exercices et jeux de communication" },
+      { title: "Improvisations", text: "En sous-groupe puis collectif" }
+    ],
     benefits: ["Information qui circule mieux", "Moins de malentendus et de tensions", "Profils discrets mieux inclus", "Services en silos qui se rapprochent"],
     ressourceUrl: null,
     ressourceNom: null
