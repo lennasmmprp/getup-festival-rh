@@ -46,7 +46,7 @@ var FORMATIONS = [
     who: "Les équipes confrontées à l'intégration de l'IA dans leur quotidien professionnel.",
     objective: "Transformer l'appréhension face à l'IA en curiosité constructive et créer une dynamique collective d'adoption.",
     apprentissage: null,
-    skills: ["Compréhension des mécanismes de l'IA", "Communication efficace avec les outils (prompting)", "Coordination collective face à l'innovation", "Gestion du changement par la confiance"],
+    skills: ["Confiance — Oser utiliser l'IA", "Communication — Formuler des demandes efficaces", "Collaboration — Travailler ensemble avec l'IA"],
     experience: "Exercices d'improvisation autour de l'inconnu et de l'adaptation. Mises en situation de collaboration humain/IA. Temps d'expression libre des peurs et des attentes.",
     programme: "Expression des représentations et peurs, démystification par l'expérimentation, exercices de prompting collectif, construction d'une posture d'équipe face à l'IA, plan d'action partagé",
     benefits: ["Équipes alignées sur l'usage réel de l'IA", "Réduction des résistances internes", "Gain de productivité immédiat", "Direction et terrain réconciliés sur le sujet"],
