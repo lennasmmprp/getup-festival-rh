@@ -82,6 +82,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 .panel-format{display:flex;gap:16px;margin-bottom:40px;}
 .fmt-pill{background:var(--blue);color:var(--yellow);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;}
 .panel-cta{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:40px;}
+.panel-cta-secondary{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:transparent;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:16px;border:1.5px solid var(--blue);cursor:pointer;margin-top:12px;}
 @media (max-width:860px){
   nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:14px 16px 0;padding:12px 18px;border-radius:20px;max-width:calc(100% - 32px);}
   .nl{order:1;}
@@ -127,8 +128,8 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
   <div class="nr">
     <a href="formations" class="active" aria-current="page">Formations</a>
     <a href="impro-club">Impro Club</a>
-    <a>Artistes</a>
-    <a>À propos</a>
+    <a href="artistes/">Artistes</a>
+    <a href="a-propos/">À propos</a>
   </div>
   <a href="rendez-vous" class="ncta">Prendre RDV</a>
 </nav>
@@ -194,6 +195,7 @@ function openPanel(id){
   // Bouton final du panneau : dirige toujours vers la page de récupération
   // de ressource, avec l'id UNIQUE de la formation — jamais un lien générique.
   var ctaHtml = '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>';
+  var pageHtml = '<a class="panel-cta-secondary" href="formations/'+encodeURIComponent(f.id)+'/">Voir la page complète de la formation →</a>';
   document.getElementById('panel-content').innerHTML=
     '<div class="panel-close"><div class="panel-num">'+f.num+'</div><button class="close-btn" onclick="closePanel()">Fermer ✕</button></div>'+
     '<div class="panel-accent"></div>'+
@@ -206,6 +208,7 @@ function openPanel(id){
     '<div class="panel-section"><div class="panel-section-label">Ce que vous allez vivre</div><div class="panel-section-text">'+f.experience+'</div></div>'+
     '<div class="panel-section"><div class="panel-section-label">Programme</div><div class="panel-section-text">'+f.programme+'</div></div>'+
     '<div class="panel-section"><div class="panel-section-label">Bénéfices pour l\'entreprise</div><ul class="panel-list">'+f.benefits.map(function(b){return'<li>'+b+'</li>';}).join('')+'</ul></div>'+
+    pageHtml+
     ctaHtml;
   document.getElementById('overlay').classList.add('open');
   document.getElementById('panel').classList.add('open');

@@ -1,3 +1,8 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    { "source": "/formations/", "destination": "/formations", "permanent": true },
+    { "source": "/impro-club/", "destination": "/impro-club", "permanent": true },
+    { "source": "/rendez-vous/", "destination": "/rendez-vous", "permanent": true }
+  ]
 }

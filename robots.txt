@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://getupskills.vercel.app/sitemap.xml

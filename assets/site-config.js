@@ -3,7 +3,7 @@
  *
  * CALENDLY_URL : lien de réservation Calendly (ou Cal.com) de Laurie.
  * Laisser vide tant qu'il n'est pas fourni — ne JAMAIS mettre une URL
- * inventée ici. Utilisé par rendez-vous/index.html et par
+ * inventée ici. Utilisé par rendez-vous.html et par
  * recevoir-ma-ressource/index.html : le renseigner UNE SEULE FOIS ici
  * suffit à l'activer sur les deux pages.
  *

@@ -1,8 +1,9 @@
 /*
  * Source unique des données de formation — GetUp Corporate.
  *
- * Chargé par index.html (catalogue + panneau) et par rendez-vous/index.html
- * (personnalisation du parcours de réservation). Toute formation référencée
+ * Chargé par formations.html (catalogue + panneau), rendez-vous.html
+ * (personnalisation du parcours de réservation) et recevoir-ma-ressource/index.html.
+ * Toute formation référencée
  * ailleurs sur le site (cartes, boutons "Prendre rendez-vous", etc.) doit
  * utiliser l'`id` défini ici — jamais le nom affiché — pour ne jamais mélanger
  * deux formations entre elles.
