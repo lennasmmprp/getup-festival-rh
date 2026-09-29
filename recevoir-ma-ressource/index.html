@@ -23,17 +23,10 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .ncta{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;background:#012460;color:#FFF2A1;padding:12px 24px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;border:none;cursor:pointer;justify-self:end;text-decoration:none;display:inline-block;}
 
 .res-wrap{background:#f8f7f3;padding:24px;}
-.res-hero{background:radial-gradient(ellipse at 70% 20%,#1a4fc4 0%,#0a2d7a 35%,#071e52 70%,#040f2e 100%);border-radius:32px;padding:64px 48px;text-align:center;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
-.res-eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:rgba(255,242,178,0.7);letter-spacing:2px;text-transform:uppercase;margin-bottom:16px;}
-.res-title{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;text-transform:uppercase;letter-spacing:-1px;color:#FFF2B2;}
-.res-pitch{font-size:15px;font-weight:300;color:rgba(255,255,255,0.6);line-height:1.6;max-width:480px;margin:16px auto 0;}
-.res-summary{display:inline-flex;flex-direction:column;gap:4px;margin-top:28px;padding:16px 24px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;max-width:420px;}
-.res-summary-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:10px;font-weight:700;color:rgba(255,242,178,0.6);letter-spacing:2px;text-transform:uppercase;}
-.res-summary-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:#FFF2B2;}
-.res-summary-text{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.5;margin-top:4px;}
 
 .res-card{background:#ffffff;border-radius:32px;margin-top:24px;padding:56px 48px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);max-width:640px;margin-left:auto;margin-right:auto;}
 .res-not-found{text-align:center;font-size:14px;color:rgba(0,0,0,0.5);line-height:1.7;}
+.res-intro{font-size:14px;color:rgba(0,0,0,0.55);line-height:1.6;margin-bottom:24px;}
 .res-not-found a{color:#0D419A;font-weight:600;text-decoration:none;}
 .res-not-found a:hover{text-decoration:underline;}
 
@@ -86,15 +79,9 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .nr{order:3;width:100%;min-width:0;flex-wrap:wrap;justify-content:center;row-gap:8px;column-gap:16px;}
   .nr a{font-size:11px;}
   .res-wrap{padding:16px;}
-  .res-hero{padding:36px 24px;border-radius:24px;}
-  .res-summary{max-width:100%;padding:14px 18px;}
   .res-card,.res-cta{padding:28px 20px;border-radius:24px;}
   .form-grid{grid-template-columns:1fr;gap:16px;}
   .res-cta-btn{width:100%;justify-content:center;padding:14px 20px;}
-}
-@media (max-width:480px){
-  .res-title{font-size:1.7rem;}
-  .res-pitch{font-size:14px;}
 }
 @media (max-width:600px){
   .foot{padding:32px 24px;}
@@ -119,21 +106,12 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 </nav>
 
 <div class="res-wrap">
-  <div class="res-hero">
-    <div class="res-eyebrow">Ressource gratuite</div>
-    <div class="res-title" id="pageTitle">Recevoir une ressource</div>
-    <p class="res-pitch" id="pagePitch">Laissez-nous vos coordonnées pour recevoir votre ressource par email.</p>
-    <div class="res-summary" id="resourceSummary" hidden>
-      <span class="res-summary-label">Vous allez recevoir</span>
-      <span class="res-summary-title" id="resourceTitle"></span>
-      <span class="res-summary-text" id="resourceText"></span>
-    </div>
-  </div>
-
   <div class="res-card">
     <div id="formationNotFound" hidden class="res-not-found">
       Nous n'avons pas retrouvé de formation correspondante. <a href="/formations">Voir toutes nos formations →</a>
     </div>
+
+    <p class="res-intro" id="resIntro"></p>
 
     <form id="leadForm" novalidate>
       <input type="hidden" name="formation" id="formationIdField" value="">
@@ -174,7 +152,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
       <div>
         <label class="form-consent">
           <input type="checkbox" id="consent" name="consent" required>
-          <span>J'accepte de recevoir cette ressource par email, ainsi que les communications associées de Get Up Skills. *</span>
+          <span id="consentLabel">J'accepte de recevoir cette ressource par email, ainsi que les communications associées de Get Up Skills. *</span>
         </label>
         <div class="form-field-error" id="consentError"></div>
       </div>
@@ -189,7 +167,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
     <div class="res-success" id="formSuccess" hidden>
       <strong>Merci ! Votre demande a bien été enregistrée.</strong>
-      <p>Vous allez recevoir votre ressource par email.</p>
+      <p>Vous allez recevoir par email « Les 3 techniques de nos artistes pour captiver votre audience » : des techniques concrètes pour faire de chaque prise de parole un véritable levier de performance pour l'entreprise.</p>
+      <p>À vous de jouer !</p>
     </div>
   </div>
 
@@ -227,19 +206,36 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
   if (f) {
     document.title = 'Recevoir ma ressource — ' + f.title + ' — Get Up Skills';
-    document.getElementById('pageTitle').textContent = 'Recevoir une ressource sur ' + f.title;
-    document.getElementById('pagePitch').textContent = f.desc;
     document.getElementById('formationIdField').value = f.id;
 
-    var summary = document.getElementById('resourceSummary');
-    document.getElementById('resourceTitle').textContent = f.ressourceNom || ('Une ressource pratique sur ' + f.title);
-    document.getElementById('resourceText').textContent = f.ressourceNom
-      ? f.objective
-      : 'Nous vous envoyons par email un contenu pratique sur cette formation, directement applicable avec votre équipe.';
-    summary.hidden = false;
+    // "Vraie" ressource = un fichier réellement hébergé sur le site
+    // (/ressources/...). f.ressourceNom seul ne suffit pas : "ia" en a un,
+    // mais c'est un placeholder de test (cataas.com), pas un vrai lead magnet.
+    var hasRealResource = !!(f.ressourceUrl && f.ressourceUrl.indexOf('/ressources/') === 0);
+
+    var intro = document.getElementById('resIntro');
+    var submitBtn = document.getElementById('submitBtn');
+    var consentLabel = document.getElementById('consentLabel');
+    var success = document.getElementById('formSuccess');
+
+    if (hasRealResource) {
+      intro.textContent = 'Laissez-nous vos coordonnées pour recevoir « ' + f.ressourceNom + ' » par email.';
+      submitBtn.textContent = 'Recevoir ma ressource';
+      consentLabel.textContent = "J'accepte de recevoir cette ressource par email, ainsi que les communications associées de Get Up Skills. *";
+      success.innerHTML =
+        '<strong>Merci ! Votre demande a bien été enregistrée.</strong>' +
+        '<p>Vous allez recevoir par email « Les 3 techniques de nos artistes pour captiver votre audience » : des techniques concrètes pour faire de chaque prise de parole un véritable levier de performance pour l\'entreprise.</p>' +
+        '<p>À vous de jouer !</p>';
+    } else {
+      intro.textContent = 'Cette ressource est encore en préparation. Laissez-nous vos coordonnées pour être parmi les premiers informés dès qu\'elle sera prête — vous ne recevrez rien pour l\'instant.';
+      submitBtn.textContent = 'Demander cette ressource';
+      consentLabel.textContent = "J'accepte d'être recontacté·e au sujet de cette ressource, ainsi que des communications associées de Get Up Skills. *";
+      success.innerHTML =
+        '<strong>Merci, votre demande a bien été enregistrée.</strong>' +
+        '<p>Cette ressource est encore en préparation — vous ne recevrez rien pour l\'instant. Votre demande nous aide à savoir quelles ressources créer en priorité, et nous vous écrirons dès qu\'elle sera prête.</p>';
+    }
   } else {
     document.getElementById('formationNotFound').hidden = false;
-    document.getElementById('pagePitch').textContent = 'Sélectionnez une formation depuis le catalogue pour recevoir sa ressource.';
   }
 })();
 

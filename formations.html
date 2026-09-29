@@ -227,7 +227,13 @@ function openPanel(id){
     : '<div class="panel-section-text">'+f.programme+'</div>';
   // Bouton final du panneau : dirige toujours vers la page de récupération
   // de ressource, avec l'id UNIQUE de la formation — jamais un lien générique.
-  var ctaHtml = '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>';
+  // Le libellé dépend de l'existence d'un vrai fichier hébergé sur le site
+  // (/ressources/...) — pas juste de ressourceNom, qui reste renseigné pour
+  // "ia" avec un placeholder de test (cataas.com), pas une vraie ressource.
+  var hasRealResource = !!(f.ressourceUrl && f.ressourceUrl.indexOf('/ressources/') === 0);
+  var ctaHtml = hasRealResource
+    ? '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>'
+    : '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Demander cette ressource →</a>';
   document.getElementById('panel-content').innerHTML=
     '<div class="panel-close"><div class="panel-num">'+f.num+'</div><button class="close-btn" onclick="closePanel()">Fermer ✕</button></div>'+
     '<div class="panel-accent"></div>'+
