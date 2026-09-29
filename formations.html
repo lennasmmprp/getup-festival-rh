@@ -196,6 +196,12 @@ function openPanel(id){
   var whoHtml = Array.isArray(f.who)
     ? '<ul class="panel-list">'+f.who.map(function(w){return'<li>'+w+'</li>';}).join('')+'</ul>'
     : '<div class="panel-section-text">'+f.who+'</div>';
+  // Section "Apprentissage" optionnelle : n'apparaît que si la formation
+  // renseigne f.apprentissage (comme ressourceUrl/ressourceNom, reste absent
+  // tant qu'aucun texte réel n'est fourni).
+  var apprentissageHtml = f.apprentissage
+    ? '<div class="panel-section"><div class="panel-section-label">Apprentissage</div><div class="panel-section-text">'+f.apprentissage+'</div></div>'
+    : '';
   // Bouton final du panneau : dirige toujours vers la page de récupération
   // de ressource, avec l'id UNIQUE de la formation — jamais un lien générique.
   var ctaHtml = '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>';
@@ -208,6 +214,7 @@ function openPanel(id){
     '<div class="panel-format"><div class="fmt-pill">'+f.format+'</div></div>'+
     '<div class="panel-section"><div class="panel-section-label">Pour qui</div>'+whoHtml+'</div>'+
     '<div class="panel-section"><div class="panel-section-label">Objectif</div><div class="panel-section-text">'+f.objective+'</div></div>'+
+    apprentissageHtml+
     '<div class="panel-section"><div class="panel-section-label">Compétences travaillées</div><ul class="panel-list">'+f.skills.map(function(s){return'<li>'+s+'</li>';}).join('')+'</ul></div>'+
     '<div class="panel-section"><div class="panel-section-label">Ce que vous allez vivre</div><div class="panel-section-text">'+f.experience+'</div></div>'+
     '<div class="panel-section"><div class="panel-section-label">Programme</div><div class="panel-section-text">'+f.programme+'</div></div>'+
