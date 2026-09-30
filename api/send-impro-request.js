@@ -53,6 +53,7 @@ module.exports = async function handler(req, res) {
   const body = req.body || {};
   const name = (body.name || '').trim();
   const company = (body.company || '').trim();
+  const role = (body.role || '').trim();
   const email = (body.email || '').trim();
   const phone = (body.phone || '').trim();
   const date = (body.date || '').trim();
@@ -71,7 +72,7 @@ module.exports = async function handler(req, res) {
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!name || !company || !email || !emailPattern.test(email) || !consent) {
+  if (!name || !company || !role || !email || !emailPattern.test(email) || !message || !consent) {
     return res.status(400).json({ error: 'Champs manquants ou invalides.' });
   }
 
@@ -81,12 +82,13 @@ module.exports = async function handler(req, res) {
     '<ul>' +
     '<li>Nom et prénom : ' + escapeHtml(name) + '</li>' +
     '<li>Entreprise : ' + escapeHtml(company) + '</li>' +
+    '<li>Fonction : ' + escapeHtml(role) + '</li>' +
     '<li>Email : ' + escapeHtml(email) + '</li>' +
     '<li>Téléphone : ' + (phone ? escapeHtml(phone) : '—') + '</li>' +
     '<li>Date souhaitée : ' + (date ? escapeHtml(date) : '—') + '</li>' +
     '<li>Nombre de participants : ' + (participants ? escapeHtml(participants) : '—') + '</li>' +
     '</ul>' +
-    (message ? '<p><strong>Message :</strong><br>' + escapeHtml(message).replace(/\n/g, '<br>') + '</p>' : '') +
+    '<p><strong>Message :</strong><br>' + escapeHtml(message).replace(/\n/g, '<br>') + '</p>' +
     '</div>';
 
   try {

@@ -241,6 +241,11 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
           <input type="text" id="icCompany" name="company" required autocomplete="organization">
           <div class="form-field-error" id="icCompanyError"></div>
         </div>
+        <div class="form-field full">
+          <label for="icRole">Fonction *</label>
+          <input type="text" id="icRole" name="role" required autocomplete="organization-title">
+          <div class="form-field-error" id="icRoleError"></div>
+        </div>
         <div class="form-field">
           <label for="icEmail">E-mail *</label>
           <input type="email" id="icEmail" name="email" required autocomplete="email">
@@ -260,8 +265,9 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
           <input type="number" id="icParticipants" name="participants" min="1" placeholder="Nombre">
         </div>
         <div class="form-field full">
-          <label for="icMessage">Message <span class="optional-tag">(facultatif)</span></label>
-          <textarea id="icMessage" name="message" rows="4" placeholder="Ex. : j'organise la soirée pour 200 personnes dans nos locaux"></textarea>
+          <label for="icMessage">Message *</label>
+          <textarea id="icMessage" name="message" rows="4" required placeholder="Ex. : j'organise la soirée pour 200 personnes dans nos locaux"></textarea>
+          <div class="form-field-error" id="icMessageError"></div>
         </div>
       </div>
 
@@ -354,6 +360,7 @@ function closeReservePanel() {
 
     var name = document.getElementById('icName').value.trim();
     var company = document.getElementById('icCompany').value.trim();
+    var role = document.getElementById('icRole').value.trim();
     var email = document.getElementById('icEmail').value.trim();
     var phone = document.getElementById('icPhone').value.trim();
     var date = document.getElementById('icDate').value;
@@ -370,6 +377,9 @@ function closeReservePanel() {
     setFieldError('icCompany', company ? '' : 'Merci d\'indiquer votre entreprise.');
     if (!company) valid = false;
 
+    setFieldError('icRole', role ? '' : 'Merci d\'indiquer votre fonction.');
+    if (!role) valid = false;
+
     if (!email) {
       setFieldError('icEmail', "Merci d'indiquer votre email.");
       valid = false;
@@ -379,6 +389,9 @@ function closeReservePanel() {
     } else {
       setFieldError('icEmail', '');
     }
+
+    setFieldError('icMessage', message ? '' : 'Merci d\'ajouter un message.');
+    if (!message) valid = false;
 
     document.getElementById('icConsentError').textContent = consent ? '' : 'Merci de cocher la case pour envoyer votre demande.';
     if (!consent) valid = false;
@@ -396,6 +409,7 @@ function closeReservePanel() {
       body: JSON.stringify({
         name: name,
         company: company,
+        role: role,
         email: email,
         phone: phone,
         date: date,
