@@ -88,20 +88,18 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .form-field-error{font-size:11px;color:#c0392b;min-height:14px;}
 .form-consent{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(0,0,0,0.6);line-height:1.5;cursor:pointer;}
 .form-consent input{margin-top:3px;}
-.form-submit-row{margin-top:12px;}
-.ic-submit-btn{width:100%;background:#0D419A;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:16px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
+.form-submit-row{margin-top:12px;display:flex;flex-wrap:wrap;gap:12px;}
+.ic-submit-btn{flex:1;min-width:200px;background:#0D419A;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:16px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
 .ic-submit-btn:hover{background:#0a2d7a;}
 .ic-submit-btn:disabled{opacity:0.6;cursor:default;}
-.form-global-error{color:#c0392b;font-size:12px;margin-top:10px;}
+.form-global-error{color:#c0392b;font-size:12px;margin-top:10px;width:100%;}
 .ic-privacy-note{margin-top:24px;font-size:11px;line-height:1.6;color:rgba(0,0,0,0.4);}
 .ic-privacy-note a{color:#0D419A;font-weight:600;text-decoration:none;}
 .ic-privacy-note a:hover{text-decoration:underline;}
 
-.ic-call-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:16px;border-radius:8px;text-decoration:none;background:#ffffff;color:#0D419A;border:1.5px solid #0D419A;transition:background .2s,transform .2s;}
+.ic-call-btn{display:flex;align-items:center;justify-content:center;gap:8px;flex:1;min-width:200px;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:16px;border-radius:8px;text-decoration:none;background:#ffffff;color:#0D419A;border:1.5px solid #0D419A;transition:background .2s,transform .2s;}
 .ic-call-btn:hover{background:#f0f4fb;transform:translateY(-2px);}
 .ic-call-note{margin-top:12px;font-size:13px;line-height:1.5;color:rgba(0,0,0,0.5);text-align:center;}
-.ic-panel-divider{display:flex;align-items:center;gap:12px;margin:32px 0;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(0,0,0,0.35);}
-.ic-panel-divider::before,.ic-panel-divider::after{content:'';flex:1;height:1px;background:rgba(0,0,0,0.1);}
 .ic-form-success{text-align:center;padding:24px 8px;}
 .ic-form-success strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;color:#012460;font-size:17px;margin-bottom:8px;}
 .ic-form-success p{font-size:14px;color:rgba(0,0,0,0.55);line-height:1.6;}
@@ -223,11 +221,6 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
     <div class="ic-panel-accent"></div>
     <h2 class="ic-panel-title" id="icPanelTitle">Réservez Impro Club pour votre événement</h2>
 
-    <a href="#" id="icCallBtn" target="_blank" rel="noopener" class="ic-call-btn">Réserver mon appel →</a>
-    <p class="ic-call-note">Un appel de 15&nbsp;min pour échanger sur le spectacle d'impro et voir comment l'organiser dans votre entreprise.</p>
-
-    <div class="ic-panel-divider">ou remplissez le formulaire</div>
-
     <form id="icLeadForm" novalidate>
       <input type="hidden" id="icFormLoadedAt" value="">
       <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
@@ -256,18 +249,6 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
           <input type="tel" id="icPhone" name="phone" autocomplete="tel">
           <div class="form-field-error"></div>
         </div>
-        <div class="form-field full">
-          <label for="icEventType">Type d'événement <span class="optional-tag">(facultatif)</span></label>
-          <select id="icEventType" name="eventType">
-            <option value="">Sélectionnez un type d'événement</option>
-            <option value="Séminaire">Séminaire</option>
-            <option value="Soirée d'entreprise">Soirée d'entreprise</option>
-            <option value="Convention">Convention</option>
-            <option value="Pause déj">Pause déj</option>
-            <option value="Événement RH">Événement RH</option>
-            <option value="Autre">Autre</option>
-          </select>
-        </div>
         <div class="form-field">
           <label for="icDate">Date souhaitée <span class="optional-tag">(facultatif)</span></label>
           <input type="date" id="icDate" name="date">
@@ -278,7 +259,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
         </div>
         <div class="form-field full">
           <label for="icMessage">Message <span class="optional-tag">(facultatif)</span></label>
-          <textarea id="icMessage" name="message" rows="4"></textarea>
+          <textarea id="icMessage" name="message" rows="4" placeholder="Ex. : j'organise la soirée pour 200 personnes dans nos locaux"></textarea>
         </div>
       </div>
 
@@ -292,8 +273,10 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
       <div class="form-submit-row">
         <button type="submit" class="ic-submit-btn" id="icSubmitBtn">Envoyer ma demande</button>
+        <a href="#" id="icCallBtn" target="_blank" rel="noopener" class="ic-call-btn">Réserver mon appel →</a>
         <div class="form-global-error" id="icGlobalError"></div>
       </div>
+      <p class="ic-call-note">L'appel sert à échanger sur le spectacle d'impro et voir comment l'organiser dans votre entreprise.</p>
 
       <p class="ic-privacy-note">Les informations recueillies sont utilisées par Get Up afin de traiter votre demande. Pour en savoir plus sur la gestion de vos données et vos droits, consultez notre <a href="/politique-de-confidentialite/">Politique de confidentialité</a>.</p>
     </form>
@@ -371,7 +354,6 @@ function closeReservePanel() {
     var company = document.getElementById('icCompany').value.trim();
     var email = document.getElementById('icEmail').value.trim();
     var phone = document.getElementById('icPhone').value.trim();
-    var eventType = document.getElementById('icEventType').value;
     var date = document.getElementById('icDate').value;
     var participants = document.getElementById('icParticipants').value.trim();
     var message = document.getElementById('icMessage').value.trim();
@@ -414,7 +396,6 @@ function closeReservePanel() {
         company: company,
         email: email,
         phone: phone,
-        eventType: eventType,
         date: date,
         participants: participants,
         message: message,

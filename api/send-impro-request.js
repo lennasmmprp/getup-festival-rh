@@ -48,7 +48,6 @@ module.exports = async function handler(req, res) {
   const company = (body.company || '').trim();
   const email = (body.email || '').trim();
   const phone = (body.phone || '').trim();
-  const eventType = (body.eventType || '').trim();
   const date = (body.date || '').trim();
   const participants = (body.participants || '').trim();
   const message = (body.message || '').trim();
@@ -77,7 +76,6 @@ module.exports = async function handler(req, res) {
     '<li>Entreprise : ' + escapeHtml(company) + '</li>' +
     '<li>Email : ' + escapeHtml(email) + '</li>' +
     '<li>Téléphone : ' + (phone ? escapeHtml(phone) : '—') + '</li>' +
-    '<li>Type d\'événement : ' + (eventType ? escapeHtml(eventType) : '—') + '</li>' +
     '<li>Date souhaitée : ' + (date ? escapeHtml(date) : '—') + '</li>' +
     '<li>Nombre de participants : ' + (participants ? escapeHtml(participants) : '—') + '</li>' +
     '</ul>' +
