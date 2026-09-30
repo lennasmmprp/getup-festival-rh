@@ -30,13 +30,16 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .ic-hero{max-width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
 .ic-left{background: radial-gradient(ellipse at 70% 20%, #1a4fc4 0%, #0a2d7a 35%, #071e52 70%, #040f2e 100%);border-radius:32px;display:flex;flex-direction:column;justify-content:center;padding:48px;min-height:420px;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
 .ic-pitch{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:500;color:rgba(255,242,161,0.85);line-height:1.6;max-width:420px;}
-.ic-right{background:#ffffff;border-radius:32px;display:flex;align-items:center;justify-content:center;padding:48px;min-height:420px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.ic-right{background:#ffffff;border-radius:32px;position:relative;overflow:hidden;min-height:420px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
+.ic-right img{display:block;width:100%;height:100%;object-fit:cover;}
+.ic-right .ic-photo-placeholder{position:absolute;inset:24px;min-height:0;}
 
 .ic-h1{font-family:'Syne',sans-serif;font-weight:800;color:#FFF2A1;text-transform:uppercase;line-height:1.1;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-0.3px;margin-bottom:20px;}
 .ic-hero-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 28px;border-radius:999px;text-decoration:none;background:#FFF2B2;color:#0D419A;margin-top:28px;transition:background .2s,transform .2s;}
 .ic-hero-btn:hover{background:#ffffff;transform:translateY(-2px);}
 
 .ic-photo-placeholder{width:100%;min-height:280px;border:2px dashed rgba(13,65,154,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(13,65,154,0.5);}
+.ic-photo-placeholder[hidden]{display:none;}
 
 .ic-block{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
 .ic-block h2{font-family:'Syne',sans-serif;font-weight:800;color:#012460;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.2;margin-bottom:16px;}
@@ -114,7 +117,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .nr{justify-content:center;row-gap:10px;column-gap:18px;}
   .ic-wrap{padding:16px;}
   .ic-hero{grid-template-columns:1fr;max-width:100%;}
-  .ic-left,.ic-right{min-height:280px;padding:32px;}
+  .ic-left{min-height:280px;padding:32px;}
+  .ic-right{min-height:280px;}
   .ic-block{padding:28px 20px;}
   .ic-gallery{grid-template-columns:1fr;}
   .ic-cta{padding:28px 20px;}
@@ -147,7 +151,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 <div class="ic-wrap">
   <div class="ic-hero">
     <div class="ic-right">
-      <img src="/images/jamel.webp" alt="Impro Club — le spectacle du Jamel Comedy Club en entreprise" style="width:100%;height:100%;max-height:480px;object-fit:cover;border-radius:16px;" onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
+      <img src="/images/jamel.webp" alt="Impro Club — le spectacle du Jamel Comedy Club en entreprise" onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
       <div class="ic-photo-placeholder" hidden>Photo à venir<br>jamel.webp</div>
     </div>
     <div class="ic-left">
