@@ -3,14 +3,14 @@
 // Gmail SMTP (même mécanisme que /api/send-resource.js).
 //
 // Nécessite les mêmes variables d'environnement Vercel que send-resource.js :
-// - GMAIL_USER : le compte Gmail utilisé pour l'envoi (ex. lauriegetup@gmail.com)
+// - GMAIL_USER : le compte Gmail utilisé pour l'envoi (ex. lenna.smm.pro@gmail.com)
 // - GMAIL_APP_PASSWORD : mot de passe d'application généré sur ce compte
 const nodemailer = require('nodemailer');
 
 // Destinataire volontairement différent de NOTIFY_EMAIL dans send-resource.js :
 // les demandes Impro Club vont uniquement à Laurie, jamais au reste de l'équipe.
-const LAURIE_EMAIL = 'Laurie.benatte@getupprod.fr';
-const FROM_EMAIL = 'Get Up Skills <laurie.benatte@getupprod.fr>';
+const LAURIE_EMAIL = 'lauriegetup@gmail.com';
+const FROM_EMAIL = 'Get Up Skills <lenna@getupprod.fr>';
 
 function escapeHtml(str) {
   return String(str || '').replace(/[&<>"']/g, function (c) {

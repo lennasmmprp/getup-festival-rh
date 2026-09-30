@@ -3,13 +3,13 @@
 //
 // Nécessite deux variables d'environnement, à définir dans Vercel
 // (Project Settings → Environment Variables) — jamais dans le code :
-// - GMAIL_USER : le compte Gmail utilisé pour l'envoi (ex. lauriegetup@gmail.com)
+// - GMAIL_USER : le compte Gmail utilisé pour l'envoi (ex. lenna.smm.pro@gmail.com)
 // - GMAIL_APP_PASSWORD : un mot de passe d'application généré sur ce compte
 //   (nécessite la validation en 2 étapes activée sur le compte Google)
 //
-// Pour que l'email parte avec laurie.benatte@getupprod.fr comme expéditeur
-// visible (FROM_EMAIL ci-dessous) plutôt que l'adresse Gmail brute, cette
-// adresse doit être ajoutée et validée dans les paramètres Gmail du compte
+// Pour que l'email parte avec lenna@getupprod.fr comme expéditeur visible
+// (FROM_EMAIL ci-dessous) plutôt que l'adresse Gmail brute, cette adresse
+// doit être ajoutée et validée dans les paramètres Gmail du compte
 // GMAIL_USER : Paramètres → Comptes et importation → "Envoyer des emails
 // en tant que" → Ajouter une adresse. Sans cette étape, Gmail retombe sur
 // l'adresse GMAIL_USER comme expéditeur réel.
@@ -21,7 +21,7 @@ const NOTIFY_EMAIL = 'lenna.smm.pro@gmail.com';
 // formation.ressourceUrl) ne peut pas s'y résoudre tout seul. On le préfixe
 // donc toujours avec le domaine complet du site avant de l'insérer dans l'email.
 const SITE_URL = 'https://getupskills.vercel.app';
-const FROM_EMAIL = 'Get Up Skills <laurie.benatte@getupprod.fr>';
+const FROM_EMAIL = 'Get Up Skills <lenna@getupprod.fr>';
 
 function resolveResourceUrl(url) {
   if (!url) return url;
