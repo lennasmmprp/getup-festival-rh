@@ -42,7 +42,7 @@ var FORMATIONS = [
     tag: "Transformation digitale",
     title: "Apprivoiser l'IA",
     desc: "Levez les peurs, alignez vos équipes, maîtrisez l'outil collectivement.",
-    format: "Formation collective — 3 h",
+    format: "Formation collective 3 h",
     who: "Les équipes confrontées à l'intégration de l'IA dans leur quotidien professionnel.",
     objective: "Transformer l'appréhension face à l'IA en curiosité constructive et créer une dynamique collective d'adoption.",
     apprentissage: null,
@@ -65,7 +65,7 @@ var FORMATIONS = [
     tag: "Cohésion d'équipe",
     title: "Redécouvrir la communication",
     desc: "Écoute active, coordination, communication saine dans vos équipes.",
-    format: "Formation collective — 3 h",
+    format: "Formation collective 3 h",
     who: "Équipes en tension, services qui collaborent peu, groupes avec des profils très différents.",
     objective: "Fluidifiez la circulation de l’information, faites coopérer vos services et équilibrez la prise de parole pour que chaque talent, même discret, puisse porter ses idées.",
     apprentissage: [
@@ -90,7 +90,7 @@ var FORMATIONS = [
     tag: "Management intergénérationnel",
     title: "Dialoguer avec la Gen Z",
     desc: "Déconstruisez les préjugés, alignez les langages, créez la cohésion.",
-    format: "Formation collective — 3 h",
+    format: "Formation collective 3 h",
     who: "Équipes mixtes Gen X/Y/Z, managers de jeunes équipes, services RH et formation.",
     objective: "Réduisez les incompréhensions entre générations, favorisez la transmission des savoirs et restez connecté aux nouvelles tendances, pour que vos collaborateurs de la Gen Z se sentent compris.",
     apprentissage: [
@@ -115,7 +115,7 @@ var FORMATIONS = [
     tag: "Anti-discrimination",
     title: "Recruter sans biais",
     desc: "Basez vos décisions sur la compétence, pas sur des critères subjectifs.",
-    format: "Formation collective — 3 h",
+    format: "Formation collective 3 h",
     who: "Recruteurs, managers qui participent aux entretiens, équipes RH.",
     objective: "Vous prenez des décisions de recrutement fondées sur la compétence plutôt que sur des critères subjectifs, pour des recrutements plus objectifs, une marque employeur renforcée et des équipes qui se développent avec les bons profils.",
     apprentissage: [
@@ -140,7 +140,7 @@ var FORMATIONS = [
     tag: "Télétravail",
     title: "Souder une équipe à distance",
     desc: "Recréez du lien malgré l'écran, osez prendre la parole en visio.",
-    format: "Formation collective — 3 h",
+    format: "Formation collective 3 h",
     who: "Équipes en télétravail total ou partiel, managers d'équipes dispersées géographiquement.",
     objective: "Vous recréez du lien humain malgré le télétravail pour donner plus de sens et d'engagement à votre équipe, renforcer sa cohésion et clarifier les missions de chacun, afin de limiter les non-dits, la déperdition de savoir-faire et le risque de perte de clients.",
     apprentissage: [
