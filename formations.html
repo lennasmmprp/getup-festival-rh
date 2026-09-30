@@ -233,7 +233,7 @@ function openPanel(id){
   var hasRealResource = !!(f.ressourceUrl && f.ressourceUrl.indexOf('/ressources/') === 0);
   var ctaHtml = hasRealResource
     ? '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>'
-    : '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Demandez le ressource →</a>';
+    : '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Demander la ressource →</a>';
   document.getElementById('panel-content').innerHTML=
     '<div class="panel-close"><div class="panel-num">'+f.num+'</div><button class="close-btn" onclick="closePanel()">Fermer ✕</button></div>'+
     '<div class="panel-accent"></div>'+
