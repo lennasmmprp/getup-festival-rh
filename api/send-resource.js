@@ -137,7 +137,7 @@ module.exports = async function handler(req, res) {
     // Bandeau bleu
     '<tr><td style="background:#0D419A;padding:32px 40px;text-align:center;">' +
     '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">Get Up Skills</span><br>' +
-    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.5px;">Formations par l\'improvisation théâtrale</span>' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#92aad2;letter-spacing:0.5px;">Formations par l\'improvisation théâtrale</span>' +
     '</td></tr>' +
 
     // Corps
