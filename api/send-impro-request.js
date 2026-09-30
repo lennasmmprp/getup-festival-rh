@@ -10,12 +10,19 @@ const nodemailer = require('nodemailer');
 // Destinataire volontairement différent de NOTIFY_EMAIL dans send-resource.js :
 // les demandes Impro Club vont uniquement à Laurie, jamais au reste de l'équipe.
 const LAURIE_EMAIL = 'lauriegetup@gmail.com';
-const FROM_EMAIL = 'Get Up Skills <lenna@getupprod.fr>';
+const FROM_ADDRESS = 'lenna@getupprod.fr';
 
 function escapeHtml(str) {
   return String(str || '').replace(/[&<>"']/g, function (c) {
     return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
   });
+}
+
+// Neutralise les retours à la ligne (injection d'en-tête) et les guillemets
+// (qui casseraient le nom affiché entre guillemets dans le "From") d'une
+// valeur saisie par le visiteur avant de l'utiliser dans un en-tête d'email.
+function sanitizeHeaderValue(str) {
+  return String(str || '').replace(/[\r\n]+/g, ' ').replace(/"/g, "'").trim();
 }
 
 let transporter;
@@ -84,16 +91,41 @@ module.exports = async function handler(req, res) {
 
   try {
     await getTransporter().sendMail({
-      from: FROM_EMAIL,
+      from: '"' + sanitizeHeaderValue(name) + ' via Get Up" <' + FROM_ADDRESS + '>',
       to: LAURIE_EMAIL,
       replyTo: email,
       subject: 'Demande Impro Club – ' + company,
       html: detailsHtml
     });
-
-    return res.status(200).json({ ok: true });
   } catch (err) {
     console.error('Erreur envoi email Impro Club :', err);
     return res.status(502).json({ error: "L'envoi de l'email a échoué." });
   }
+
+  // Email de confirmation au visiteur : envoyé juste après, mais un échec
+  // ici ne doit pas empêcher le visiteur de voir le message de succès — sa
+  // demande est déjà bien arrivée chez Laurie à ce stade.
+  try {
+    var firstName = name.split(' ')[0];
+    var confirmationHtml =
+      '<div style="font-family:sans-serif;line-height:1.6;">' +
+      '<p>Bonjour ' + escapeHtml(firstName) + ',</p>' +
+      '<p>Merci pour votre message, il est bien arrivé !</p>' +
+      '<p>Laurie reviendra vers vous sous 48&nbsp;h pour échanger sur votre besoin.</p>' +
+      '<p>En attendant, vous pouvez découvrir nos formations sur <a href="https://getupskills.vercel.app">getupskills.vercel.app</a>.</p>' +
+      '<p>À très vite,<br>L\'équipe Get Up</p>' +
+      '</div>';
+
+    await getTransporter().sendMail({
+      from: '"Get Up" <' + FROM_ADDRESS + '>',
+      to: email,
+      replyTo: LAURIE_EMAIL,
+      subject: 'Bien reçu, on revient vers vous très vite',
+      html: confirmationHtml
+    });
+  } catch (err) {
+    console.error('Erreur envoi email de confirmation au visiteur :', err);
+  }
+
+  return res.status(200).json({ ok: true });
 };
