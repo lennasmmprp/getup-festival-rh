@@ -96,6 +96,12 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .ic-privacy-note{margin-top:24px;font-size:11px;line-height:1.6;color:rgba(0,0,0,0.4);}
 .ic-privacy-note a{color:#0D419A;font-weight:600;text-decoration:none;}
 .ic-privacy-note a:hover{text-decoration:underline;}
+
+.ic-call-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;box-sizing:border-box;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:16px;border-radius:8px;text-decoration:none;background:#ffffff;color:#0D419A;border:1.5px solid #0D419A;transition:background .2s,transform .2s;}
+.ic-call-btn:hover{background:#f0f4fb;transform:translateY(-2px);}
+.ic-call-note{margin-top:12px;font-size:13px;line-height:1.5;color:rgba(0,0,0,0.5);text-align:center;}
+.ic-panel-divider{display:flex;align-items:center;gap:12px;margin:32px 0;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:rgba(0,0,0,0.35);}
+.ic-panel-divider::before,.ic-panel-divider::after{content:'';flex:1;height:1px;background:rgba(0,0,0,0.1);}
 .ic-form-success{text-align:center;padding:24px 8px;}
 .ic-form-success strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;color:#012460;font-size:17px;margin-bottom:8px;}
 .ic-form-success p{font-size:14px;color:rgba(0,0,0,0.55);line-height:1.6;}
@@ -164,13 +170,14 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
   <div class="ic-block">
     <h2>Un spectacle créé sur l'instant, avec vos équipes</h2>
-    <p>Impro Club, c'est un show 100&nbsp;% improvisé à partir des anecdotes et des expériences de vos collaborateurs (enfin, ce qu'ils voudront bien en dire&nbsp;!). Réunions qui s'éternisent, outils qui buggent, entretiens annuels… Vous donnez les idées, ils improvisent le reste.</p>
+    <p>Impro Club, c'est un show 100&nbsp;% improvisé à partir des anecdotes et des expériences de vos collaborateurs (enfin, ce qu'ils voudront bien en dire&nbsp;!).<br>Réunions qui s'éternisent, outils qui buggent, entretiens annuels…<br>Vous donnez les idées, ils improvisent le reste.</p>
   </div>
 
   <div class="ic-block">
     <h2>Pourquoi Impro Club pour votre événement&nbsp;?</h2>
     <ul class="ic-list">
       <li>Spectacle d'improvisation officiel du JCC reconnue</li>
+      <li>6 ans de scène et plus de 80 000 spectateurs.</li>
       <li>Un show sur mesure : chaque représentation est unique et construite sur votre quotidien professionnel.</li>
       <li>Un moment qui fédère : de l'humour bienveillant, sans vanne facile ni bashing du public, pour rire ensemble.</li>
       <li>Des souvenirs communs : des situations que vos équipes se raconteront longtemps.</li>
@@ -215,6 +222,11 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
     </div>
     <div class="ic-panel-accent"></div>
     <h2 class="ic-panel-title" id="icPanelTitle">Réservez Impro Club pour votre événement</h2>
+
+    <a href="#" id="icCallBtn" target="_blank" rel="noopener" class="ic-call-btn">Réserver mon appel →</a>
+    <p class="ic-call-note">Un appel de 15&nbsp;min pour échanger sur le spectacle d'impro et voir comment l'organiser dans votre entreprise.</p>
+
+    <div class="ic-panel-divider">ou remplissez le formulaire</div>
 
     <form id="icLeadForm" novalidate>
       <input type="hidden" id="icFormLoadedAt" value="">
@@ -314,6 +326,11 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   // le renseigner une seule fois là-bas suffit à l'activer ici.
   if (INSTAGRAM_URL) {
     document.getElementById('icInstagramLink').href = INSTAGRAM_URL;
+  }
+  // Lien Calendly centralisé dans assets/site-config.js (CALENDLY_URL) :
+  // le renseigner une seule fois là-bas suffit à mettre à jour ce bouton.
+  if (CALENDLY_URL) {
+    document.getElementById('icCallBtn').href = CALENDLY_URL + '?utm_campaign=site&utm_content=impro-club';
   }
 </script>
 
