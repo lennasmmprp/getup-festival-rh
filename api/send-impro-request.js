@@ -108,13 +108,44 @@ module.exports = async function handler(req, res) {
   try {
     var firstName = name.split(' ')[0];
     var confirmationHtml =
-      '<div style="font-family:sans-serif;line-height:1.6;">' +
-      '<p>Bonjour ' + escapeHtml(firstName) + ',</p>' +
-      '<p>Merci pour votre message, il est bien arrivé !</p>' +
-      '<p>Laurie reviendra vers vous sous 48&nbsp;h pour échanger sur votre besoin.</p>' +
-      '<p>En attendant, vous pouvez découvrir nos formations sur <a href="https://getupskills.vercel.app">getupskills.vercel.app</a>.</p>' +
-      '<p>À très vite,<br>L\'équipe Get Up</p>' +
-      '</div>';
+      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#f8f7f3;padding:40px 16px;">' +
+      '<tr><td align="center">' +
+      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;font-family:Arial,Helvetica,sans-serif;">' +
+
+      // Accent haut
+      '<tr><td style="background:#FFF2B2;height:6px;line-height:6px;font-size:0;">&nbsp;</td></tr>' +
+
+      // Bandeau bleu
+      '<tr><td style="background:#0D419A;padding:32px 40px;text-align:center;">' +
+      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">Get Up Skills</span><br>' +
+      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.5px;">Impro Club — le spectacle du Jamel Comedy Club en entreprise</span>' +
+      '</td></tr>' +
+
+      // Corps
+      '<tr><td style="padding:36px 40px 8px;">' +
+      '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' +
+      '<tr><td style="padding-bottom:16px;">' +
+      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:19px;font-weight:800;color:#012460;">Bonjour ' + escapeHtml(firstName) + ',</span>' +
+      '</td></tr>' +
+      '<tr><td style="padding-bottom:20px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#333333;">' +
+      'Merci pour votre message, il est bien arrivé&nbsp;!<br>Laurie reviendra vers vous sous 48&nbsp;h pour échanger sur votre besoin.<br><br>' +
+      'À très vite,<br>L\'équipe Get Up' +
+      '</td></tr>' +
+      '<tr><td style="padding:24px 0 8px;border-top:1px solid #f0f0f0;margin-top:8px;">' +
+      '<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#333333;margin-bottom:12px;">En attendant, découvrez nos formations</span>' +
+      '<a href="https://getupskills.vercel.app/formations" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:12px 24px;border-radius:6px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.3px;">Découvrir nos formations →</a>' +
+      '</td></tr>' +
+      '</table>' +
+      '</td></tr>' +
+
+      // Footer
+      '<tr><td style="background:#f8f7f3;padding:24px 40px;text-align:center;border-top:1px solid #eeeeee;">' +
+      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#999999;">Get Up Skills — vous recevez cet email suite à votre demande sur notre site.</span>' +
+      '</td></tr>' +
+
+      '</table>' +
+      '</td></tr>' +
+      '</table>';
 
     await getTransporter().sendMail({
       from: '"Get Up" <' + FROM_ADDRESS + '>',
