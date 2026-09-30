@@ -86,6 +86,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 .panel-format{display:flex;gap:16px;margin-bottom:40px;}
 .fmt-pill{background:var(--blue);color:var(--yellow);font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 16px;}
 .panel-cta{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:var(--blue);color:var(--yellow);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:18px;border:none;cursor:pointer;margin-top:40px;}
+.panel-cta-outline{display:block;width:100%;box-sizing:border-box;text-align:center;text-decoration:none;background:#ffffff;color:var(--blue);font-size:11px;font-weight:900;letter-spacing:3px;text-transform:uppercase;padding:18px;border:1.5px solid var(--blue);cursor:pointer;margin-top:16px;}
 @media (max-width:860px){
   nav{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;margin:14px 16px 0;padding:12px 18px;border-radius:20px;max-width:calc(100% - 32px);}
   .nl{order:1;}
@@ -179,6 +180,7 @@ body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
 </div>
 
 <script src="assets/formations-data.js"></script>
+<script src="assets/site-config.js"></script>
 <script>
 // Chaque carte transmet l'id UNIQUE de sa formation (jamais son nom affiché,
 // jamais sa position dans la liste) : c'est ce fil rouge qui garantit qu'on
@@ -234,6 +236,12 @@ function openPanel(id){
   var ctaHtml = hasRealResource
     ? '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Recevoir ma ressource →</a>'
     : '<a class="panel-cta" href="recevoir-ma-ressource/?formation='+encodeURIComponent(f.id)+'">Demander la ressource →</a>';
+  // Bouton d'appel découverte supplémentaire, pour l'instant réservé à la
+  // formation "Prise de parole en public" (lien Calendly centralisé dans
+  // assets/site-config.js, CALENDLY_URL).
+  if (f.id === 'prise-de-parole' && typeof CALENDLY_URL !== 'undefined' && CALENDLY_URL) {
+    ctaHtml += '<a class="panel-cta-outline" href="'+CALENDLY_URL+'?utm_campaign=site&utm_content='+encodeURIComponent(f.id)+'" target="_blank" rel="noopener">Réservez mon appel découverte →</a>';
+  }
   document.getElementById('panel-content').innerHTML=
     '<div class="panel-close"><div class="panel-num">'+f.num+'</div><button class="close-btn" onclick="closePanel()">Fermer ✕</button></div>'+
     '<div class="panel-accent"></div>'+

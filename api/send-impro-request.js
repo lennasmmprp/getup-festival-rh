@@ -120,7 +120,7 @@ module.exports = async function handler(req, res) {
       // Bandeau bleu
       '<tr><td bgcolor="#0D419A" style="background:#0D419A;padding:32px 40px;text-align:center;">' +
       '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">Get Up Skills</span><br>' +
-      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#92aad2;letter-spacing:0.5px;">le Spectacle d\'improvisation officiel du JCC reconnue</span>' +
+      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#92aad2;letter-spacing:0.5px;">Spectacle d\'improvisation officiel du Jamel Comedy Club</span>' +
       '</td></tr>' +
 
       // Corps
