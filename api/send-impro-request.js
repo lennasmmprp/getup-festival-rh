@@ -118,7 +118,7 @@ module.exports = async function handler(req, res) {
       // Bandeau bleu
       '<tr><td style="background:#0D419A;padding:32px 40px;text-align:center;">' +
       '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">Get Up Skills</span><br>' +
-      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.5px;">Impro Club — le spectacle du Jamel Comedy Club en entreprise</span>' +
+      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:rgba(255,255,255,0.55);letter-spacing:0.5px;">le Spectacle d\'improvisation officiel du JCC reconnue</span>' +
       '</td></tr>' +
 
       // Corps
@@ -128,19 +128,18 @@ module.exports = async function handler(req, res) {
       '<span style="font-family:Arial,Helvetica,sans-serif;font-size:19px;font-weight:800;color:#012460;">Bonjour ' + escapeHtml(firstName) + ',</span>' +
       '</td></tr>' +
       '<tr><td style="padding-bottom:20px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#333333;">' +
-      'Merci pour votre message, il est bien arrivé&nbsp;!<br>Laurie reviendra vers vous sous 48&nbsp;h pour échanger sur votre besoin.<br><br>' +
+      'Merci pour votre message, il est bien arrivé&nbsp;!<br>L\'équipe Get Up reviendra vers vous sous 48&nbsp;h pour échanger sur votre besoin.<br><br>' +
       'À très vite,<br>L\'équipe Get Up' +
       '</td></tr>' +
       '<tr><td style="padding:24px 0 8px;border-top:1px solid #f0f0f0;margin-top:8px;">' +
-      '<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#333333;margin-bottom:12px;">En attendant, découvrez nos formations</span>' +
-      '<a href="https://getupskills.vercel.app/formations" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:12px 24px;border-radius:6px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.3px;">Découvrir nos formations →</a>' +
+      '<a href="https://getupskills.vercel.app/impro-club" style="display:inline-block;background:#0D419A;color:#FFF2B2;padding:12px 24px;border-radius:6px;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.3px;">Voir la page Impro Club →</a>' +
       '</td></tr>' +
       '</table>' +
       '</td></tr>' +
 
       // Footer
       '<tr><td style="background:#f8f7f3;padding:24px 40px;text-align:center;border-top:1px solid #eeeeee;">' +
-      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#999999;">Get Up Skills — vous recevez cet email suite à votre demande sur notre site.</span>' +
+      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#999999;">Get Up Skills vous recevez cet email suite à votre demande sur notre site.</span>' +
       '</td></tr>' +
 
       '</table>' +
