@@ -132,10 +132,10 @@ module.exports = async function handler(req, res) {
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:16px;overflow:hidden;font-family:Arial,Helvetica,sans-serif;">' +
 
     // Accent haut
-    '<tr><td style="background:#FFF2B2;height:6px;line-height:6px;font-size:0;">&nbsp;</td></tr>' +
+    '<tr><td bgcolor="#FFF2B2" style="background:#FFF2B2;height:6px;line-height:6px;font-size:0;">&nbsp;</td></tr>' +
 
     // Bandeau bleu
-    '<tr><td style="background:#0D419A;padding:32px 40px;text-align:center;">' +
+    '<tr><td bgcolor="#0D419A" style="background:#0D419A;padding:32px 40px;text-align:center;">' +
     '<span style="font-family:Arial,Helvetica,sans-serif;font-size:20px;font-weight:900;color:#FFF2B2;letter-spacing:1px;text-transform:uppercase;">Get Up Skills</span><br>' +
     '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#92aad2;letter-spacing:0.5px;">Formations par l\'improvisation théâtrale</span>' +
     '</td></tr>' +
