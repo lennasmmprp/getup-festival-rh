@@ -1,10 +1,10 @@
 const clients = [
-  { name: "Veolia", logo: "/images/clients/veolia.png", url: "https://veolia.com" },
-  { name: "Les Crous", logo: "/images/clients/crous.png", url: "https://www.crous.fr" },
-  { name: "BoursoBank", logo: "/images/clients/boursobank.jpg", url: "https://www.boursobank.com" },
-  { name: "SNCF", logo: "/images/clients/sncf.jpg", url: "https://sncf.com" },
-  { name: "Jamel Comedy Club", logo: "/images/clients/jamel-comedy-club.png", url: null },
-  { name: "Pathé", logo: "/images/clients/pathe.webp", url: "https://pathe.com" },
+  { name: "Veolia", logo: "/images/clients/veolia-removebg-preview.webp", url: "https://veolia.com" },
+  { name: "Les Crous", logo: "/images/clients/crous-removebg-preview.webp", url: "https://www.crous.fr" },
+  { name: "BoursoBank", logo: "/images/clients/boursobank-removebg-preview.webp", url: "https://www.boursobank.com" },
+  { name: "SNCF", logo: "/images/clients/sncf-removebg-preview.webp", url: "https://sncf.com" },
+  { name: "Jamel Comedy Club", logo: "/images/clients/jamel-comedy-club-removebg-preview.webp", url: null },
+  { name: "Pathé", logo: "/images/clients/pathe-removebg-preview.webp", url: "https://pathe.com" },
   { name: "Epitech", logo: "/images/clients/epitech.svg", url: "https://epitech.eu" }
 ];
 
