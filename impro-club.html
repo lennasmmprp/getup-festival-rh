@@ -58,6 +58,45 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .ic-cta-btn.outline{background:#ffffff;color:#0D419A;border:1.5px solid #0D419A;}
 .ic-cta-btn.outline:hover{background:#f0f4fb;transform:translateY(-2px);}
 
+/* Panneau de réservation Impro Club : même mécanique que le panneau des
+   formations (overlay + volet qui glisse depuis la droite). */
+.ic-panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;}
+.ic-panel-overlay.open{opacity:1;pointer-events:all;}
+.ic-panel{position:fixed;right:0;top:0;bottom:0;width:min(600px,100vw);background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);overflow-y:auto;}
+.ic-panel.open{transform:translateX(0);}
+.ic-panel-inner{padding:48px 48px 80px;}
+.ic-panel-close{display:flex;align-items:center;justify-content:flex-end;margin-bottom:32px;}
+.ic-close-btn{background:none;border:0.5px solid rgba(0,0,0,0.15);font-size:10px;font-weight:900;letter-spacing:2px;text-transform:uppercase;color:rgba(0,0,0,0.4);padding:8px 16px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;}
+.ic-panel-accent{width:40px;height:3px;background:#FFF2B2;margin-bottom:20px;}
+.ic-panel-title{font-family:'Syne',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:#012460;text-transform:uppercase;letter-spacing:-0.5px;line-height:1.15;margin-bottom:32px;}
+
+/* Champs de formulaire : reprend exactement le style du formulaire
+   "Recevoir ma ressource" (recevoir-ma-ressource/index.html). */
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
+.form-field{display:flex;flex-direction:column;gap:6px;}
+.form-field.full{grid-column:1 / -1;}
+.form-field label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;color:#012460;text-transform:uppercase;letter-spacing:0.5px;}
+.optional-tag{color:rgba(0,0,0,0.35);font-weight:500;text-transform:none;letter-spacing:0;}
+.form-field input,.form-field select,.form-field textarea{font-family:'Jost',sans-serif;font-size:14px;padding:12px 14px;border:1px solid rgba(0,0,0,0.12);border-radius:8px;background:#f8f7f3;color:#0a0a0a;outline:none;transition:border-color .15s,background .15s;}
+.form-field select{cursor:pointer;}
+.form-field textarea{resize:vertical;min-height:90px;font-family:inherit;}
+.form-field input:focus,.form-field select:focus,.form-field textarea:focus{border-color:#0D419A;background:#ffffff;}
+.form-field input.has-error{border-color:#c0392b;}
+.form-field-error{font-size:11px;color:#c0392b;min-height:14px;}
+.form-consent{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:rgba(0,0,0,0.6);line-height:1.5;cursor:pointer;}
+.form-consent input{margin-top:3px;}
+.form-submit-row{margin-top:12px;}
+.ic-submit-btn{width:100%;background:#0D419A;color:#FFF2B2;font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;font-weight:900;text-transform:uppercase;letter-spacing:2px;padding:16px;border-radius:8px;text-decoration:none;border:none;cursor:pointer;transition:background .2s;}
+.ic-submit-btn:hover{background:#0a2d7a;}
+.ic-submit-btn:disabled{opacity:0.6;cursor:default;}
+.form-global-error{color:#c0392b;font-size:12px;margin-top:10px;}
+.ic-privacy-note{margin-top:24px;font-size:11px;line-height:1.6;color:rgba(0,0,0,0.4);}
+.ic-privacy-note a{color:#0D419A;font-weight:600;text-decoration:none;}
+.ic-privacy-note a:hover{text-decoration:underline;}
+.ic-form-success{text-align:center;padding:24px 8px;}
+.ic-form-success strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;color:#012460;font-size:17px;margin-bottom:8px;}
+.ic-form-success p{font-size:14px;color:rgba(0,0,0,0.55);line-height:1.6;}
+
 .foot{background:#012460;padding:48px;}
 .foot-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px;}
 .foot-brand{color:#FFF2B2;font-size:clamp(1.5rem,3vw,2.5rem);font-weight:900;text-transform:uppercase;}
@@ -80,6 +119,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .ic-gallery{grid-template-columns:1fr;}
   .ic-cta{padding:28px 20px;}
   .ic-cta-btn{width:100%;justify-content:center;}
+  .ic-panel-inner{padding:32px 24px 56px;}
+  .form-grid{grid-template-columns:1fr;gap:16px;}
 }
 @media (max-width:600px){
   .foot{padding:32px 24px;}
@@ -112,7 +153,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
     <div class="ic-left">
       <h1 class="ic-h1">Impro Club, le spectacle d'impro du Jamel Comedy Club dans votre entreprise</h1>
       <p class="ic-pitch">Vos équipes vivent des situations improbables au travail. Les comédiens du Jamel Comedy Club les jouent sur scène.</p>
-      <a href="/rendez-vous" class="ic-hero-btn">Réserver le spectacle →</a>
+      <a href="#" class="ic-hero-btn" onclick="openReservePanel(event)">Réserver le spectacle →</a>
     </div>
   </div>
 
@@ -161,6 +202,91 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   <a href="https://instagram.com" id="icInstagramLink" target="_blank" rel="noopener" style="display:block;margin-top:24px;color:#0D419A;font-size:13px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;">Instagram →</a>
 </div>
 
+<div class="ic-panel-overlay" id="icPanelOverlay" onclick="closeReservePanel()"></div>
+<div class="ic-panel" id="icPanel" role="dialog" aria-modal="true" aria-labelledby="icPanelTitle">
+  <div class="ic-panel-inner">
+    <div class="ic-panel-close">
+      <button type="button" class="ic-close-btn" onclick="closeReservePanel()">Fermer ✕</button>
+    </div>
+    <div class="ic-panel-accent"></div>
+    <h2 class="ic-panel-title" id="icPanelTitle">Réservez Impro Club pour votre événement</h2>
+
+    <form id="icLeadForm" novalidate>
+      <input type="hidden" id="icFormLoadedAt" value="">
+      <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
+        <label for="icWebsite">Ne pas remplir ce champ</label>
+        <input type="text" id="icWebsite" name="website" tabindex="-1" autocomplete="off">
+      </div>
+
+      <div class="form-grid">
+        <div class="form-field full">
+          <label for="icName">Nom et prénom *</label>
+          <input type="text" id="icName" name="name" required autocomplete="name">
+          <div class="form-field-error" id="icNameError"></div>
+        </div>
+        <div class="form-field full">
+          <label for="icCompany">Entreprise *</label>
+          <input type="text" id="icCompany" name="company" required autocomplete="organization">
+          <div class="form-field-error" id="icCompanyError"></div>
+        </div>
+        <div class="form-field">
+          <label for="icEmail">E-mail *</label>
+          <input type="email" id="icEmail" name="email" required autocomplete="email">
+          <div class="form-field-error" id="icEmailError"></div>
+        </div>
+        <div class="form-field">
+          <label for="icPhone">Téléphone <span class="optional-tag">(facultatif)</span></label>
+          <input type="tel" id="icPhone" name="phone" autocomplete="tel">
+          <div class="form-field-error"></div>
+        </div>
+        <div class="form-field full">
+          <label for="icEventType">Type d'événement <span class="optional-tag">(facultatif)</span></label>
+          <select id="icEventType" name="eventType">
+            <option value="">Sélectionnez un type d'événement</option>
+            <option value="Séminaire">Séminaire</option>
+            <option value="Soirée d'entreprise">Soirée d'entreprise</option>
+            <option value="Convention">Convention</option>
+            <option value="Pause déj">Pause déj</option>
+            <option value="Événement RH">Événement RH</option>
+            <option value="Autre">Autre</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="icDate">Date souhaitée <span class="optional-tag">(facultatif)</span></label>
+          <input type="date" id="icDate" name="date">
+        </div>
+        <div class="form-field">
+          <label for="icParticipants">Participants <span class="optional-tag">(facultatif)</span></label>
+          <input type="number" id="icParticipants" name="participants" min="1" placeholder="Nombre">
+        </div>
+        <div class="form-field full">
+          <label for="icMessage">Message <span class="optional-tag">(facultatif)</span></label>
+          <textarea id="icMessage" name="message" rows="4"></textarea>
+        </div>
+      </div>
+
+      <div>
+        <label class="form-consent">
+          <input type="checkbox" id="icConsent" name="consent" required>
+          <span>J'accepte que ces informations soient utilisées pour traiter ma demande, ainsi que les communications associées de Get Up Skills. *</span>
+        </label>
+        <div class="form-field-error" id="icConsentError"></div>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="ic-submit-btn" id="icSubmitBtn">Envoyer ma demande</button>
+        <div class="form-global-error" id="icGlobalError"></div>
+      </div>
+
+      <p class="ic-privacy-note">Les informations recueillies sont utilisées par Get Up afin de traiter votre demande. Pour en savoir plus sur la gestion de vos données et vos droits, consultez notre <a href="/politique-de-confidentialite/">Politique de confidentialité</a>.</p>
+    </form>
+
+    <div class="ic-form-success" id="icFormSuccess" hidden>
+      <strong>Merci ! Votre demande a bien été envoyée, Laurie revient vers vous très vite.</strong>
+    </div>
+  </div>
+</div>
+
 <div class="foot">
   <div class="foot-top">
     <div class="foot-brand">Get Up Skills</div>
@@ -184,6 +310,108 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   if (INSTAGRAM_URL) {
     document.getElementById('icInstagramLink').href = INSTAGRAM_URL;
   }
+</script>
+
+<script>
+// --- Panneau de réservation Impro Club ---
+function openReservePanel(e) {
+  if (e) e.preventDefault();
+  document.getElementById('icFormLoadedAt').value = Date.now();
+  document.getElementById('icPanelOverlay').classList.add('open');
+  document.getElementById('icPanel').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeReservePanel() {
+  document.getElementById('icPanelOverlay').classList.remove('open');
+  document.getElementById('icPanel').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// --- Validation et soumission du formulaire ---
+// Envoi réel via la fonction serverless /api/send-impro-request (Gmail SMTP),
+// qui envoie la demande directement à Laurie.
+(function () {
+  var form = document.getElementById('icLeadForm');
+  if (!form) return;
+
+  function setFieldError(id, message) {
+    var el = document.getElementById(id + 'Error');
+    var input = document.getElementById(id);
+    if (el) el.textContent = message || '';
+    if (input) input.classList.toggle('has-error', !!message);
+  }
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('icGlobalError').textContent = '';
+
+    var name = document.getElementById('icName').value.trim();
+    var company = document.getElementById('icCompany').value.trim();
+    var email = document.getElementById('icEmail').value.trim();
+    var phone = document.getElementById('icPhone').value.trim();
+    var eventType = document.getElementById('icEventType').value;
+    var date = document.getElementById('icDate').value;
+    var participants = document.getElementById('icParticipants').value.trim();
+    var message = document.getElementById('icMessage').value.trim();
+    var consent = document.getElementById('icConsent').checked;
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    var valid = true;
+
+    setFieldError('icName', name ? '' : 'Merci d\'indiquer votre nom et prénom.');
+    if (!name) valid = false;
+
+    setFieldError('icCompany', company ? '' : 'Merci d\'indiquer votre entreprise.');
+    if (!company) valid = false;
+
+    if (!email) {
+      setFieldError('icEmail', "Merci d'indiquer votre email.");
+      valid = false;
+    } else if (!emailPattern.test(email)) {
+      setFieldError('icEmail', 'Merci d\'indiquer un email valide.');
+      valid = false;
+    } else {
+      setFieldError('icEmail', '');
+    }
+
+    document.getElementById('icConsentError').textContent = consent ? '' : 'Merci de cocher la case pour envoyer votre demande.';
+    if (!consent) valid = false;
+
+    if (!valid) {
+      document.getElementById('icGlobalError').textContent = 'Merci de corriger les champs indiqués ci-dessus.';
+      return;
+    }
+
+    document.getElementById('icSubmitBtn').disabled = true;
+
+    fetch('/api/send-impro-request', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        name: name,
+        company: company,
+        email: email,
+        phone: phone,
+        eventType: eventType,
+        date: date,
+        participants: participants,
+        message: message,
+        consent: consent,
+        website: document.getElementById('icWebsite').value,
+        formLoadedAt: document.getElementById('icFormLoadedAt').value
+      })
+    })
+      .then(function (resp) {
+        if (!resp.ok) throw new Error('send failed');
+        form.style.display = 'none';
+        document.getElementById('icFormSuccess').hidden = false;
+      })
+      .catch(function () {
+        document.getElementById('icSubmitBtn').disabled = false;
+        document.getElementById('icGlobalError').textContent = "Une erreur est survenue lors de l'envoi. Merci de réessayer.";
+      });
+  });
+})();
 </script>
 
 </body>
