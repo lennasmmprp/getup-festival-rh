@@ -45,6 +45,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .ic-block h2{font-family:'Syne',sans-serif;font-weight:800;color:#012460;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.2;margin-bottom:16px;}
 .ic-block p{font-size:15px;color:rgba(0,0,0,0.6);line-height:1.7;max-width:640px;}
 .ic-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
+.ic-list--grid{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;row-gap:12px;}
 .ic-list li{font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;padding-left:24px;position:relative;max-width:640px;}
 .ic-list li::before{content:'→';position:absolute;left:0;color:#0D419A;font-weight:700;}
 .ic-label{font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0D419A;margin-bottom:16px;display:block;}
@@ -126,6 +127,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .ic-pitch{white-space:normal;}
   .ic-right{min-height:280px;}
   .ic-block{padding:28px 20px;}
+  .ic-list--grid{grid-template-columns:1fr;}
   .ic-gallery{grid-template-columns:1fr;}
   .ic-cta{padding:28px 20px;}
   .ic-cta-btn{width:100%;justify-content:center;}
@@ -185,7 +187,16 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
   <div class="ic-block">
     <h2>Pour quels événements&nbsp;?</h2>
-    <p>Séminaires, soirées d'entreprise, conventions…</p>
+    <ul class="ic-list ic-list--grid">
+      <li>Séminaire</li>
+      <li>Soirée de fin d'année</li>
+      <li>Journée d'intégration</li>
+      <li>Lancement de produit</li>
+      <li>Afterwork</li>
+      <li>Évènement client</li>
+      <li>Team-building</li>
+      <li>Convention</li>
+    </ul>
   </div>
 
   <div class="ic-block">
