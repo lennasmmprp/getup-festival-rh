@@ -114,13 +114,18 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .foot-links a{color:rgba(255,255,255,0.4);text-decoration:none;}
 .foot-links a:hover{color:#FFF2B2;}
 
+@media (max-width:1200px){
+  /* En dessous de ce seuil, la colonne de texte du hero (moitié de la
+     largeur en grille 2 colonnes) devient trop étroite pour contenir
+     l'accroche sur une seule ligne sans la couper. */
+  .ic-pitch{white-space:normal;}
+}
 @media (max-width:860px){
   nav{margin:14px 16px 0;padding:10px 18px;max-width:100%;}
   .nr{justify-content:center;row-gap:10px;column-gap:18px;}
   .ic-wrap{padding:16px;}
   .ic-hero{grid-template-columns:1fr;max-width:100%;}
   .ic-left{min-height:280px;padding:32px;}
-  .ic-pitch{white-space:normal;}
   .ic-right{min-height:280px;}
   .ic-block{padding:28px 20px;}
   .ic-list--grid{grid-template-columns:1fr;}
