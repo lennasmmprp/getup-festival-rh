@@ -82,4 +82,6 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   renderClientsBand();
+  // iOS Safari n'applique :active au toucher que si un listener touchstart existe.
+  document.addEventListener('touchstart', () => {}, { passive: true });
 });
