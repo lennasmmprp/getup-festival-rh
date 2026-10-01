@@ -19,13 +19,8 @@ function renderClientsBand() {
     group.className = 'clients-group';
 
     clients.forEach((client) => {
-      const wrap = document.createElement(client.url ? 'a' : 'span');
+      const wrap = document.createElement('span');
       wrap.className = 'clients-logo-link';
-      if (client.url) {
-        wrap.href = client.url;
-        wrap.target = '_blank';
-        wrap.rel = 'noopener';
-      }
 
       const img = document.createElement('img');
       img.src = client.logo;
