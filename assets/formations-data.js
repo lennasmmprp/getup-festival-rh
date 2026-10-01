@@ -33,8 +33,8 @@ var FORMATIONS = [
       { title: "Émotions & improvisation", text: "Captiver son audience, gérer l'imprévu et rebondir avec aisance en toute situation." }
     ],
     benefits: ["Pitchs et présentations plus percutants", "Image professionnelle renforcée", "Meilleure représentation en conférence et salon", "Réunions internes plus efficaces"],
-    ressourceUrl: "/ressources/lead-magnet-getup-p1-4.pdf",
-    ressourceNom: "Les 3 techniques de nos artistes pour captiver votre audience"
+    ressourceUrl: null,
+    ressourceNom: null
   },
   {
     id: "ia",
