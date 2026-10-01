@@ -52,6 +52,13 @@ function renderClientsBand() {
   // façon parfaitement continue, sans saut visible.
   track.appendChild(buildGroup());
   track.appendChild(buildGroup());
+
+  // Mobile : pause du défilement tant que le doigt est posé (:active n'est
+  // pas fiable au toucher, d'où la classe).
+  track.addEventListener('touchstart', () => track.classList.add('is-paused'), { passive: true });
+  ['touchend', 'touchcancel'].forEach((type) => {
+    track.addEventListener(type, () => track.classList.remove('is-paused'));
+  });
 }
 
 document.addEventListener('DOMContentLoaded', () => {
