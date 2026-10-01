@@ -313,6 +313,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
       .then(function (resp) {
         if (!resp.ok) throw new Error('send failed');
         form.style.display = 'none';
+        document.getElementById('resIntro').style.display = 'none';
         document.getElementById('formSuccess').hidden = false;
       })
       .catch(function () {
