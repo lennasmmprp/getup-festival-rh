@@ -109,7 +109,9 @@ module.exports = async function handler(req, res) {
   const introText = formation
     ? (hasRealResource
         ? 'Merci ' + escapeHtml(firstName) + ' ! Comme promis, votre ressource sur « ' + escapeHtml(formation.title) + ' » est prête.'
-        : 'Merci ' + escapeHtml(firstName) + ', votre demande pour « ' + escapeHtml(formation.title) + ' » a bien été enregistrée. Cette ressource est encore en préparation : vous ne recevez rien pour l\'instant, mais nous vous écrirons dès qu\'elle sera prête.')
+        : formation.ressourceDate
+          ? 'Merci, votre demande pour la ressource « ' + escapeHtml(formation.title) + ' » a bien été enregistrée.<br>Le guide sort le ' + escapeHtml(formation.ressourceDate) + ' : vous serez parmi les premiers à le recevoir.'
+          : 'Merci ' + escapeHtml(firstName) + ', votre demande pour « ' + escapeHtml(formation.title) + ' » a bien été enregistrée. Cette ressource est encore en préparation : vous ne recevez rien pour l\'instant, mais nous vous écrirons dès qu\'elle sera prête.')
     : 'Merci pour votre demande. Notre équipe revient vers vous rapidement avec les informations adaptées à votre besoin.';
 
   // Carte ressource mise en avant, uniquement quand une vraie ressource existe.
@@ -144,13 +146,13 @@ module.exports = async function handler(req, res) {
     '<tr><td style="padding:36px 40px 8px;">' +
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0">' +
     '<tr><td style="padding-bottom:16px;">' +
-    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:19px;font-weight:800;color:#012460;">Bonjour ' + escapeHtml(firstName) + ',</span>' +
+    '<span style="font-family:Arial,Helvetica,sans-serif;font-size:19px;font-weight:800;color:#012460;">Bonjour' + (firstName ? ' ' + escapeHtml(firstName) : '') + ',</span>' +
     '</td></tr>' +
     '<tr><td style="padding-bottom:20px;font-family:Arial,Helvetica,sans-serif;font-size:15px;line-height:1.65;color:#333333;">' + introText + '</td></tr>' +
     resourceCardHtml +
     '<tr><td style="padding:24px 0 8px;border-top:1px solid #f0f0f0;margin-top:8px;">' +
     '<span style="display:block;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;color:#333333;margin-bottom:12px;">Envie d\'aller plus loin ?</span>' +
-    '<a href="https://calendly.com/laurie-benatte-getupprod/30min" style="display:inline-block;background:#ffffff;color:#0D419A;padding:12px 24px;border-radius:6px;border:1.5px solid #0D419A;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.3px;">Réserver un appel de 20m →</a>' +
+    '<a href="https://calendly.com/laurie-benatte-getupprod/30min" style="display:inline-block;background:#ffffff;color:#0D419A;padding:12px 24px;border-radius:6px;border:1.5px solid #0D419A;text-decoration:none;font-family:Arial,Helvetica,sans-serif;font-size:13px;font-weight:700;letter-spacing:0.3px;">Réserver un appel de 20 min →</a>' +
     '</td></tr>' +
     '</table>' +
     '</td></tr>' +

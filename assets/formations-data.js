@@ -34,7 +34,9 @@ var FORMATIONS = [
     ],
     benefits: ["Pitchs et présentations plus percutants", "Image professionnelle renforcée", "Meilleure représentation en conférence et salon", "Réunions internes plus efficaces"],
     ressourceUrl: null,
-    ressourceNom: null
+    ressourceNom: null,
+    // Date de sortie annoncée dans l'email de confirmation (tant que la ressource n'est pas prête)
+    ressourceDate: "26 octobre"
   },
   {
     id: "ia",
