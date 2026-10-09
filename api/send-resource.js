@@ -111,7 +111,7 @@ module.exports = async function handler(req, res) {
         ? 'Merci ' + escapeHtml(firstName) + ' ! Comme promis, votre ressource sur « ' + escapeHtml(formation.title) + ' » est prête.'
         : formation.ressourceDate
           ? 'Merci, votre demande pour la ressource « ' + escapeHtml(formation.title) + ' » a bien été enregistrée.<br>Le guide sort le ' + escapeHtml(formation.ressourceDate) + ' : vous serez parmi les premiers à le recevoir.'
-          : 'Merci ' + escapeHtml(firstName) + ', votre demande pour « ' + escapeHtml(formation.title) + ' » a bien été enregistrée. Votre ressource est en cours de finalisation : elle sera prête le <strong>lundi 26 octobre 2026</strong>. Nous vous l\'enverrons par e-mail dès sa sortie.')
+          : 'Merci ' + escapeHtml(firstName) + ', votre demande pour « ' + escapeHtml(formation.title) + ' » a bien été enregistrée. Votre ressource est en cours de finalisation : elle sera prête le <strong>lundi 26 octobre 2026</strong>.')
     : 'Merci pour votre demande. Notre équipe revient vers vous rapidement avec les informations adaptées à votre besoin.';
 
   // Carte ressource mise en avant, uniquement quand une vraie ressource existe.
