@@ -80,7 +80,8 @@ module.exports = async function handler(req, res) {
   const phone = (body.phone || '').trim();
   const company = (body.company || '').trim();
   const formationId = (body.formation || '').trim();
-  const consent = !!body.consent;
+  // Case facultative (actualités et offres) : n'empêche jamais l'envoi.
+  const marketingConsent = body.marketingConsent === true;
 
   // Anti-spam : champ piège invisible (les bots le remplissent, jamais un humain)
   // + délai minimum de remplissage (un envoi en moins de 3s trahit un script).
@@ -95,7 +96,7 @@ module.exports = async function handler(req, res) {
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!firstName || !lastName || !email || !emailPattern.test(email) || !consent) {
+  if (!firstName || !lastName || !email || !emailPattern.test(email)) {
     return res.status(400).json({ error: 'Champs manquants ou invalides.' });
   }
 
@@ -176,6 +177,7 @@ module.exports = async function handler(req, res) {
     '<li>Entreprise : ' + (company ? escapeHtml(company) : '—') + '</li>' +
     '<li>Formation : ' + (formation ? escapeHtml(formation.title) : '(non identifiée : ' + escapeHtml(formationId) + ')') + '</li>' +
     '<li>Type : ' + (formation ? (hasRealResource ? 'Ressource envoyée' : 'Demande enregistrée (ressource pas encore prête)') : '—') + '</li>' +
+    '<li>Accepte les actualités et offres par e-mail : ' + (marketingConsent ? 'Oui' : 'Non') + '</li>' +
     '</ul>' +
     '</div>';
 
