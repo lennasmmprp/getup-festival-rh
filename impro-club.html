@@ -276,10 +276,10 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
       <div>
         <label class="form-consent">
-          <input type="checkbox" id="icConsent" name="consent" required>
-          <span>J'accepte que ces informations soient utilisées pour traiter ma demande, ainsi que les communications associées de Get Up Skills. *</span>
+          <input type="checkbox" id="icMarketingConsent" name="marketingConsent">
+          <span>J'accepte de recevoir les actualités et offres de Get Up Skills par e-mail. Je peux me désinscrire à tout moment.</span>
         </label>
-        <div class="form-field-error" id="icConsentError"></div>
+        <div class="form-field-error"></div>
       </div>
 
       <div class="form-submit-row">
@@ -367,7 +367,7 @@ function closeReservePanel() {
     var date = document.getElementById('icDate').value;
     var participants = document.getElementById('icParticipants').value.trim();
     var message = document.getElementById('icMessage').value.trim();
-    var consent = document.getElementById('icConsent').checked;
+    var marketingConsent = document.getElementById('icMarketingConsent').checked;
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     var valid = true;
@@ -394,9 +394,6 @@ function closeReservePanel() {
     setFieldError('icMessage', message ? '' : 'Merci d\'ajouter un message.');
     if (!message) valid = false;
 
-    document.getElementById('icConsentError').textContent = consent ? '' : 'Merci de cocher la case pour envoyer votre demande.';
-    if (!consent) valid = false;
-
     if (!valid) {
       document.getElementById('icGlobalError').textContent = 'Merci de corriger les champs indiqués ci-dessus.';
       return;
@@ -416,7 +413,7 @@ function closeReservePanel() {
         date: date,
         participants: participants,
         message: message,
-        consent: consent,
+        marketingConsent: marketingConsent,
         website: document.getElementById('icWebsite').value,
         formLoadedAt: document.getElementById('icFormLoadedAt').value
       })

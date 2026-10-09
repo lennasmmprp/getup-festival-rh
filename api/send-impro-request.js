@@ -59,7 +59,8 @@ module.exports = async function handler(req, res) {
   const date = (body.date || '').trim();
   const participants = (body.participants || '').trim();
   const message = (body.message || '').trim();
-  const consent = !!body.consent;
+  // Case facultative (actualités et offres) : n'empêche jamais l'envoi.
+  const marketingConsent = body.marketingConsent === true;
 
   // Anti-spam : même mécanisme que /api/send-resource.js (champ piège
   // invisible + délai minimum de remplissage).
@@ -72,7 +73,7 @@ module.exports = async function handler(req, res) {
   }
 
   const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!name || !company || !role || !email || !emailPattern.test(email) || !message || !consent) {
+  if (!name || !company || !role || !email || !emailPattern.test(email) || !message) {
     return res.status(400).json({ error: 'Champs manquants ou invalides.' });
   }
 
@@ -87,6 +88,7 @@ module.exports = async function handler(req, res) {
     '<li>Téléphone : ' + (phone ? escapeHtml(phone) : '—') + '</li>' +
     '<li>Date souhaitée : ' + (date ? escapeHtml(date) : '—') + '</li>' +
     '<li>Nombre de participants : ' + (participants ? escapeHtml(participants) : '—') + '</li>' +
+    '<li>Accepte les actualités et offres par e-mail : ' + (marketingConsent ? 'Oui' : 'Non') + '</li>' +
     '</ul>' +
     '<p><strong>Message :</strong><br>' + escapeHtml(message).replace(/\n/g, '<br>') + '</p>' +
     '</div>';
