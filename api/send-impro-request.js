@@ -143,7 +143,7 @@ module.exports = async function handler(req, res) {
 
       // Footer
       '<tr><td style="background:#f8f7f3;padding:24px 40px;text-align:center;border-top:1px solid #eeeeee;">' +
-      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#999999;">Get Up Skills vous recevez cet email suite à votre demande sur notre site.</span>' +
+      '<span style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:#999999;">Get Up Skills vous recevez cet email suite à votre demande sur notre site.<br>Pour vous désinscrire, écrivez à <a href="mailto:lenna@getupprod.fr" style="color:#999999;">lenna@getupprod.fr</a>.</span>' +
       '</td></tr>' +
 
       '</table>' +
