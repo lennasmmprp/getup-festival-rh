@@ -21,18 +21,18 @@ var FORMATIONS = [
     tag: "Intelligence relationnelle",
     title: "Prise de parole en public",
     desc: "Pitchs, CODIR, réunions : prenez le contrôle de chaque prise de parole.",
-    format: "Formation individuelle → 4x2h",
+    format: "Formation individuelle → 3x2h",
     who: ["Managers", "Commerciaux", "Dirigeants", "Auto-entrepreneurs"],
-    objective: "Faire de chaque prise de parole un levier de performance pour l'entreprise.",
+    objective: "Faire de chaque prise de parole un levier de crédibilité, de clarté et d’impact.",
     apprentissage: "Apprenez à incarner une posture impactante, construire un discours marquant et transformer l'imprévu en opportunité.",
-    skills: ["Structuration d'un discours captivant", "Gestion du stress et de l'imprévu", "Posture, voix et langage non-verbal", "Écoute et interaction avec l'audience"],
-    experience: "Des mises en situation progressives issues de l'improvisation théâtrale : prises de parole courtes, feedback immédiat, exercices de présence et d'ancrage.",
+    skills: ["Gestion du trac et des émotions", "Physiologie de la voix", "Posture et présence", "Structuration du discours", "Gestion de l’imprévu et capacité à rebondir", "Interaction avec l’audience"],
+    experience: "Un accompagnement individuel en présentiel, ancré dans des mises en situation progressives, avec feedback direct, travail sur des cas réels et exercices issus de l’improvisation.",
     programme: [
       { title: "Les fondations", text: "Ancrage, écoute et posture pour prendre la parole avec plus d'impact." },
       { title: "Voix, stress & storytelling", text: "Maîtriser sa voix, gérer son stress et construire un discours clair et engageant." },
       { title: "Émotions & improvisation", text: "Captiver son audience, gérer l'imprévu et rebondir avec aisance en toute situation." }
     ],
-    benefits: ["Pitchs et présentations plus percutants", "Image professionnelle renforcée", "Meilleure représentation en conférence et salon", "Réunions internes plus efficaces"],
+    benefits: ["Prises de parole plus claires et plus percutantes", "Présence plus crédible et plus incarnée", "Meilleure gestion du stress dans les moments à enjeu", "Plus d’aisance face aux questions et aux imprévus"],
     ressourceUrl: null,
     ressourceNom: null,
     // Date de sortie annoncée dans l'email de confirmation (tant que la ressource n'est pas prête)
