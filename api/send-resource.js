@@ -82,6 +82,8 @@ module.exports = async function handler(req, res) {
   const formationId = (body.formation || '').trim();
   // Case facultative (actualités et offres) : n'empêche jamais l'envoi.
   const marketingConsent = body.marketingConsent === true;
+  // Provenance (UTM du lien cliqué, ou site d'origine) : sert au suivi des posts.
+  const source = String(body.source || '').trim().slice(0, 200);
 
   // Anti-spam : champ piège invisible (les bots le remplissent, jamais un humain)
   // + délai minimum de remplissage (un envoi en moins de 3s trahit un script).
@@ -178,6 +180,7 @@ module.exports = async function handler(req, res) {
     '<li>Formation : ' + (formation ? escapeHtml(formation.title) : '(non identifiée : ' + escapeHtml(formationId) + ')') + '</li>' +
     '<li>Type : ' + (formation ? (hasRealResource ? 'Ressource envoyée' : 'Demande enregistrée (ressource pas encore prête)') : '—') + '</li>' +
     '<li>Accepte les actualités et offres par e-mail : ' + (marketingConsent ? 'Oui' : 'Non') + '</li>' +
+    '<li>Provenance : ' + (source ? escapeHtml(source) : 'inconnue') + '</li>' +
     '</ul>' +
     '</div>';
 

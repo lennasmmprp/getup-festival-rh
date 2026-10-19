@@ -100,6 +100,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .foot-links{font-size:10px;}
 }
 </style>
+<script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -124,6 +126,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
     <form id="leadForm" novalidate>
       <input type="hidden" name="formation" id="formationIdField" value="">
       <input type="hidden" id="formLoadedAt" value="">
+      <input type="hidden" id="sourceField" value="">
       <div aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;">
         <label for="website">Ne pas remplir ce champ</label>
         <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
@@ -213,6 +216,18 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 
   var params = new URLSearchParams(window.location.search);
   var formationId = params.get('formation');
+
+  // Provenance du visiteur (paramètres UTM ajoutés aux liens LinkedIn, etc.)
+  // -> renvoyée avec l'inscription pour savoir quel post a converti.
+  // Repli sur le site d'origine (referrer) quand le lien n'a pas d'UTM.
+  var utm = ['utm_source', 'utm_medium', 'utm_content', 'utm_campaign']
+    .map(function (k) { return params.get(k) ? k.replace('utm_', '') + '=' + params.get(k) : ''; })
+    .filter(Boolean)
+    .join(' · ');
+  var ref = '';
+  try { ref = document.referrer ? new URL(document.referrer).hostname : ''; } catch (e) {}
+  if (ref === window.location.hostname) ref = '';
+  document.getElementById('sourceField').value = (utm || (ref ? 'referrer=' + ref : 'direct')).slice(0, 200);
   var f = typeof getFormationById === 'function' ? getFormationById(formationId) : null;
 
   if (f) {
@@ -311,7 +326,8 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
         formation: formationId,
         marketingConsent: marketingConsent,
         website: document.getElementById('website').value,
-        formLoadedAt: document.getElementById('formLoadedAt').value
+        formLoadedAt: document.getElementById('formLoadedAt').value,
+        source: document.getElementById('sourceField').value
       })
     })
       .then(function (resp) {
