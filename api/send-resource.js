@@ -34,6 +34,152 @@ function escapeHtml(str) {
   });
 }
 
+// Gabarit du mail interne « Nouveau lead » (copie de email-nouveau-lead.html).
+// Chaque {{variable}} est remplacée par sa valeur échappée (voir fillTemplate).
+const NOTIFY_TEMPLATE = `<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nouveau lead — Get Up Skills</title>
+</head>
+<body style="margin:0;padding:0;background:#F2F4F8;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F2F4F8;">
+  <tr>
+    <td align="center" style="padding:24px 12px;">
+
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#FFFFFF;border-radius:20px;overflow:hidden;font-family:Futura,'Trebuchet MS',Arial,sans-serif;">
+
+        <!-- EN-TÊTE BLEU -->
+        <tr>
+          <td style="background:#003C94;padding:28px 28px 26px 28px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background:#FFFFFF;border-radius:999px;padding:7px 18px;font-size:13px;font-weight:800;letter-spacing:1px;color:#003C94;text-transform:uppercase;">
+                  🎯 Nouveau lead
+                </td>
+              </tr>
+            </table>
+            <div style="font-size:28px;line-height:1.15;font-weight:800;color:#FFFFFF;text-transform:uppercase;margin-top:18px;">
+              {{prenom}} {{nom}}
+            </div>
+            <div style="font-size:15px;color:#FFC6E8;margin-top:6px;">
+              a demandé le guide · {{date}}
+            </div>
+          </td>
+        </tr>
+
+        <!-- ÉTIQUETTES : FORMATION + STATUT -->
+        <tr>
+          <td style="padding:22px 28px 6px 28px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background:#D30002;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:800;color:#FFFFFF;text-transform:uppercase;">
+                  {{formation}}
+                </td>
+                <td style="width:8px;"></td>
+                <td style="background:#FFC6E8;border-radius:999px;padding:7px 16px;font-size:13px;font-weight:700;color:#003C94;">
+                  {{statut}}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- COORDONNÉES -->
+        <tr>
+          <td style="padding:16px 28px 4px 28px;">
+            <div style="font-size:12px;font-weight:800;letter-spacing:1px;color:#003C94;text-transform:uppercase;margin-bottom:10px;">
+              | Coordonnées
+            </div>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F6F7FB;border-radius:14px;">
+              <tr>
+                <td style="padding:14px 18px;border-bottom:1px solid #E3E7F0;font-size:14px;color:#6B7280;width:120px;">✉️ Email</td>
+                <td style="padding:14px 18px;border-bottom:1px solid #E3E7F0;font-size:15px;color:#111827;"><a href="mailto:{{email}}" style="color:#003C94;font-weight:700;text-decoration:none;">{{email}}</a></td>
+              </tr>
+              <tr>
+                <td style="padding:14px 18px;border-bottom:1px solid #E3E7F0;font-size:14px;color:#6B7280;">📞 Téléphone</td>
+                <td style="padding:14px 18px;border-bottom:1px solid #E3E7F0;font-size:15px;color:#111827;">{{telephone}}</td>
+              </tr>
+              <tr>
+                <td style="padding:14px 18px;border-bottom:1px solid #E3E7F0;font-size:14px;color:#6B7280;">🏢 Entreprise</td>
+                <td style="padding:14px 18px;border-bottom:1px solid #E3E7F0;font-size:15px;color:#111827;">{{entreprise}}</td>
+              </tr>
+              <tr>
+                <td style="padding:14px 18px;font-size:14px;color:#6B7280;">📬 Newsletter</td>
+                <td style="padding:14px 18px;font-size:15px;color:#111827;">{{optin}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- PROVENANCE (UTM) -->
+        <tr>
+          <td style="padding:20px 28px 4px 28px;">
+            <div style="font-size:12px;font-weight:800;letter-spacing:1px;color:#003C94;text-transform:uppercase;margin-bottom:10px;">
+              | D'où vient ce lead ?
+            </div>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="border:2px solid #003C94;border-radius:999px;padding:6px 14px;font-size:13px;color:#003C94;"><b>Canal</b> · {{utm_source}}</td>
+                <td style="width:6px;"></td>
+                <td style="border:2px solid #003C94;border-radius:999px;padding:6px 14px;font-size:13px;color:#003C94;"><b>Format</b> · {{utm_medium}}</td>
+              </tr>
+            </table>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0" style="margin-top:8px;">
+              <tr>
+                <td style="background:#003C94;border-radius:999px;padding:7px 16px;font-size:13px;color:#FFFFFF;"><b>Post</b> · {{utm_content}}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ACTION -->
+        <tr>
+          <td style="padding:26px 28px 30px 28px;">
+            <div style="font-size:14px;color:#374151;line-height:1.5;margin-bottom:16px;">
+              <b>Prochaine étape :</b> écrire à {{prenom}} sur LinkedIn pour ouvrir la conversation, sans vendre.
+            </div>
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background:#D30002;border-radius:999px;">
+                  <a href="mailto:{{email}}" style="display:inline-block;padding:13px 26px;font-size:14px;font-weight:800;color:#FFFFFF;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;">Répondre à {{prenom}} →</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- PIED -->
+        <tr>
+          <td style="background:#FFC6E8;padding:14px 28px;font-size:12px;color:#003C94;text-align:center;">
+            <b>GET UP SKILLS</b> · Notification automatique du formulaire « Recevoir ma ressource »
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+
+function fillTemplate(template, vars) {
+  return template.replace(/\{\{(\w+)\}\}/g, function (_, key) {
+    return escapeHtml(vars[key]);
+  });
+}
+
+// "19/10 à 17h42", heure de Paris.
+function formatParisDate(date) {
+  const p = {};
+  new Intl.DateTimeFormat('fr-FR', {
+    timeZone: 'Europe/Paris', day: '2-digit', month: '2-digit',
+    hour: '2-digit', minute: '2-digit', hourCycle: 'h23'
+  }).formatToParts(date).forEach(function (part) { p[part.type] = part.value; });
+  return p.day + '/' + p.month + ' à ' + p.hour + 'h' + p.minute;
+}
+
 let transporter;
 function getTransporter() {
   if (!transporter) {
@@ -55,7 +201,8 @@ async function sendEmail(payload) {
       to: payload.to,
       replyTo: payload.reply_to,
       subject: payload.subject,
-      html: payload.html
+      html: payload.html,
+      text: payload.text
     });
   } catch (err) {
     throw new Error('Gmail SMTP a refusé l\'envoi : ' + (err && err.message ? err.message : err));
@@ -169,20 +316,37 @@ module.exports = async function handler(req, res) {
     '</td></tr>' +
     '</table>';
 
-  const notifyHtml =
-    '<div style="font-family:sans-serif;line-height:1.6;">' +
-    '<p><strong>Nouvelle demande de ressource</strong></p>' +
-    '<ul>' +
-    '<li>Nom : ' + escapeHtml(firstName) + ' ' + escapeHtml(lastName) + '</li>' +
-    '<li>Email : ' + escapeHtml(email) + '</li>' +
-    '<li>Téléphone : ' + (phone ? escapeHtml(phone) : '—') + '</li>' +
-    '<li>Entreprise : ' + (company ? escapeHtml(company) : '—') + '</li>' +
-    '<li>Formation : ' + (formation ? escapeHtml(formation.title) : '(non identifiée : ' + escapeHtml(formationId) + ')') + '</li>' +
-    '<li>Type : ' + (formation ? (hasRealResource ? 'Ressource envoyée' : 'Demande enregistrée (ressource pas encore prête)') : '—') + '</li>' +
-    '<li>Accepte les actualités et offres par e-mail : ' + (marketingConsent ? 'Oui' : 'Non') + '</li>' +
-    '<li>Provenance : ' + (source ? escapeHtml(source) : 'inconnue') + '</li>' +
-    '</ul>' +
-    '</div>';
+  // UTM lus un par un dans l'URL de la page du formulaire (en-tête Referer,
+  // envoyé par défaut en same-origin). Sans UTM, `source` donne le site d'origine.
+  let utm = new URLSearchParams();
+  try { utm = new URL(req.headers.referer).searchParams; } catch (e) { /* pas de Referer */ }
+
+  const notifyVars = {
+    prenom: firstName,
+    nom: lastName,
+    email: email,
+    telephone: phone || '—',
+    entreprise: company || '—',
+    formation: formation ? formation.title : '(non identifiée : ' + formationId + ')',
+    statut: formation ? (hasRealResource ? '✅ Ressource envoyée' : '⏳ Ressource pas encore prête') : '—',
+    optin: marketingConsent ? '✅ Oui' : '❌ Non',
+    utm_source: utm.get('utm_source') || (source.indexOf('referrer=') === 0 ? source.slice(9) : '—'),
+    utm_medium: utm.get('utm_medium') || '—',
+    utm_content: utm.get('utm_content') || '—',
+    date: formatParisDate(new Date())
+  };
+  const notifyHtml = fillTemplate(NOTIFY_TEMPLATE, notifyVars);
+  const notifyText =
+    'Nouveau lead — ' + notifyVars.prenom + ' ' + notifyVars.nom + ' (' + notifyVars.date + ')\n\n' +
+    'Formation : ' + notifyVars.formation + '\n' +
+    'Statut : ' + notifyVars.statut + '\n\n' +
+    'Email : ' + notifyVars.email + '\n' +
+    'Téléphone : ' + notifyVars.telephone + '\n' +
+    'Entreprise : ' + notifyVars.entreprise + '\n' +
+    'Newsletter : ' + notifyVars.optin + '\n\n' +
+    'Canal : ' + notifyVars.utm_source + '\n' +
+    'Format : ' + notifyVars.utm_medium + '\n' +
+    'Post : ' + notifyVars.utm_content + '\n';
 
   try {
     await sendEmail({
@@ -197,7 +361,8 @@ module.exports = async function handler(req, res) {
       to: [NOTIFY_EMAIL],
       reply_to: email,
       subject: 'Nouveau lead — ' + firstName + ' ' + lastName,
-      html: notifyHtml
+      html: notifyHtml,
+      text: notifyText
     });
 
     return res.status(200).json({ ok: true });
