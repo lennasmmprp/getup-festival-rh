@@ -164,6 +164,93 @@ const NOTIFY_TEMPLATE = `<!doctype html>
 </body>
 </html>`;
 
+// Mail au visiteur pour le guide « Prise de parole en public », même charte
+// que NOTIFY_TEMPLATE. {{bonjour}} = "Bonjour Prénom," ou "Bonjour,".
+const GUIDE_TEMPLATE = `<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Votre guide de la prise de parole en public</title>
+</head>
+<body style="margin:0;padding:0;background:#F2F4F8;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F2F4F8;">
+  <tr>
+    <td align="center" style="padding:24px 12px;">
+
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width:560px;background:#FFFFFF;border-radius:20px;overflow:hidden;font-family:Futura,'Trebuchet MS',Arial,sans-serif;">
+
+        <!-- EN-TÊTE BLEU -->
+        <tr>
+          <td style="background:#003C94;padding:28px 28px 26px 28px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background:#FFFFFF;border-radius:999px;padding:7px 18px;font-size:13px;font-weight:800;letter-spacing:1px;color:#003C94;text-transform:uppercase;">
+                  🎤 Votre guide
+                </td>
+              </tr>
+            </table>
+            <div style="font-size:26px;line-height:1.15;font-weight:800;color:#FFFFFF;text-transform:uppercase;margin-top:18px;">
+              Le guide de la prise de parole en public
+            </div>
+            <div style="font-size:15px;color:#FFC6E8;margin-top:6px;">
+              Get Up Skills · formations par l'improvisation théâtrale
+            </div>
+          </td>
+        </tr>
+
+        <!-- MESSAGE -->
+        <tr>
+          <td style="padding:26px 28px 4px 28px;font-size:15px;line-height:1.6;color:#374151;">
+            <div style="font-size:18px;font-weight:800;color:#003C94;margin-bottom:12px;">{{bonjour}}</div>
+            Merci pour votre intérêt ! Voici votre guide : 3 techniques issues de l'impro théâtrale, des exercices concrets et une checklist pour vos prochaines prises de parole.
+          </td>
+        </tr>
+
+        <!-- TÉLÉCHARGEMENT -->
+        <tr>
+          <td style="padding:22px 28px 6px 28px;">
+            <table role="presentation" cellpadding="0" cellspacing="0" border="0">
+              <tr>
+                <td style="background:#D30002;border-radius:999px;">
+                  <a href="{{guideUrl}}" style="display:inline-block;padding:14px 28px;font-size:14px;font-weight:800;color:#FFFFFF;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;">Télécharger le guide →</a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- ALLER PLUS LOIN -->
+        <tr>
+          <td style="padding:22px 28px 30px 28px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background:#F6F7FB;border-radius:14px;">
+              <tr>
+                <td style="padding:16px 18px;font-size:14px;line-height:1.55;color:#374151;">
+                  Envie d'aller plus loin avec vos équipes ? On en parle 20 minutes.<br>
+                  <a href="{{rdvUrl}}" style="color:#003C94;font-weight:800;text-decoration:underline;">Prendre rendez-vous →</a>
+                </td>
+              </tr>
+            </table>
+            <div style="font-size:15px;line-height:1.6;color:#374151;margin-top:22px;">
+              À très vite,<br><b style="color:#003C94;">L'équipe Get Up Skills</b>
+            </div>
+          </td>
+        </tr>
+
+        <!-- PIED -->
+        <tr>
+          <td style="background:#FFC6E8;padding:14px 28px;font-size:12px;color:#003C94;text-align:center;">
+            Vous recevez cet e-mail suite à votre demande sur notre site.<br>Pour vous désinscrire, écrivez à <a href="mailto:lenna@getupprod.fr" style="color:#003C94;">lenna@getupprod.fr</a>.
+          </td>
+        </tr>
+
+      </table>
+    </td>
+  </tr>
+</table>
+</body>
+</html>`;
+
 function fillTemplate(template, vars) {
   return template.replace(/\{\{(\w+)\}\}/g, function (_, key) {
     return escapeHtml(vars[key]);
@@ -335,6 +422,40 @@ module.exports = async function handler(req, res) {
     utm_content: utm.get('utm_content') || '—',
     date: formatParisDate(new Date())
   };
+
+  const guideUrl = resolveResourceUrl(formation && formation.ressourceUrl);
+  const rdvUrl = SITE_URL + '/rendez-vous';
+  const bonjour = firstName ? 'Bonjour ' + firstName + ',' : 'Bonjour,';
+  const visitorEmail = hasRealResource && formation.id === 'prise-de-parole'
+    ? {
+        to: [email],
+        subject: 'Votre guide de la prise de parole en public 🎤',
+        html: fillTemplate(GUIDE_TEMPLATE, { bonjour: bonjour, guideUrl: guideUrl, rdvUrl: rdvUrl }),
+        text:
+          bonjour + '\n\n' +
+          "Merci pour votre intérêt ! Voici votre guide : 3 techniques issues de l'impro théâtrale, des exercices concrets et une checklist pour vos prochaines prises de parole.\n\n" +
+          'Télécharger le guide : ' + guideUrl + '\n\n' +
+          "Envie d'aller plus loin avec vos équipes ? On en parle 20 minutes.\n" +
+          'Prendre rendez-vous : ' + rdvUrl + '\n\n' +
+          "À très vite,\nL'équipe Get Up Skills\n"
+      }
+    : {
+        to: [email],
+        subject: formation
+          ? (hasRealResource ? 'Votre ressource — ' + formation.title : 'Votre demande bien reçue — ' + formation.title)
+          : 'Votre demande — Get Up Skills',
+        html: visitorHtml
+      };
+
+  // Un échec du mail visiteur n'empêche ni le mail interne ni l'affichage
+  // de la confirmation (le guide reste téléchargeable sur la page).
+  try {
+    await sendEmail(visitorEmail);
+  } catch (err) {
+    console.error('Erreur envoi email visiteur :', err);
+    notifyVars.statut = '⚠️ Échec envoi au visiteur';
+  }
+
   const notifyHtml = fillTemplate(NOTIFY_TEMPLATE, notifyVars);
   const notifyText =
     'Nouveau lead — ' + notifyVars.prenom + ' ' + notifyVars.nom + ' (' + notifyVars.date + ')\n\n' +
@@ -349,14 +470,6 @@ module.exports = async function handler(req, res) {
     'Post : ' + notifyVars.utm_content + '\n';
 
   try {
-    await sendEmail({
-      to: [email],
-      subject: formation
-        ? (hasRealResource ? 'Votre ressource — ' + formation.title : 'Votre demande bien reçue — ' + formation.title)
-        : 'Votre demande — Get Up Skills',
-      html: visitorHtml
-    });
-
     await sendEmail({
       to: [NOTIFY_EMAIL],
       reply_to: email,

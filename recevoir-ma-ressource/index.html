@@ -59,6 +59,7 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .res-success{text-align:center;padding:8px;}
 .res-success strong{display:block;font-family:'Plus Jakarta Sans',sans-serif;color:#012460;font-size:17px;margin-bottom:8px;}
 .res-success p{font-size:14px;color:rgba(0,0,0,0.55);line-height:1.6;}
+.res-success .res-cta-btn{margin-top:20px;}
 
 .res-cta{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);max-width:640px;margin-left:auto;margin-right:auto;}
 .res-cta h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:800;color:#012460;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;}
@@ -248,9 +249,9 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
       intro.textContent = 'Laissez-nous vos coordonnées pour recevoir « ' + f.ressourceNom + ' » par email.';
       submitBtn.textContent = 'Recevoir ma ressource';
       success.innerHTML =
-        '<strong>Merci ! Votre demande a bien été enregistrée.</strong>' +
-        '<p>Vous allez recevoir par email « Les 3 techniques de nos artistes pour captiver votre audience » : des techniques concrètes pour faire de chaque prise de parole un véritable levier de performance pour l\'entreprise.</p>' +
-        '<p>À vous de jouer !</p>';
+        '<strong>Merci, votre guide est prêt !</strong>' +
+        '<p>Téléchargez-le dès maintenant. On vous l\'a aussi envoyé par e-mail pour que vous le gardiez sous la main.</p>' +
+        '<a class="res-cta-btn" href="' + f.ressourceUrl + '" download>Télécharger le guide</a>';
     } else {
       intro.innerHTML = 'Merci d\'avoir demandé notre ressource ;), sa date de sortie est le 26 octobre.<br>Laurie Benatte vous l\'enverra personnellement, et en priorité.';
       submitBtn.textContent = 'Demander la ressource';
@@ -275,6 +276,12 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
     var input = document.getElementById(id);
     if (el) el.textContent = message || '';
     if (input) input.classList.toggle('has-error', !!message);
+  }
+
+  function showSuccess() {
+    form.style.display = 'none';
+    document.getElementById('resIntro').style.display = 'none';
+    document.getElementById('formSuccess').hidden = false;
   }
 
   form.addEventListener('submit', function (e) {
@@ -333,11 +340,12 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
     })
       .then(function (resp) {
         if (!resp.ok) throw new Error('send failed');
-        form.style.display = 'none';
-        document.getElementById('resIntro').style.display = 'none';
-        document.getElementById('formSuccess').hidden = false;
+        showSuccess();
       })
       .catch(function () {
+        // Ressource téléchargeable : le bouton de téléchargement s'affiche
+        // même si l'envoi a échoué.
+        if (document.querySelector('#formSuccess a[download]')) return showSuccess();
         document.getElementById('submitBtn').disabled = false;
         document.getElementById('globalError').textContent = "Une erreur est survenue lors de l'envoi. Merci de réessayer.";
       });

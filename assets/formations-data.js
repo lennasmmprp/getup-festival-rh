@@ -33,10 +33,8 @@ var FORMATIONS = [
       { title: "Émotions & improvisation", text: "Captiver son audience, gérer l'imprévu et rebondir avec aisance en toute situation." }
     ],
     benefits: ["Prises de parole plus claires et plus percutantes", "Présence plus crédible et plus incarnée", "Meilleure gestion du stress dans les moments à enjeu", "Plus d’aisance face aux questions et aux imprévus"],
-    ressourceUrl: null,
-    ressourceNom: null,
-    // Date de sortie annoncée dans l'email de confirmation (tant que la ressource n'est pas prête)
-    ressourceDate: "26 octobre"
+    ressourceUrl: "/ressources/guide-prise-de-parole.pdf",
+    ressourceNom: "Le guide de la prise de parole en public"
   },
   {
     id: "ia",
