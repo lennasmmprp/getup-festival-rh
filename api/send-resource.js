@@ -212,8 +212,8 @@ const GUIDE_TEMPLATE = `<!doctype html>
           <td style="padding:22px 28px 6px 28px;">
             <table role="presentation" cellpadding="0" cellspacing="0" border="0">
               <tr>
-                <td style="background:#D30002;border-radius:999px;">
-                  <a href="{{guideUrl}}" style="display:inline-block;padding:14px 28px;font-size:14px;font-weight:800;color:#FFFFFF;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;">Télécharger le guide →</a>
+                <td style="background:#FFF2B2;border-radius:999px;">
+                  <a href="{{guideUrl}}" style="display:inline-block;padding:14px 28px;font-size:14px;font-weight:800;color:#003C94;text-decoration:none;text-transform:uppercase;letter-spacing:.5px;">Télécharger le guide →</a>
                 </td>
               </tr>
             </table>
