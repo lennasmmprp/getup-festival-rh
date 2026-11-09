@@ -69,7 +69,6 @@ h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;}
 .hero-visual{position:relative;}
 .hero-visual img{border-radius:28px;transform:rotate(2deg);box-shadow:0 50px 90px -30px rgba(20,32,79,.6),0 18px 30px -18px rgba(20,32,79,.35);transition:transform .3s ease-out;}
 .hero-visual::after{content:"";position:absolute;left:10%;right:10%;bottom:-38px;height:40px;background:radial-gradient(ellipse at center,rgba(20,32,79,.35),transparent 70%);filter:blur(6px);z-index:-1;}
-.sticker{position:absolute;right:-18px;bottom:-26px;background:var(--green);color:var(--navy);font-family:'Syne',sans-serif;font-weight:800;padding:1rem 1.2rem;border-radius:18px;transform:rotate(-6deg);box-shadow:0 14px 30px -12px rgba(20,32,79,.5);line-height:1.15;font-size:.95rem;animation:wobble 3.5s ease-in-out infinite;}
 
 /* STATS */
 .stats{background:var(--navy);color:#fff;box-shadow:0 20px 40px -20px rgba(20,32,79,.5);position:relative;z-index:2;}
@@ -172,7 +171,6 @@ h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;}
 .spark{position:fixed;width:10px;height:10px;border-radius:50%;pointer-events:none;z-index:300;animation:spark .7s ease-out forwards;}
 
 @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-1deg)}}
-@keyframes wobble{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(4deg) scale(1.06)}}
 @keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.08) rotate(-2deg)}100%{transform:translateY(-2px) scale(1)}}
 @keyframes spark{to{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}
 
@@ -239,9 +237,8 @@ h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;}
   .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .hero-grid{padding:3rem 0 4rem;}
   .hero-visual{max-width:440px;margin:0 auto;}
-  /* Mobile : photo droite, sticker rentré dans le coin bas droit de la photo */
+  /* Mobile : photo droite */
   .hero-visual img{transform:none;}
-  .sticker{right:12px;bottom:12px;padding:.6rem .8rem;font-size:.8rem;border-radius:14px;}
   /* Pas de rotation au toucher (le survol reste actif après un tap) */
   .card:hover,.card:nth-child(even):hover{transform:translateY(-8px);}
   .troupe img:hover{transform:none;}
@@ -322,7 +319,6 @@ h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;}
     </div>
     <div class="hero-visual">
       <img src="/images/impro-club-troupe.jpg" alt="La troupe Impro Club en photo, vue en contre-plongée sur fond de ciel bleu">
-      <div class="sticker">100&nbsp;%<br>improvisé</div>
     </div>
   </div>
 </section>
