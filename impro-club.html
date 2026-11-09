@@ -22,7 +22,8 @@
 /* Police du header (nav) et du hero, reprise à l'identique de l'accueil. */
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;overflow-x:hidden;}
+html,body{overflow-x:hidden;overflow-x:clip;}
+html{scroll-behavior:smooth;}
 :root{
   --blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;
   --sky:#4A9BE8;--sky-light:#7DB8F0;--sky-deep:#2F7FD1;
@@ -234,12 +235,20 @@ h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;}
 
 @media (max-width:960px){
   .hero-grid,.troupe-grid,.privat-box,.contact-box{grid-template-columns:1fr;}
-  .cards{grid-template-columns:repeat(2,1fr);}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .cards{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .stats-grid{grid-template-columns:repeat(2,minmax(0,1fr));}
   .hero-grid{padding:3rem 0 4rem;}
   .hero-visual{max-width:440px;margin:0 auto;}
-  .sticker{right:-6px;}
-  .privat-img{min-height:360px;order:-1;}
+  /* Mobile : photo droite, sticker rentré dans le coin bas droit de la photo */
+  .hero-visual img{transform:none;}
+  .sticker{right:12px;bottom:12px;padding:.6rem .8rem;font-size:.8rem;border-radius:14px;}
+  /* Pas de rotation au toucher (le survol reste actif après un tap) */
+  .card:hover,.card:nth-child(even):hover{transform:translateY(-8px);}
+  .troupe img:hover{transform:none;}
+  /* Affiche en entier, au-dessus du texte */
+  .privat-img{min-height:0;order:-1;}
+  .privat-img img{position:static;width:100%;height:auto;object-fit:fill;}
+  .privat-box:hover .privat-img img{transform:none;}
   .privat-txt{padding:2.6rem 1.8rem;}
   .contact-box{padding:2.2rem 1.4rem;}
 }
@@ -259,6 +268,12 @@ h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;}
   .foot-cert img{height:64px;}
   .foot-bottom{margin-top:24px;padding-top:16px;}
   .foot-links{font-size:10px;}
+  h2{font-size:clamp(1.7rem,6.5vw,2rem);overflow-wrap:break-word;}
+  .stat{padding:1.6rem .6rem;}
+  .stat b{font-size:clamp(1.4rem,6.5vw,2rem);}
+  .privat-txt{padding:2rem 1.4rem 2.2rem;}
+  .privat-txt h2{margin-bottom:1rem;}
+  .privat-txt p{font-size:1rem;margin-bottom:1.6rem;}
 }
 @media (max-width:560px){
   .cards{grid-template-columns:1fr;}
