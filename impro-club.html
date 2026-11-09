@@ -9,8 +9,8 @@
   <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512x512.png">
   <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192x192.png">
   <meta property="og:site_name" content="Get Up Skills">
-  <title>Impro Club, le spectacle d'impro du Jamel Comedy Club en entreprise | Get Up</title>
-  <meta name="description" content="Le spectacle d'impro du Jamel Comedy Club, joué dans votre entreprise, à partir des anecdotes de vos équipes. 6 ans de scène, plus de 80 000 spectateurs.">
+  <title>Impro Club, le spectacle d'impro du Jamel Comedy Club en entreprise | Get Up Skills</title>
+  <meta name="description" content="Impro Club, le spectacle d'improvisation officiel du Jamel Comedy Club, vient jouer dans vos locaux. Un show 100 % improvisé à partir des anecdotes de vos équipes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -23,8 +23,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;overflow-x:hidden;}
-:root{--blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;}
-body{font-family:'Jost',sans-serif;background:var(--bg);color:var(--dark);}
+:root{
+  --blue:#0D419A;--yellow:#FFF2B2;--bg:#f8f7f3;--dark:#0a0a0a;
+  --sky:#4A9BE8;--sky-light:#7DB8F0;--sky-deep:#2F7FD1;
+  --green:#2EE342;--navy:#14204F;--cream:#FFF6DC;--ink:#14204F;--muted:#4B5680;
+  --radius:22px;
+}
+body{font-family:'Jost',sans-serif;background:#fff;color:var(--ink);line-height:1.6;-webkit-font-smoothing:antialiased;}
+img{max-width:100%;display:block;}
+a{color:inherit;}
 nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;column-gap:24px;padding:14px 28px;background:rgba(255,255,255,0.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:999px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
 .nl{display:block;justify-self:start;}
 .nr{display:flex;align-items:center;gap:32px;min-width:0;flex-wrap:wrap;}
@@ -32,40 +39,141 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .nr a.active{font-weight:800;}
 .ncta{font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:700;background:#012460;color:#FFF2A1;padding:12px 24px;border-radius:999px;letter-spacing:0.5px;text-transform:uppercase;border:none;cursor:pointer;justify-self:end;text-decoration:none;display:inline-block;}
 
-.ic-wrap{background:#F8F5EC;padding:24px;}
-.ic-hero{max-width:100%;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:24px;}
-.ic-left{background: radial-gradient(ellipse at 70% 20%, #1a4fc4 0%, #0a2d7a 35%, #071e52 70%, #040f2e 100%);border-radius:32px;display:flex;flex-direction:column;justify-content:center;padding:48px;min-height:420px;box-shadow:0 8px 60px rgba(13,65,154,0.15),0 2px 12px rgba(13,65,154,0.08);}
-.ic-pitch{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:500;color:#ffffff;line-height:1.6;white-space:nowrap;}
-.ic-right{background:#ffffff;border-radius:32px;position:relative;overflow:hidden;min-height:420px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
-.ic-right img{display:block;width:100%;height:100%;object-fit:cover;}
-.ic-right .ic-photo-placeholder{position:absolute;inset:24px;min-height:0;}
+/* Maquette impro-club-refonte : textes, structure, ombres et animations.
+   Police et boutons alignés sur le reste du site. */
+.wrap{width:min(1180px,92%);margin:0 auto;}
+.eyebrow{font-family:'Plus Jakarta Sans',sans-serif;font-size:.78rem;font-weight:700;letter-spacing:.22em;text-transform:uppercase;}
+h1,h2,h3{font-family:'Syne',sans-serif;line-height:1.08;letter-spacing:-.02em;}
+h2{font-size:clamp(2rem,4.2vw,3.2rem);font-weight:800;}
 
-.ic-h1{font-family:'Syne',sans-serif;font-weight:800;color:#FFF2A1;text-transform:uppercase;line-height:1.1;font-size:clamp(1.4rem,2.2vw,2rem);letter-spacing:-0.3px;margin-bottom:20px;}
-.ic-hero-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 28px;border-radius:999px;text-decoration:none;background:#FFF2B2;color:#0D419A;margin-top:28px;transition:background .2s,transform .2s;}
-.ic-hero-btn:hover{background:#ffffff;transform:translateY(-2px);}
+/* Boutons : style du site (pilule, Plus Jakarta Sans, majuscules) */
+.btn{position:relative;display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 28px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;}
+.btn:hover{transform:translateY(-2px);}
+.btn-solid{background:#FFF2B2;color:#0D419A;}
+.btn-solid:hover{background:#ffffff;animation:pop .4s ease;}
+.btn-outline{border:1.5px solid #ffffff;color:#ffffff;}
+.btn-outline:hover{background:rgba(255,255,255,.12);}
 
-.ic-photo-placeholder{width:100%;min-height:280px;border:2px dashed rgba(13,65,154,0.3);border-radius:16px;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;font-family:'Plus Jakarta Sans',sans-serif;font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:rgba(13,65,154,0.5);}
-.ic-photo-placeholder[hidden]{display:none;}
+/* HERO */
+.hero{background:linear-gradient(180deg,var(--sky) 0%,var(--sky-light) 100%);color:#fff;overflow:hidden;position:relative;margin-top:20px;}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3rem;align-items:center;padding:4.5rem 0 5rem;}
+.hero .eyebrow{opacity:.9;margin-bottom:1.4rem;}
+.hero-logo{width:min(470px,100%);height:auto;margin-bottom:1.6rem;filter:drop-shadow(0 14px 22px rgba(20,32,79,.28));animation:float 5s ease-in-out infinite;}
+.hero-sub{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:1.4rem;}
+.hero-tags{display:flex;flex-wrap:wrap;gap:.7rem;margin-bottom:2.2rem;}
+.tag{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);padding:.45rem 1rem;border-radius:999px;font-size:.88rem;font-weight:500;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:1rem;}
+.hero-visual{position:relative;}
+.hero-visual img{border-radius:28px;transform:rotate(2deg);box-shadow:0 50px 90px -30px rgba(20,32,79,.6),0 18px 30px -18px rgba(20,32,79,.35);transition:transform .3s ease-out;}
+.hero-visual::after{content:"";position:absolute;left:10%;right:10%;bottom:-38px;height:40px;background:radial-gradient(ellipse at center,rgba(20,32,79,.35),transparent 70%);filter:blur(6px);z-index:-1;}
+.sticker{position:absolute;right:-18px;bottom:-26px;background:var(--green);color:var(--navy);font-family:'Syne',sans-serif;font-weight:800;padding:1rem 1.2rem;border-radius:18px;transform:rotate(-6deg);box-shadow:0 14px 30px -12px rgba(20,32,79,.5);line-height:1.15;font-size:.95rem;animation:wobble 3.5s ease-in-out infinite;}
 
-.ic-block{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
-.ic-block h2{font-family:'Syne',sans-serif;font-weight:800;color:#012460;font-size:clamp(1.2rem,2.4vw,1.6rem);line-height:1.2;margin-bottom:16px;}
-.ic-block p{font-size:15px;color:rgba(0,0,0,0.6);line-height:1.7;max-width:640px;}
-.ic-list{list-style:none;display:flex;flex-direction:column;gap:12px;}
-.ic-list--grid{display:grid;grid-template-columns:1fr 1fr;column-gap:24px;row-gap:12px;}
-.ic-list li{font-size:15px;color:rgba(0,0,0,0.6);line-height:1.6;padding-left:24px;position:relative;max-width:640px;}
-.ic-list li::before{content:'→';position:absolute;left:0;color:#0D419A;font-weight:700;}
+/* STATS */
+.stats{background:var(--navy);color:#fff;box-shadow:0 20px 40px -20px rgba(20,32,79,.5);position:relative;z-index:2;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.12);}
+.stat{background:var(--navy);padding:2.2rem 1.4rem;text-align:center;}
+.stat b{display:block;font-family:'Syne',sans-serif;font-size:clamp(2rem,3.6vw,2.8rem);font-weight:800;color:var(--green);line-height:1;}
+.stat span{font-size:.92rem;opacity:.85;}
+.stat a{color:var(--green);font-weight:600;font-size:.88rem;}
 
-.ic-cta{background:#ffffff;border-radius:32px;margin-top:24px;padding:40px 48px;text-align:center;box-shadow:0 4px 40px rgba(0,0,0,0.06),0 1px 8px rgba(0,0,0,0.04);}
-.ic-cta-final{font-family:'Syne',sans-serif;font-size:clamp(1.1rem,2.2vw,1.4rem);font-weight:800;color:#012460;line-height:1.4;margin:0 auto 24px;max-width:480px;}
-.ic-cta-btns{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;}
-.ic-cta-btn{display:inline-flex;align-items:center;gap:8px;font-family:'Plus Jakarta Sans',sans-serif;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:1.5px;padding:14px 28px;border-radius:999px;text-decoration:none;transition:background .2s,transform .2s;}
-.ic-cta-btn.solid{background:#0D419A;color:#FFF2B2;}
-.ic-cta-btn.solid:hover{background:#0a2d7a;transform:translateY(-2px);}
-.ic-cta-btn.outline{background:#ffffff;color:#0D419A;border:1.5px solid #0D419A;}
-.ic-cta-btn.outline:hover{background:#f0f4fb;transform:translateY(-2px);}
+/* CONCEPT */
+.concept{padding:6rem 0;background:var(--cream);}
+.concept .eyebrow{color:var(--sky-deep);margin-bottom:1rem;}
+.concept h2{max-width:820px;margin-bottom:1.4rem;}
+.concept p.lead{font-size:1.15rem;max-width:720px;color:var(--muted);margin-bottom:2rem;}
+.chips{display:flex;flex-wrap:wrap;gap:.8rem;}
+.chip{background:#fff;border:2px solid var(--navy);padding:.6rem 1.2rem;border-radius:999px;font-weight:700;font-size:.95rem;box-shadow:4px 4px 0 var(--navy);transition:transform .3s cubic-bezier(.3,1.8,.5,1),box-shadow .2s;cursor:default;}
+.chip:nth-child(3n+1){transform:rotate(-2deg);}
+.chip:nth-child(3n+2){transform:rotate(1.5deg);}
+.chip:nth-child(3n){transform:rotate(-1deg);}
+.chip-more{background:var(--green);font-weight:900;letter-spacing:.1em;padding:.6rem 1.4rem;}
+.chip:hover{transform:rotate(0) translate(-2px,-2px) scale(1.05);box-shadow:7px 7px 0 var(--green);}
 
-/* Panneau de réservation Impro Club : même mécanique que le panneau des
-   formations (overlay + volet qui glisse depuis la droite). */
+/* POURQUOI */
+.why{padding:6rem 0;}
+.why h2{text-align:center;margin-bottom:3.2rem;}
+.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;}
+.card{background:#fff;border-radius:var(--radius);padding:2rem 1.6rem;border:1px solid #E6EFFA;box-shadow:0 2px 4px rgba(20,32,79,.04),0 16px 34px -18px rgba(47,127,209,.45);transition:transform .25s,box-shadow .25s;}
+.card:hover{transform:translateY(-8px) rotate(-1deg);box-shadow:0 30px 50px -22px rgba(47,127,209,.6);}
+.card:nth-child(even):hover{transform:translateY(-8px) rotate(1deg);}
+.card .ico{width:52px;height:52px;border-radius:14px;background:var(--sky);display:grid;place-items:center;margin-bottom:1.2rem;box-shadow:0 10px 18px -8px rgba(47,127,209,.8);transition:transform .4s cubic-bezier(.3,1.8,.5,1);}
+.card .ico svg{width:26px;height:26px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;}
+.card:hover .ico{transform:rotate(-12deg) scale(1.12);background:var(--green);}
+.card:hover .ico svg{stroke:var(--navy);}
+.card h3{font-size:1.2rem;font-weight:700;margin-bottom:.6rem;}
+.card p{color:var(--muted);font-size:.95rem;}
+
+/* TROUPE */
+.troupe{background:var(--sky);color:#fff;padding:6rem 0;overflow:hidden;}
+.troupe-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center;}
+.troupe img{filter:drop-shadow(0 26px 28px rgba(20,32,79,.22));transition:transform .4s cubic-bezier(.3,1.6,.5,1);}
+.troupe img:hover{transform:scale(1.03) rotate(-1deg);}
+.troupe .eyebrow{opacity:.85;margin-bottom:1rem;}
+.troupe h2{margin-bottom:2.2rem;}
+.members{display:flex;flex-direction:column;}
+.member{padding:1.1rem 0;border-top:1px solid rgba(255,255,255,.3);transition:padding .3s ease,background .3s;}
+.member:last-child{border-bottom:1px solid rgba(255,255,255,.3);}
+.member:hover{padding-left:1rem;background:linear-gradient(90deg,rgba(255,255,255,.12),transparent);}
+.member h3{font-size:1.25rem;font-weight:800;margin-bottom:.25rem;transition:color .3s;}
+.member:hover h3{color:var(--green);}
+.member p{font-size:.95rem;font-weight:500;}
+.troupe-names{margin-top:1.6rem;font-size:.85rem;opacity:.85;}
+
+/* PRIVATISEZ */
+.privat{padding:6rem 0;}
+.privat-box{background:var(--navy);color:#fff;border-radius:32px;display:grid;grid-template-columns:1fr .8fr;overflow:hidden;box-shadow:0 50px 90px -40px rgba(20,32,79,.7),0 20px 40px -25px rgba(20,32,79,.5);}
+.privat-txt{padding:4rem 3.5rem;display:flex;flex-direction:column;justify-content:center;}
+.privat-txt .eyebrow{color:var(--green);margin-bottom:1rem;}
+.privat-txt h2{margin-bottom:1.4rem;}
+.privat-txt p{opacity:.85;margin-bottom:2rem;font-size:1.05rem;}
+.privat-ctas{display:flex;flex-wrap:wrap;gap:1rem;align-items:center;}
+.insta{color:#fff;opacity:.85;text-decoration:none;font-weight:600;display:inline-flex;gap:.5rem;align-items:center;}
+.insta svg{width:20px;height:20px;}
+.privat-img{position:relative;min-height:420px;}
+.privat-img img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;transition:transform .8s ease;}
+.privat-box:hover .privat-img img{transform:scale(1.05);}
+
+/* CONTACT */
+.contact{padding:0 0 6rem;}
+.contact-box{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:center;background:linear-gradient(135deg,var(--sky) 0%,var(--sky-deep) 100%);border-radius:32px;padding:3.5rem;color:#fff;box-shadow:0 40px 80px -40px rgba(47,127,209,.8);}
+.contact-box .eyebrow{opacity:.85;margin-bottom:.8rem;}
+.contact-box h2{margin-bottom:1rem;}
+.contact-box p{opacity:.92;}
+.person{background:#fff;color:var(--navy);border-radius:24px;padding:2rem;box-shadow:0 30px 50px -25px rgba(20,32,79,.55);}
+.person-head{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+.avatar{width:64px;height:64px;border-radius:50%;background:var(--green);display:grid;place-items:center;font-family:'Syne',sans-serif;font-weight:800;font-size:1.4rem;color:var(--navy);}
+.person-head b{display:block;font-size:1.25rem;}
+.person-head span{color:var(--muted);font-size:.9rem;}
+.contact-line{display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;border-radius:16px;background:#F3F8FE;text-decoration:none;margin-bottom:.8rem;transition:background .2s,transform .2s;}
+.contact-line:hover{background:#E3EFFC;transform:translateX(4px);}
+.contact-line .ci{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;flex-shrink:0;transition:transform .4s cubic-bezier(.3,1.8,.5,1);}
+.contact-line:hover .ci{transform:rotate(-10deg) scale(1.1);}
+.contact-line .ci svg{width:22px;height:22px;}
+.contact-line small{display:block;color:var(--muted);font-size:.8rem;}
+.contact-line b{font-size:1.05rem;}
+.ci.phone{background:var(--green);}
+.ci.li{background:#0A66C2;}
+
+/* barre de progression */
+.progress{position:fixed;top:0;left:0;height:4px;width:0;background:var(--green);z-index:100;box-shadow:0 0 12px rgba(46,227,66,.8);}
+
+/* apparition au scroll */
+.reveal{opacity:0;transform:translateY(40px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1);}
+.reveal.in{opacity:1;transform:none;}
+.chip.reveal.in:nth-child(3n+1){transform:rotate(-2deg);}
+.chip.reveal.in:nth-child(3n+2){transform:rotate(1.5deg);}
+.chip.reveal.in:nth-child(3n){transform:rotate(-1deg);}
+.chip.reveal.in:hover{transform:rotate(0) translate(-2px,-2px) scale(1.05);}
+
+/* étincelles au clic */
+.spark{position:fixed;width:10px;height:10px;border-radius:50%;pointer-events:none;z-index:300;animation:spark .7s ease-out forwards;}
+
+@keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-8px) rotate(-1deg)}}
+@keyframes wobble{0%,100%{transform:rotate(-6deg) scale(1)}50%{transform:rotate(4deg) scale(1.06)}}
+@keyframes pop{0%{transform:scale(1)}40%{transform:scale(1.08) rotate(-2deg)}100%{transform:translateY(-2px) scale(1)}}
+@keyframes spark{to{transform:translate(var(--x),var(--y)) scale(0);opacity:0}}
+
+/* Panneau de réservation, formulaire et footer : repris du site. */
 .ic-panel-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;opacity:0;pointer-events:none;transition:opacity .3s;}
 .ic-panel-overlay.open{opacity:1;pointer-events:all;}
 .ic-panel{position:fixed;right:0;top:0;bottom:0;width:min(600px,100vw);background:var(--bg);z-index:201;transform:translateX(100%);transition:transform .4s cubic-bezier(.16,1,.3,1);overflow-y:auto;}
@@ -122,23 +230,20 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
 .foot-linkedin{display:inline-flex;align-items:center;gap:8px;margin-top:12px;color:#FFF2B2;font-size:15px;font-weight:700;text-decoration:none;transition:opacity .2s;}
 .foot-linkedin:hover{opacity:.75;}
 
-@media (max-width:1200px){
-  /* En dessous de ce seuil, la colonne de texte du hero (moitié de la
-     largeur en grille 2 colonnes) devient trop étroite pour contenir
-     l'accroche sur une seule ligne sans la couper. */
-  .ic-pitch{white-space:normal;}
+@media (max-width:960px){
+  .hero-grid,.troupe-grid,.privat-box,.contact-box{grid-template-columns:1fr;}
+  .cards{grid-template-columns:repeat(2,1fr);}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-grid{padding:3rem 0 4rem;}
+  .hero-visual{max-width:440px;margin:0 auto;}
+  .sticker{right:-6px;}
+  .privat-img{min-height:360px;order:-1;}
+  .privat-txt{padding:2.6rem 1.8rem;}
+  .contact-box{padding:2.2rem 1.4rem;}
 }
 @media (max-width:860px){
   nav{margin:14px 16px 0;padding:10px 18px;max-width:100%;}
   .nr{justify-content:center;row-gap:10px;column-gap:18px;}
-  .ic-wrap{padding:16px;}
-  .ic-hero{grid-template-columns:1fr;max-width:100%;}
-  .ic-left{min-height:280px;padding:32px;}
-  .ic-right{min-height:280px;}
-  .ic-block{padding:28px 20px;}
-  .ic-list--grid{grid-template-columns:1fr;}
-  .ic-cta{padding:28px 20px;}
-  .ic-cta-btn{width:100%;justify-content:center;}
   .ic-panel-inner{padding:32px 24px 56px;}
   .form-grid{grid-template-columns:1fr;gap:16px;}
 }
@@ -149,6 +254,15 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   .foot-cert img{height:64px;}
   .foot-bottom{margin-top:24px;padding-top:16px;}
   .foot-links{font-size:10px;}
+}
+@media (max-width:560px){
+  .cards{grid-template-columns:1fr;}
+  .concept,.why,.troupe,.privat{padding:4rem 0;}
+  .contact{padding-bottom:4rem;}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+  .reveal{opacity:1;transform:none;}
 }
 </style>
 <script>window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };</script>
@@ -167,57 +281,157 @@ nav{position:sticky;top:20px;z-index:20;max-width:100%;margin:20px auto 0;displa
   <a href="rendez-vous" class="ncta">Prendre RDV</a>
 </nav>
 
-<div class="ic-wrap">
-  <div class="ic-hero">
-    <div class="ic-right">
-      <img src="/images/jamel.webp" alt="Impro Club — le spectacle du Jamel Comedy Club en entreprise" onerror="this.style.display='none';this.nextElementSibling.hidden=false;">
-      <div class="ic-photo-placeholder" hidden>Photo à venir<br>jamel.webp</div>
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Getup Production présente</p>
+      <h1><img class="hero-logo" src="/images/impro-club-logo.png" alt="Impro Club" width="900" height="440"></h1>
+      <p class="hero-sub">Le spectacle d'improvisation officiel du Jamel Comedy Club</p>
+      <div class="hero-tags">
+        <span class="tag">Un spectacle unique pour vos salariés</span>
+        <span class="tag">L'Impro Club dans vos locaux</span>
+      </div>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn btn-solid" onclick="openReservePanel(event)">Demander un devis →</a>
+        <a href="#troupe" class="btn btn-outline">Découvrir la troupe</a>
+      </div>
     </div>
-    <div class="ic-left">
-      <h1 class="ic-h1">Impro Club, le spectacle d'impro du Jamel Comedy Club dans votre entreprise</h1>
-      <p class="ic-pitch">Vos équipes vivent des situations improbables au travail.<br>Nos comédiens improvisateurs les jouent sur scène.</p>
-      <a href="#" class="ic-hero-btn" onclick="openReservePanel(event)">Réserver le spectacle pour mon entreprise →</a>
+    <div class="hero-visual">
+      <img src="/images/impro-club-troupe.jpg" alt="La troupe Impro Club en photo, vue en contre-plongée sur fond de ciel bleu">
+      <div class="sticker">100&nbsp;%<br>improvisé</div>
     </div>
   </div>
+</section>
 
-  <div class="ic-block">
-    <h2>Un spectacle créé sur l'instant, avec vos équipes</h2>
-    <p>Impro Club, c'est un show 100&nbsp;% improvisé à partir des anecdotes et des expériences de vos collaborateurs (enfin, ce qu'ils voudront bien en dire&nbsp;!).<br>Réunions qui s'éternisent, outils qui buggent, entretiens annuels…<br>Vous donnez les idées, ils improvisent le reste.</p>
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-grid">
+    <div class="stat"><b>+250</b><span>représentations</span></div>
+    <div class="stat"><b>+20 000</b><span>spectateurs</span></div>
+    <div class="stat"><b>10/10</b><span>sur BilletReduc</span></div>
+    <div class="stat"><b>Presse</b><span>Froggy's Delight · </span><a href="https://froggydelight.com/article-28804-Impro_Club.html" target="_blank" rel="noopener noreferrer">lire l'article →</a></div>
   </div>
+</section>
 
-  <div class="ic-block">
+<!-- CONCEPT -->
+<section class="concept">
+  <div class="wrap">
+    <p class="eyebrow">Un spectacle créé sur l'instant, avec vos équipes</p>
+    <h2>Vos collaborateurs donnent les idées, les artistes improvisent le reste.</h2>
+    <p class="lead">Impro Club, c'est un show 100&nbsp;% improvisé à partir des anecdotes et des expériences de vos collaborateurs (enfin, ce qu'ils voudront bien en dire&nbsp;!).</p>
+    <div class="chips">
+      <span class="chip">Réunions qui s'éternisent</span>
+      <span class="chip">Outils qui buggent</span>
+      <span class="chip">Entretiens annuels</span>
+      <span class="chip">Visios caméra coupée</span>
+      <span class="chip">Mails « en copie à tous »</span>
+      <span class="chip">Open space bruyant</span>
+      <span class="chip">Pause café qui déborde</span>
+      <span class="chip chip-more">…</span>
+    </div>
+  </div>
+</section>
+
+<!-- POURQUOI -->
+<section class="why">
+  <div class="wrap">
     <h2>Pourquoi Impro Club pour votre événement&nbsp;?</h2>
-    <ul class="ic-list">
-      <li>6 ans de scène et plus de 80 000 spectateurs.</li>
-      <li>Spectacle d'improvisation officiel du Jamel Comedy Club</li>
-      <li>Un show sur mesure : chaque représentation est unique et construite sur votre quotidien professionnel.</li>
-      <li>Un moment qui fédère : de l'humour bienveillant, sans vanne facile ni bashing du public, pour rire ensemble.</li>
-      <li>Des souvenirs communs : des situations que vos équipes se raconteront longtemps.</li>
-    </ul>
-  </div>
-
-  <div class="ic-block">
-    <h2>Pour quels événements&nbsp;?</h2>
-    <ul class="ic-list ic-list--grid">
-      <li>Séminaire</li>
-      <li>Soirée de fin d'année</li>
-      <li>Journée d'intégration</li>
-      <li>Lancement de produit</li>
-      <li>Afterwork</li>
-      <li>Évènement client</li>
-      <li>Team-building</li>
-      <li>Convention</li>
-    </ul>
-  </div>
-
-  <div class="ic-cta">
-    <p class="ic-cta-final">Le spectacle du Jamel Comedy Club sort de la salle et vient jouer chez&nbsp;vous.</p>
-    <div class="ic-cta-btns">
-      <a href="#" class="ic-cta-btn solid" onclick="openReservePanel(event)">Réserver un spectacle pour votre entreprise →</a>
+    <div class="cards">
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><polygon points="12 2 15.1 8.3 22 9.3 17 14.1 18.2 21 12 17.8 5.8 21 7 14.1 2 9.3 8.9 8.3 12 2"/></svg></div>
+        <h3>Label Jamel Comedy Club</h3>
+        <p>Le spectacle d'improvisation officiel du Jamel Comedy Club.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        <h3>Un show sur mesure</h3>
+        <p>Chaque représentation est unique, construite sur vos références professionnelles.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        <h3>Un moment qui fédère</h3>
+        <p>Un humour bienveillant, sans vanne facile ni bashing du public : on rit ensemble.</p>
+      </div>
+      <div class="card">
+        <div class="ico"><svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21l7.8-7.5 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg></div>
+        <h3>Des souvenirs communs</h3>
+        <p>Des situations que vos équipes se raconteront longtemps.</p>
+      </div>
     </div>
   </div>
+</section>
 
-</div>
+<!-- TROUPE -->
+<section class="troupe" id="troupe">
+  <div class="wrap troupe-grid">
+    <div>
+      <img src="/images/impro-club-troupe-prenoms.webp" alt="La troupe Impro Club avec les prénoms des comédiens">
+    </div>
+    <div>
+      <p class="eyebrow">Getup Production</p>
+      <h2>La troupe</h2>
+      <div class="members">
+        <div class="member"><h3>Antoine</h3><p>Coach d'improvisation chez Déclic Théâtre, la compagnie qui a révélé Jamel Debbouze. Comédien dans VTEP sur TF1.</p></div>
+        <div class="member"><h3>Batiste</h3><p>Sur scène dans « Tout va très bien ! » avec Arthur Jugnot et Laurent Ournac.</p></div>
+        <div class="member"><h3>Elisa</h3><p>Formée au Cours Florent. Comédienne dans « Qui est l'imposteur ? » de Squeezie.</p></div>
+        <div class="member"><h3>Caroline</h3><p>Sur scène dans « L'Avare » de Molière. Comédienne dans Scènes de ménages sur M6.</p></div>
+        <div class="member"><h3>PV</h3><p>Humoriste de la troupe du Jamel Comedy Club.</p></div>
+      </div>
+      <p class="troupe-names">Avec aussi Sétigui, Mounir, Valentine, Rabah et Nina.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATISEZ -->
+<section class="privat">
+  <div class="wrap">
+    <div class="privat-box">
+      <div class="privat-txt">
+        <p class="eyebrow">Privatisez l'Impro Club</p>
+        <h2>Le spectacle du Jamel Comedy Club sort de la salle et vient jouer chez vous.</h2>
+        <p>Séminaire, soirée de fin d'année, convention, team-building… On adapte le format à votre événement et à vos équipes.</p>
+        <div class="privat-ctas">
+          <a href="#contact" class="btn btn-solid" onclick="openReservePanel(event)">Demander un devis →</a>
+          <a class="insta" href="https://www.instagram.com/improclub/" target="_blank" rel="noopener noreferrer">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
+            @improclub
+          </a>
+        </div>
+      </div>
+      <div class="privat-img">
+        <img src="/images/impro-club-jamel-comedy-club.jpg" alt="La troupe Impro Club devant le Jamel Comedy Club à Paris">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="contact-box">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Parlons de votre événement</h2>
+        <p>Une date, un nombre de participants, une idée en tête ? Laurie vous répond et vous envoie un devis personnalisé.</p>
+      </div>
+      <div class="person">
+        <div class="person-head">
+          <div class="avatar">LB</div>
+          <div><b>Laurie Bénatte</b><span>Getup Production</span></div>
+        </div>
+        <a class="contact-line" href="tel:+33777362271">
+          <span class="ci phone"><svg viewBox="0 0 24 24" fill="none" stroke="#14204F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></span>
+          <span><small>Téléphone</small><b>07 77 36 22 71</b></span>
+        </a>
+        <a class="contact-line" href="https://www.linkedin.com/in/laurie-b%C3%A9natte-wexecutive/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Laurie Bénatte">
+          <span class="ci li"><svg viewBox="0 0 24 24" fill="#fff"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg></span>
+          <span><small>LinkedIn</small><b>Laurie Bénatte →</b></span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="ic-panel-overlay" id="icPanelOverlay" onclick="closeReservePanel()"></div>
 <div class="ic-panel" id="icPanel" role="dialog" aria-modal="true" aria-labelledby="icPanelTitle">
@@ -434,5 +648,79 @@ function closeReservePanel() {
 })();
 </script>
 
+<div class="progress" id="progress"></div>
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // barre de progression
+  var bar=document.getElementById('progress');
+  window.addEventListener('scroll',function(){
+    var h=document.documentElement.scrollHeight-innerHeight;
+    bar.style.width=(h>0?scrollY/h*100:0)+'%';
+  },{passive:true});
+
+  // apparition au scroll, en cascade
+  var groups=['.concept .eyebrow,.concept h2,.concept .lead','.chip','.why h2','.card','.troupe img','.troupe .eyebrow,.troupe h2','.member','.troupe-names','.privat-box','.contact-box > div','.stat'];
+  if(!reduce && 'IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+    },{threshold:.15});
+    groups.forEach(function(sel){
+      document.querySelectorAll(sel).forEach(function(el,i){
+        el.classList.add('reveal'); el.style.transitionDelay=(i*0.09)+'s'; io.observe(el);
+      });
+    });
+  }
+
+  // compteurs
+  function countUp(el){
+    var txt=el.textContent, m=txt.match(/^(\+?)([\d\s]+)(.*)$/);
+    if(!m) return;
+    var pre=m[1], target=parseInt(m[2].replace(/\s/g,'')), suf=m[3], t0=null, dur=1600;
+    function step(ts){
+      if(!t0) t0=ts;
+      var p=Math.min((ts-t0)/dur,1), e=1-Math.pow(1-p,3);
+      el.textContent=pre+Math.round(target*e).toLocaleString('fr-FR').replace(/ | /g,' ')+suf;
+      if(p<1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  if(!reduce && 'IntersectionObserver' in window){
+    var co=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ countUp(e.target); co.unobserve(e.target);} });
+    },{threshold:.6});
+    document.querySelectorAll('.stat b').forEach(function(b){ co.observe(b); });
+  }
+
+  // la photo du hero suit la souris
+  var hv=document.querySelector('.hero-visual img');
+  if(hv && !reduce && matchMedia('(hover:hover)').matches){
+    var hero=document.querySelector('.hero');
+    hero.addEventListener('mousemove',function(e){
+      var r=hero.getBoundingClientRect(), x=(e.clientX-r.left)/r.width-.5, y=(e.clientY-r.top)/r.height-.5;
+      hv.style.transform='perspective(900px) rotateY('+(x*10)+'deg) rotateX('+(-y*8)+'deg) rotate(2deg)';
+    });
+    hero.addEventListener('mouseleave',function(){ hv.style.transform='rotate(2deg)'; });
+  }
+
+  // étincelles vertes/bleues au clic sur les boutons
+  if(!reduce){
+    document.querySelectorAll('.btn, .contact-line').forEach(function(b){
+      b.addEventListener('click',function(e){
+        var cols=['#2EE342','#4A9BE8','#FFE26B','#ffffff'];
+        for(var i=0;i<14;i++){
+          var s=document.createElement('span'); s.className='spark';
+          var a=Math.random()*Math.PI*2, d=40+Math.random()*60;
+          s.style.left=e.clientX+'px'; s.style.top=e.clientY+'px';
+          s.style.background=cols[i%cols.length];
+          s.style.setProperty('--x',Math.cos(a)*d+'px'); s.style.setProperty('--y',Math.sin(a)*d+'px');
+          document.body.appendChild(s); setTimeout(function(n){return function(){n.remove()}}(s),750);
+        }
+      });
+    });
+  }
+})();
+</script>
 </body>
 </html>
