@@ -3,8 +3,8 @@
   "cleanUrls": true,
   "redirects": [
     {
-      "source": "/concours-pv.html",
-      "destination": "/404",
+      "source": "/concours-pv",
+      "destination": "/",
       "permanent": false
     },
     { "source": "/formations/", "destination": "/formations", "permanent": true },
