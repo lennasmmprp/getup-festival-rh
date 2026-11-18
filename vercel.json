@@ -1,12 +1,6 @@
-
 {
   "cleanUrls": true,
   "redirects": [
-    {
-      "source": "/concours-pv",
-      "destination": "/",
-      "permanent": false
-    },
     { "source": "/formations/", "destination": "/formations", "permanent": true },
     { "source": "/impro-club/", "destination": "/impro-club", "permanent": true },
     { "source": "/rendez-vous/", "destination": "/rendez-vous", "permanent": true }
