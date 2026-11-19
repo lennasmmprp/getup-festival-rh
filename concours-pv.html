@@ -408,55 +408,7 @@ nav{position:relative;z-index:20;max-width:100%;margin:20px auto 0;display:grid;
   font-size: 0.95rem;
 }
 
-/* — Info section — */
-.info-section {
-  padding: 64px 0;
-  text-align: center;
-}
-.info-section h2 {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.4rem;
-  text-transform: uppercase;
-  color: var(--blue);
-  margin-bottom: 16px;
-}
-.info-text {
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  max-width: 540px;
-  margin: 0 auto 32px;
-  line-height: 1.7;
-}
-.info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-@media (max-width: 500px) {
-  .info-grid { grid-template-columns: 1fr; }
-}
-.info-card {
-  padding: 20px 16px;
-}
-.info-card .label {
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--blue-light);
-  margin-bottom: 4px;
-}
-.info-card .value {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1rem;
-  color: var(--blue);
-}
-
-.contest-legal{margin-top:32px;font-size:0.78rem;color:var(--text-muted);}
+.contest-legal{margin-top:32px;text-align:center;font-size:0.78rem;color:var(--text-muted);}
 
 /* — Footer — identique au site (index.html) */
 .foot{background:#012460;padding:48px;font-family:'Jost',sans-serif;}
@@ -680,29 +632,7 @@ nav{position:relative;z-index:20;max-width:100%;margin:20px auto 0;display:grid;
       <h3>Vous êtes inscrit(e) !</h3>
       <p>Bonne chance pour le tirage au sort. Vous recevrez un email si vous faites partie des gagnants.</p>
     </div>
-  </div>
-</section>
-
-<!-- Infos spectacle -->
-<section class="info-section">
-  <div class="container">
-    <h2 class="fade-up">Le spectacle</h2>
-    <p class="info-text fade-up">
-      <!-- TODO: résumé à adapter -->
-      <strong>PV — Presque Vrai</strong> est le spectacle de Pierre-Vitor Pereira, écrit avec Camille Masclef et mis en scène par ce dernier. Un one-man show entre imaginaire débridé et histoires presque vraies. Produit par GetUp Production, Tamam Production et Impresario Productions.
-    </p>
-
-    <div class="info-grid fade-up">
-      <div class="info-card">
-        <div class="label">Annonce des résultats</div>
-        <div class="value">Lundi 23 novembre 2026</div>
-      </div>
-      <div class="info-card">
-        <div class="label">Lieu</div>
-        <div class="value">Palais des Glaces, 37 rue du Faubourg du Temple, 75010 Paris</div>
-      </div>
-    </div>
-    <p class="contest-legal fade-up">Concours sans obligation d'achat. Résultats annoncés le lundi 23 novembre 2026.</p>
+    <p class="contest-legal">Concours sans obligation d'achat. Résultats annoncés le lundi 23 novembre 2026.</p>
   </div>
 </section>
 
