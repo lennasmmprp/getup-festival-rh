@@ -272,6 +272,7 @@ nav{position:relative;z-index:20;max-width:100%;margin:20px auto 0;display:grid;
   padding: 0;
 }
 .question-group.error legend { color: #c53030; }
+.legend-hint { font-weight: 400; font-size: 0.85em; opacity: 0.75; }
 .option-list {
   display: flex;
   flex-direction: column;
@@ -527,34 +528,35 @@ nav{position:relative;z-index:20;max-width:100%;margin:20px auto 0;display:grid;
 
         <!-- Q2 -->
         <fieldset class="question-group" id="q-critere">
-          <legend>2. Dans le choix d'une formation, qu'est-ce qui compte le plus pour vous ?</legend>
+          <legend>2. Dans le choix d'une formation, qu'est-ce qui compte le plus pour vous ? <span class="legend-hint">(plusieurs réponses possibles)</span></legend>
           <div class="option-list">
             <label class="option-item">
-              <input type="radio" name="critere" value="Son impact dans la durée">
+              <input type="checkbox" name="critere_choix" value="Son impact dans la durée">
               Son impact dans la durée
             </label>
             <label class="option-item">
-              <input type="radio" name="critere" value="L'expertise de l'intervenant">
+              <input type="checkbox" name="critere_choix" value="L'expertise de l'intervenant">
               L'expertise de l'intervenant
             </label>
             <label class="option-item">
-              <input type="radio" name="critere" value="L'originalité de l'approche">
+              <input type="checkbox" name="critere_choix" value="L'originalité de l'approche">
               L'originalité de l'approche
             </label>
             <label class="option-item">
-              <input type="radio" name="critere" value="Le budget">
+              <input type="checkbox" name="critere_choix" value="Le budget">
               Le budget
             </label>
             <label class="option-item">
-              <input type="radio" name="critere" value="Les références clients">
+              <input type="checkbox" name="critere_choix" value="Les références clients">
               Les références clients
             </label>
             <label class="option-item">
-              <input type="radio" name="critere" value="Autre" data-toggle-other="critere_autre">
+              <input type="checkbox" name="critere_choix" value="Autre" data-toggle-other="critere_autre">
               Autre :
             </label>
           </div>
           <input type="text" class="option-other-input" id="critere_autre" name="critere_autre" placeholder="Précisez...">
+          <input type="hidden" name="critere" id="critere_value">
         </fieldset>
 
         <!-- Q3 -->
@@ -708,8 +710,8 @@ form.addEventListener('submit', function(e) {
   if (!form.querySelector('input[name="priorites"]:checked')) {
     document.getElementById('q-priorites').classList.add('error'); valid = false;
   }
-  // Q2: one radio required
-  if (!form.querySelector('input[name="critere"]:checked')) {
+  // Q2: at least one checkbox
+  if (!form.querySelector('input[name="critere_choix"]:checked')) {
     document.getElementById('q-critere').classList.add('error'); valid = false;
   }
   // Q3: one radio required
@@ -728,6 +730,18 @@ form.addEventListener('submit', function(e) {
   }
 
   if (!valid) return;
+
+  // Q2 : regroupe les cases cochees dans un seul champ "critere"
+  var critereAutre = form.querySelector('#critere_autre');
+  var critereVals = [].map.call(
+    form.querySelectorAll('input[name="critere_choix"]:checked'),
+    function(i) {
+      return (i.value === 'Autre' && critereAutre && critereAutre.value.trim())
+        ? critereAutre.value.trim()
+        : i.value;
+    }
+  );
+  form.querySelector('#critere_value').value = critereVals.join(' / ');
 
   // Send to Google Sheet via Apps Script (no page reload, no redirect)
   var formData = new FormData(form);
