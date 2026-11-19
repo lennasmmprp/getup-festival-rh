@@ -754,6 +754,7 @@ form.addEventListener('submit', function(e) {
   }
 
   document.getElementById('form-wrapper').style.display = 'none';
+  document.querySelectorAll('#concours h2, #concours .form-lead').forEach(function(el) { el.style.display = 'none'; });
   document.getElementById('confirmation').classList.add('visible');
 });
 </script>
